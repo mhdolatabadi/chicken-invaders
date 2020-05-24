@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<GridPane stylesheets="@styleSheet.css"  styleClass="myGridPane" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <ImageView >
-        <image>
-            <Image backgroundLoading="true">
+<GridPane alignment="center" hgap="10" stylesheets="@styleSheet.css" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <RadioButton>
 
-            </Image>
-        </image>
+</RadioButton>
+    <Circle radius="20" styleClass="circle">
 
-    </ImageView>
+    </Circle>
+ <Button prefHeight="50" prefWidth="150" styleClass="startButton" text="start" GridPane.columnIndex="10" GridPane.rowIndex="10">
+
+ </Button>
+
+   <ImageView fitHeight="178.0" fitWidth="189.0" pickOnBounds="true" preserveRatio="true" styleClass="imageView">
+      <image>
+         <Image backgroundLoading="true" requestedHeight="20" requestedWidth="20" url="@../../Resources/Untitled.jpg" />
+      </image>
+   </ImageView>
+
 
 </GridPane>
