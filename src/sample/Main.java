@@ -15,7 +15,14 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import javax.sound.midi.*;
+import javax.sound.midi.spi.SoundbankReader;
+import java.awt.*;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 
 public class Main extends Application {
@@ -27,7 +34,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         final int[] score = {0};
         Media media = new Media(getClass().getResource("/Untitled3.mp3").toURI().toString());
+        Media shoot = new Media(getClass().getResource("/shoot.mp3").toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
+        MediaPlayer shootPlayer = new MediaPlayer(shoot);
 
         Image image = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Untitled.jpg"));
         ImageView SpaceShip = new ImageView(image);
@@ -38,47 +47,51 @@ public class Main extends Application {
         SpaceShip.setPreserveRatio(true);
 
 
-        Image image2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Untitled2.jpg"));
+        Image image2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Invader1.jpg"));
+        Image image3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Invader2.jpg"));
+        Image image4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Invader3.jpg"));
+        Image image5 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Invader4.jpg"));
+        Image image6 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Invader5.jpg"));
         ImageView Invader0 = new ImageView(image2);
         ImageView Invader1 = new ImageView(image2);
         ImageView Invader2 = new ImageView(image2);
         ImageView Invader3 = new ImageView(image2);
-        ImageView Invader4 = new ImageView(image2);
-        ImageView Invader5 = new ImageView(image2);
-        ImageView Invader6 = new ImageView(image2);
-        ImageView Invader7 = new ImageView(image2);
-        ImageView Invader8 = new ImageView(image2);
-        ImageView Invader9 = new ImageView(image2);
-        ImageView Invader10 = new ImageView(image2);
-        ImageView Invader11 = new ImageView(image2);
-        ImageView Invader12 = new ImageView(image2);
-        ImageView Invader13 = new ImageView(image2);
-        ImageView Invader14 = new ImageView(image2);
-        ImageView Invader15 = new ImageView(image2);
-        ImageView Invader16 = new ImageView(image2);
-        ImageView Invader17 = new ImageView(image2);
-        ImageView Invader18 = new ImageView(image2);
-        ImageView Invader19 = new ImageView(image2);
+        ImageView Invader4 = new ImageView(image3);
+        ImageView Invader5 = new ImageView(image3);
+        ImageView Invader6 = new ImageView(image3);
+        ImageView Invader7 = new ImageView(image3);
+        ImageView Invader8 = new ImageView(image4);
+        ImageView Invader9 = new ImageView(image4);
+        ImageView Invader10 = new ImageView(image4);
+        ImageView Invader11 = new ImageView(image4);
+        ImageView Invader12 = new ImageView(image5);
+        ImageView Invader13 = new ImageView(image5);
+        ImageView Invader14 = new ImageView(image5);
+        ImageView Invader15 = new ImageView(image5);
+        ImageView Invader16 = new ImageView(image6);
+        ImageView Invader17 = new ImageView(image6);
+        ImageView Invader18 = new ImageView(image6);
+        ImageView Invader19 = new ImageView(image6);
         ImageView Invader20 = new ImageView(image2);
         ImageView Invader21 = new ImageView(image2);
         ImageView Invader22 = new ImageView(image2);
         ImageView Invader23 = new ImageView(image2);
-        ImageView Invader24 = new ImageView(image2);
-        ImageView Invader25 = new ImageView(image2);
-        ImageView Invader26 = new ImageView(image2);
-        ImageView Invader27 = new ImageView(image2);
-        ImageView Invader28 = new ImageView(image2);
-        ImageView Invader29 = new ImageView(image2);
-        ImageView Invader30 = new ImageView(image2);
-        ImageView Invader31 = new ImageView(image2);
-        ImageView Invader32 = new ImageView(image2);
-        ImageView Invader33 = new ImageView(image2);
-        ImageView Invader34 = new ImageView(image2);
-        ImageView Invader35 = new ImageView(image2);
-        ImageView Invader36 = new ImageView(image2);
-        ImageView Invader37 = new ImageView(image2);
-        ImageView Invader38 = new ImageView(image2);
-        ImageView Invader39 = new ImageView(image2);
+        ImageView Invader24 = new ImageView(image3);
+        ImageView Invader25 = new ImageView(image3);
+        ImageView Invader26 = new ImageView(image3);
+        ImageView Invader27 = new ImageView(image3);
+        ImageView Invader28 = new ImageView(image4);
+        ImageView Invader29 = new ImageView(image4);
+        ImageView Invader30 = new ImageView(image4);
+        ImageView Invader31 = new ImageView(image4);
+        ImageView Invader32 = new ImageView(image5);
+        ImageView Invader33 = new ImageView(image5);
+        ImageView Invader34 = new ImageView(image5);
+        ImageView Invader35 = new ImageView(image5);
+        ImageView Invader36 = new ImageView(image6);
+        ImageView Invader37 = new ImageView(image6);
+        ImageView Invader38 = new ImageView(image6);
+        ImageView Invader39 = new ImageView(image6);
         ImageView Invader40 = new ImageView(image2);
         ImageView Invader41 = new ImageView(image2);
         ImageView Invader42 = new ImageView(image2);
@@ -881,8 +894,8 @@ public class Main extends Application {
         Invader9.setFitWidth(50);
         Invader9.setPreserveRatio(true);
 
-        Image image3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Untitled4.jpg"));
-        ImageView Bullet = new ImageView(image3);
+        Image bullet = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Untitled4.jpg"));
+        ImageView Bullet = new ImageView(bullet);
         Bullet.setX(SpaceShip.getX() + 40);
         Bullet.setY(SpaceShip.getY() + 50);
         Bullet.setFitHeight(10);
@@ -1231,7 +1244,12 @@ public class Main extends Application {
                 Bullet.setVisible(true);
                 Bullet.setX(SpaceShip.getX() + 40);
                 Bullet.setY(SpaceShip.getY() + 50);
+                shootPlayer.play();
                 animationTimer.start();
+                shootPlayer.stop();
+                shootPlayer.play();
+                shootPlayer.stop();
+
             }
             if (event.getCode() == KeyCode.M) {
                 mediaPlayer.play();
@@ -1241,6 +1259,9 @@ public class Main extends Application {
             }
             if (event.getCode() == KeyCode.S) {
                 System.out.println(score[0]);
+            }
+            if(event.getCode() == KeyCode.Q){
+                shootPlayer.play();
             }
             event.consume();
         };
