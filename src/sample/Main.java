@@ -35,9 +35,13 @@ public class Main extends Application {
         final int[] score = {0};
         Media media = new Media(getClass().getResource("/Untitled3.mp3").toURI().toString());
         Media shoot = new Media(getClass().getResource("/shoot.mp3").toURI().toString());
+        Media ground = new Media(getClass().getResource("/spaceinvaders1.mp3").toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(media);
         MediaPlayer shootPlayer = new MediaPlayer(shoot);
+        MediaPlayer groundPlayer = new MediaPlayer(ground);
 
+
+        Image scoreImage = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\score.png"));
         Image image = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Untitled.jpg"));
         ImageView SpaceShip = new ImageView(image);
         SpaceShip.setX(650);
@@ -45,6 +49,13 @@ public class Main extends Application {
         SpaceShip.setFitHeight(100);
         SpaceShip.setFitWidth(100);
         SpaceShip.setPreserveRatio(true);
+
+        ImageView scoreImageView = new ImageView(scoreImage);
+        scoreImageView.setX(10);
+        scoreImageView.setY(10);
+        scoreImageView.setFitWidth(80);
+        scoreImageView.setFitHeight(80);
+        scoreImageView.setPreserveRatio(true);
 
 
         Image image2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Invader1.jpg"));
@@ -1252,16 +1263,14 @@ public class Main extends Application {
 
             }
             if (event.getCode() == KeyCode.M) {
-                mediaPlayer.play();
+                groundPlayer.play();
+
             }
             if (event.getCode() == KeyCode.P) {
                 mediaPlayer.pause();
             }
             if (event.getCode() == KeyCode.S) {
                 System.out.println(score[0]);
-            }
-            if(event.getCode() == KeyCode.Q){
-                shootPlayer.play();
             }
             event.consume();
         };
@@ -1273,13 +1282,15 @@ public class Main extends Application {
                 Invader14, Invader15, Invader16, Invader17, Invader18, Invader19, Invader20, Invader21,
                 Invader22, Invader23, Invader24, Invader25, Invader26, Invader27, Invader28, Invader29,
                 Invader30, Invader31, Invader32, Invader33, Invader34, Invader35, Invader36, Invader37,
-                Invader38, Invader39);
+                Invader38, Invader39, scoreImageView);
         Scene scene = new Scene(group, 1400, 800);
         scene.setOnKeyPressed(keyListener);
         scene.setFill(Black);
         primaryStage.setTitle("Space Invaders");
         primaryStage.setScene(scene);
+
         primaryStage.show();
+
 
 
     }
