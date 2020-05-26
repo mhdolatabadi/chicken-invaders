@@ -690,7 +690,7 @@ public class Main extends Application {
         Scene scene = new Scene(group, 1880, 960);
         scene.setOnKeyPressed(keyListener);
         scene.setFill(Black);
-        primaryStage.setTitle("Space Invaders");
+        primaryStage.setTitle("Sky Invaders");
         primaryStage.setScene(scene);
         primaryStage.show();
         graphic0.start();
