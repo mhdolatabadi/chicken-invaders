@@ -4,19 +4,24 @@ package sample;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.io.File;
+import java.awt.*;
 import java.io.FileInputStream;
 
 
@@ -36,14 +41,43 @@ public class Main extends Application {
         MediaPlayer groundPlayer = new MediaPlayer(ground);
 
 
+
         Image scoreImage = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\score.png"));
         Image background = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\background.jpg"));
-        ImageView bgView = new ImageView(background);
-        bgView.setX(0);
-        bgView.setY(0);
-        bgView.setFitHeight(3000);
-        bgView.setFitWidth(2000);
-        bgView.setPreserveRatio(true);
+        Image startButton = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\start.png"));
+        Image exitButton = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\exit.png"));
+
+
+        ImageView startView = new ImageView(startButton);
+        startView.setX(890);
+        startView.setY(430);
+        startView.setFitHeight(100);
+        startView.setFitWidth(100);
+        startView.setPreserveRatio(true);
+        startView.setId("startView");
+
+        ImageView exitView = new ImageView(exitButton);
+        exitView.setX(900);
+        exitView.setY(530);
+        exitView.setFitHeight(75);
+        exitView.setFitWidth(75);
+        exitView.setPreserveRatio(true);
+
+
+        ImageView bgGame = new ImageView(background);
+        bgGame.setX(0);
+        bgGame.setY(0);
+        bgGame.setFitHeight(3000);
+        bgGame.setFitWidth(2000);
+        bgGame.setPreserveRatio(true);
+
+        ImageView bgStart = new ImageView(background);
+        bgStart.setX(0);
+        bgStart.setY(0);
+        bgStart.setFitHeight(3000);
+        bgStart.setFitWidth(2000);
+        bgStart.setPreserveRatio(true);
+
         Image image = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\spaceShip.png"));
         ImageView SpaceShip = new ImageView(image);
         SpaceShip.setX(920);
@@ -116,6 +150,26 @@ public class Main extends Application {
         ImageView Invader37 = new ImageView(P1);
         ImageView Invader38 = new ImageView(P1);
         ImageView Invader39 = new ImageView(P1);
+        ImageView Invader40 = new ImageView(B1);
+        ImageView Invader41 = new ImageView(B1);
+        ImageView Invader42 = new ImageView(B1);
+        ImageView Invader43 = new ImageView(B1);
+        ImageView Invader44 = new ImageView(R1);
+        ImageView Invader45 = new ImageView(R1);
+        ImageView Invader46 = new ImageView(R1);
+        ImageView Invader47 = new ImageView(R1);
+        ImageView Invader48 = new ImageView(Y1);
+        ImageView Invader49 = new ImageView(Y1);
+        ImageView Invader50 = new ImageView(Y1);
+        ImageView Invader51 = new ImageView(Y1);
+        ImageView Invader52 = new ImageView(G1);
+        ImageView Invader53 = new ImageView(G1);
+        ImageView Invader54 = new ImageView(G1);
+        ImageView Invader55 = new ImageView(G1);
+        ImageView Invader56 = new ImageView(P1);
+        ImageView Invader57 = new ImageView(P1);
+        ImageView Invader58 = new ImageView(P1);
+        ImageView Invader59 = new ImageView(P1);
 
         Invader0.setX(40);
         Invader0.setY(100);
@@ -357,6 +411,126 @@ public class Main extends Application {
         Invader39.setFitWidth(80);
         Invader39.setPreserveRatio(true);
 
+        Invader40.setX(40);
+        Invader40.setY(260);
+        Invader40.setFitHeight(80);
+        Invader40.setFitWidth(80);
+        Invader40.setPreserveRatio(true);
+
+        Invader41.setX(120);
+        Invader41.setY(260);
+        Invader41.setFitHeight(80);
+        Invader41.setFitWidth(80);
+        Invader41.setPreserveRatio(true);
+
+        Invader42.setX(200);
+        Invader42.setY(260);
+        Invader42.setFitHeight(80);
+        Invader42.setFitWidth(80);
+        Invader42.setPreserveRatio(true);
+
+        Invader43.setX(280);
+        Invader43.setY(260);
+        Invader43.setFitHeight(80);
+        Invader43.setFitWidth(80);
+        Invader43.setPreserveRatio(true);
+
+        Invader44.setX(400);
+        Invader44.setY(260);
+        Invader44.setFitHeight(80);
+        Invader44.setFitWidth(80);
+        Invader44.setPreserveRatio(true);
+
+        Invader45.setX(480);
+        Invader45.setY(260);
+        Invader45.setFitHeight(80);
+        Invader45.setFitWidth(80);
+        Invader45.setPreserveRatio(true);
+
+        Invader46.setX(560);
+        Invader46.setY(260);
+        Invader46.setFitHeight(80);
+        Invader46.setFitWidth(80);
+        Invader46.setPreserveRatio(true);
+
+        Invader47.setX(640);
+        Invader47.setY(260);
+        Invader47.setFitHeight(80);
+        Invader47.setFitWidth(80);
+        Invader47.setPreserveRatio(true);
+
+        Invader48.setX(760);
+        Invader48.setY(260);
+        Invader48.setFitHeight(80);
+        Invader48.setFitWidth(80);
+        Invader48.setPreserveRatio(true);
+
+        Invader49.setX(840);
+        Invader49.setY(260);
+        Invader49.setFitHeight(80);
+        Invader49.setFitWidth(80);
+        Invader49.setPreserveRatio(true);
+
+        Invader50.setX(920);
+        Invader50.setY(260);
+        Invader50.setFitHeight(80);
+        Invader50.setFitWidth(80);
+        Invader50.setPreserveRatio(true);
+
+        Invader51.setX(1000);
+        Invader51.setY(260);
+        Invader51.setFitHeight(80);
+        Invader51.setFitWidth(80);
+        Invader51.setPreserveRatio(true);
+
+        Invader52.setX(1120);
+        Invader52.setY(260);
+        Invader52.setFitHeight(80);
+        Invader52.setFitWidth(80);
+        Invader52.setPreserveRatio(true);
+
+        Invader53.setX(1200);
+        Invader53.setY(260);
+        Invader53.setFitHeight(80);
+        Invader53.setFitWidth(80);
+        Invader53.setPreserveRatio(true);
+
+        Invader54.setX(1280);
+        Invader54.setY(260);
+        Invader54.setFitHeight(80);
+        Invader54.setFitWidth(80);
+        Invader54.setPreserveRatio(true);
+
+        Invader55.setX(1360);
+        Invader55.setY(260);
+        Invader55.setFitHeight(80);
+        Invader55.setFitWidth(80);
+        Invader55.setPreserveRatio(true);
+
+        Invader56.setX(1480);
+        Invader56.setY(260);
+        Invader56.setFitHeight(80);
+        Invader56.setFitWidth(80);
+        Invader56.setPreserveRatio(true);
+
+        Invader57.setX(1560);
+        Invader57.setY(260);
+        Invader57.setFitHeight(80);
+        Invader57.setFitWidth(80);
+        Invader57.setPreserveRatio(true);
+
+        Invader58.setX(1640);
+        Invader58.setY(260);
+        Invader58.setFitHeight(80);
+        Invader58.setFitWidth(80);
+        Invader58.setPreserveRatio(true);
+
+        Invader59.setX(1720);
+        Invader59.setY(260);
+        Invader59.setFitHeight(80);
+        Invader59.setFitWidth(80);
+        Invader59.setPreserveRatio(true);
+
         Image bullet = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Bullet.png"));
         ImageView Bullet = new ImageView(bullet);
         Bullet.setX(SpaceShip.getX() + 30);
@@ -420,6 +594,26 @@ public class Main extends Application {
                     Invader37.setImage(P2);
                     Invader38.setImage(P2);
                     Invader39.setImage(P2);
+                    Invader40.setImage(B2);
+                    Invader41.setImage(B2);
+                    Invader42.setImage(B2);
+                    Invader43.setImage(B2);
+                    Invader44.setImage(R2);
+                    Invader45.setImage(R2);
+                    Invader46.setImage(R2);
+                    Invader47.setImage(R2);
+                    Invader48.setImage(Y2);
+                    Invader49.setImage(Y2);
+                    Invader50.setImage(Y2);
+                    Invader51.setImage(Y2);
+                    Invader52.setImage(G2);
+                    Invader53.setImage(G2);
+                    Invader54.setImage(G2);
+                    Invader55.setImage(G2);
+                    Invader56.setImage(P2);
+                    Invader57.setImage(P2);
+                    Invader58.setImage(P2);
+                    Invader59.setImage(P2);
 
                 }
                 if (counter[0] % 50 == 25) {
@@ -463,6 +657,26 @@ public class Main extends Application {
                     Invader37.setImage(P1);
                     Invader38.setImage(P1);
                     Invader39.setImage(P1);
+                    Invader40.setImage(B1);
+                    Invader41.setImage(B1);
+                    Invader42.setImage(B1);
+                    Invader43.setImage(B1);
+                    Invader44.setImage(R1);
+                    Invader45.setImage(R1);
+                    Invader46.setImage(R1);
+                    Invader47.setImage(R1);
+                    Invader48.setImage(Y1);
+                    Invader49.setImage(Y1);
+                    Invader50.setImage(Y1);
+                    Invader51.setImage(Y1);
+                    Invader52.setImage(G1);
+                    Invader53.setImage(G1);
+                    Invader54.setImage(G1);
+                    Invader55.setImage(G1);
+                    Invader56.setImage(P1);
+                    Invader57.setImage(P1);
+                    Invader58.setImage(P1);
+                    Invader59.setImage(P1);
                 }
 
                 if (counter[0] % 400 == 0) {
@@ -506,6 +720,27 @@ public class Main extends Application {
                     Invader37.setX(Invader37.getX() - 50);
                     Invader38.setX(Invader38.getX() - 50);
                     Invader39.setX(Invader39.getX() - 50);
+                    Invader40.setX(Invader40.getX() - 50);
+                    Invader41.setX(Invader41.getX() - 50);
+                    Invader42.setX(Invader42.getX() - 50);
+                    Invader43.setX(Invader43.getX() - 50);
+                    Invader44.setX(Invader44.getX() - 50);
+                    Invader45.setX(Invader45.getX() - 50);
+                    Invader46.setX(Invader46.getX() - 50);
+                    Invader47.setX(Invader47.getX() - 50);
+                    Invader48.setX(Invader48.getX() - 50);
+                    Invader49.setX(Invader49.getX() - 50);
+                    Invader50.setX(Invader50.getX() - 50);
+                    Invader51.setX(Invader51.getX() - 50);
+                    Invader52.setX(Invader52.getX() - 50);
+                    Invader53.setX(Invader53.getX() - 50);
+                    Invader54.setX(Invader54.getX() - 50);
+                    Invader55.setX(Invader55.getX() - 50);
+                    Invader56.setX(Invader56.getX() - 50);
+                    Invader57.setX(Invader57.getX() - 50);
+                    Invader58.setX(Invader58.getX() - 50);
+                    Invader59.setX(Invader59.getX() - 50);
+
                 }
                 if (counter[0] % 400 == 200) {
                     Invader0.setX(Invader0.getX() + 50);
@@ -548,6 +783,27 @@ public class Main extends Application {
                     Invader37.setX(Invader37.getX() + 50);
                     Invader38.setX(Invader38.getX() + 50);
                     Invader39.setX(Invader39.getX() + 50);
+                    Invader40.setX(Invader40.getX() + 50);
+                    Invader41.setX(Invader41.getX() + 50);
+                    Invader42.setX(Invader42.getX() + 50);
+                    Invader43.setX(Invader43.getX() + 50);
+                    Invader44.setX(Invader44.getX() + 50);
+                    Invader45.setX(Invader45.getX() + 50);
+                    Invader46.setX(Invader46.getX() + 50);
+                    Invader47.setX(Invader47.getX() + 50);
+                    Invader48.setX(Invader48.getX() + 50);
+                    Invader49.setX(Invader49.getX() + 50);
+                    Invader50.setX(Invader50.getX() + 50);
+                    Invader51.setX(Invader51.getX() + 50);
+                    Invader52.setX(Invader52.getX() + 50);
+                    Invader53.setX(Invader53.getX() + 50);
+                    Invader54.setX(Invader54.getX() + 50);
+                    Invader55.setX(Invader55.getX() + 50);
+                    Invader56.setX(Invader56.getX() + 50);
+                    Invader57.setX(Invader57.getX() + 50);
+                    Invader58.setX(Invader58.getX() + 50);
+                    Invader59.setX(Invader59.getX() + 50);
+
                 }
 
                 if (counter[0] % 1000 == 800) {
@@ -591,6 +847,27 @@ public class Main extends Application {
                     Invader37.setY(Invader37.getY() + 50);
                     Invader38.setY(Invader38.getY() + 50);
                     Invader39.setY(Invader39.getY() + 50);
+                    Invader40.setY(Invader40.getY() + 50);
+                    Invader41.setY(Invader41.getY() + 50);
+                    Invader42.setY(Invader42.getY() + 50);
+                    Invader43.setY(Invader43.getY() + 50);
+                    Invader44.setY(Invader44.getY() + 50);
+                    Invader45.setY(Invader45.getY() + 50);
+                    Invader46.setY(Invader46.getY() + 50);
+                    Invader47.setY(Invader47.getY() + 50);
+                    Invader48.setY(Invader48.getY() + 50);
+                    Invader49.setY(Invader49.getY() + 50);
+                    Invader50.setY(Invader50.getY() + 50);
+                    Invader51.setY(Invader51.getY() + 50);
+                    Invader52.setY(Invader52.getY() + 50);
+                    Invader53.setY(Invader53.getY() + 50);
+                    Invader54.setY(Invader54.getY() + 50);
+                    Invader55.setY(Invader55.getY() + 50);
+                    Invader56.setY(Invader56.getY() + 50);
+                    Invader57.setY(Invader57.getY() + 50);
+                    Invader58.setY(Invader58.getY() + 50);
+                    Invader59.setY(Invader59.getY() + 50);
+
                 }
                 if(counter[0] %10000 == 0){
                     Invader0.setX(40);
@@ -1364,13 +1641,6 @@ public class Main extends Application {
                 shootPlayer.stop();
 
             }
-            if (event.getCode() == KeyCode.M) {
-                groundPlayer.play();
-
-            }
-            if (event.getCode() == KeyCode.P) {
-                mediaPlayer.pause();
-            }
             if (event.getCode() == KeyCode.S) {
                 System.out.println(score[0]);
             }
@@ -1379,20 +1649,63 @@ public class Main extends Application {
 
 
         //Creating a Group object
-        Group group = new Group(bgView, Invader0, Invader1, Invader2, Invader3, Invader4, Invader5, Invader6, Invader7,
+        Group game = new Group(bgGame, Invader0, Invader1, Invader2, Invader3, Invader4, Invader5, Invader6, Invader7,
                 Invader8, Invader9, Invader10, Invader11, Bullet, SpaceShip, Invader12, Invader13,
                 Invader14, Invader15, Invader16, Invader17, Invader18, Invader19, Invader20, Invader21,
                 Invader22, Invader23, Invader24, Invader25, Invader26, Invader27, Invader28, Invader29,
                 Invader30, Invader31, Invader32, Invader33, Invader34, Invader35, Invader36, Invader37,
-                Invader38, Invader39, scoreImageView);
+                Invader38, Invader39, Invader40, Invader41, Invader42, Invader43, Invader44, Invader45, Invader46, Invader47,
+                Invader48, Invader49,Invader50, Invader51, Invader52, Invader53, Invader54, Invader55, Invader56, Invader57,
+                Invader58, Invader59, scoreImageView);
 
-        Scene scene = new Scene(group, 1880, 960);
-        scene.setOnKeyPressed(keyListener);
-        scene.setFill(Black);
-        primaryStage.setTitle("Sky Invaders");
-        primaryStage.setScene(scene);
+//        Button button = new Button("start");
+//        button.setBackground(new Background(new BackgroundImage(startButton, null, null, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
+//        button.setMinSize(200, 100);
+//        button.setLayoutY(200);
+//        button.setLayoutY(200);
+//        button.setStyle("box-shadow: rgba(0,0,0,0.8) 0 0 10px;\n" +
+//                "border-radius: 30px;");
+
+
+
+        Group menu = new Group(bgStart, startView, exitView);
+        groundPlayer.setAutoPlay(true);
+
+        Scene gameScene = new Scene(game, 1880, 960);
+        gameScene.setOnKeyPressed(keyListener);
+        gameScene.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
+
+        Scene menuScene = new Scene(menu, 1880, 960);
+        menuScene.setOnKeyPressed(keyListener);
+
+
+
+        primaryStage.setTitle("SpaceInvaders");
+        primaryStage.getIcons().add(new Image("/B1.png"));
+        primaryStage.setScene(menuScene);
         primaryStage.show();
+
+        Alert exitAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        exitAlert.setHeaderText("We will lose you...");
+        exitAlert.setContentText("Are you sure?");
+        exitAlert.setTitle("exit");
+        exitAlert.setResult(exitAlert.getResult());
+        DialogPane dialogPane = exitAlert.getDialogPane();
+        dialogPane.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
+        dialogPane.getStyleClass().add("myDialog");
+
+        startView.setOnMouseClicked(event -> {
+            primaryStage.setScene(gameScene);
+        });
+        exitView.setOnMouseClicked(event -> {
+            exitAlert.showAndWait();
+            if(exitAlert.getResult() == ButtonType.OK){
+                primaryStage.close();
+            }
+        });
         graphic0.start();
+
+
 
 
     }
