@@ -1,32 +1,31 @@
 package sample;
 
-
+import com.sun.deploy.panel.ExceptionListDialog;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.io.FileInputStream;
+import java.sql.*;
+import java.util.Properties;
+import java.util.logging.Logger;
+
+import static java.lang.String.valueOf;
 
 
 public class Main extends Application {
     private final Color Black = new Color(0, 1, 1, 1);
+    Color color = new Color(1, 1, 1, 1);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -44,25 +43,67 @@ public class Main extends Application {
 
         Image scoreImage = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\score.png"));
         Image background = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\background.jpg"));
-        Image startButton = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\start.png"));
-        Image exitButton = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\exit.png"));
+
+        Button backButton = new Button();
+        backButton.setText("Back");
+        backButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        backButton.setLayoutX(1710);
+        backButton.setLayoutY(5);
+        backButton.setMinSize(100, 25);
+        backButton.setTextFill(color);
+
+        Button startNewGameButton = new Button();
+        startNewGameButton.setText("Start New Game");
+        startNewGameButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        startNewGameButton.setLayoutX(1000);
+        startNewGameButton.setLayoutY(700);
+        startNewGameButton.setTextFill(color);
+        
+        Button exitButton = new Button();
+        exitButton.setText("Exit");
+        exitButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        exitButton.setLayoutX(800);
+        exitButton.setLayoutY(800);
+        exitButton.setTextFill(color);
+
+        Button resumeButton = new Button();
+        resumeButton.setText("Resume");
+        resumeButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        resumeButton.setLayoutX(800);
+        resumeButton.setLayoutY(300);
+        resumeButton.setTextFill(color);
+
+        Button highscoreButton = new Button();
+        highscoreButton.setText("High Scores");
+        highscoreButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        highscoreButton.setLayoutX(800);
+        highscoreButton.setLayoutY(100);
+        highscoreButton.setTextFill(color);
+
+        Label scoreNumber = new Label();
+        scoreNumber.setText(valueOf(score[0]));
+        scoreNumber.setLayoutX(170);
+        scoreNumber.setLayoutY(20);
+        scoreNumber.setTextFill(color);
+        scoreNumber.setStyle("-fx-font-size: 38px;" +
+                "-fx-font-family: Broadway");
 
 
-        ImageView startView = new ImageView(startButton);
-        startView.setX(890);
-        startView.setY(430);
-        startView.setFitHeight(100);
-        startView.setFitWidth(100);
-        startView.setPreserveRatio(true);
-        startView.setId("startView");
+        Label scoreText = new Label();
+        scoreText.setText("Score");
+        scoreText.setLayoutX(25);
+        scoreText.setLayoutY(20);
+        scoreText.setTextFill(color);
+        scoreText.setStyle("-fx-font-size: 38px;" +
+                "-fx-font-family: Broadway");
 
-        ImageView exitView = new ImageView(exitButton);
-        exitView.setX(900);
-        exitView.setY(530);
-        exitView.setFitHeight(75);
-        exitView.setFitWidth(75);
-        exitView.setPreserveRatio(true);
-
+        Label messageText = new Label();
+        messageText.setText("Press ctrl to use your gift");
+        messageText.setLayoutX(750);
+        messageText.setLayoutY(20);
+        messageText.setTextFill(color);
+        messageText.setStyle("-fx-font-size: 38px;" +
+                "-fx-font-family: Broadway");
 
         ImageView bgGame = new ImageView(background);
         bgGame.setX(0);
@@ -1016,13 +1057,14 @@ public class Main extends Application {
             @Override
             public void handle(long now) {
                 Bullet.setY(Bullet.getY() - 20);
-                if(Bullet.getY() < -49){
+                if (Bullet.getY() < -49) {
                     Bullet.setVisible(false);
                 }
                 if (Bullet.getY() <= Invader0.getY() + 25 && Bullet.getY() >= Invader0.getY() && Bullet.getX() <= Invader0.getX() + 54 && Bullet.getX() >= Invader0.getX() - 25 && Bullet.visibleProperty().getValue()) {
                     if (Invader0.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader0.setImage(B3);
                         graphic0.stop();
                         state[0]++;
@@ -1039,6 +1081,7 @@ public class Main extends Application {
                     if (Invader1.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader1.setImage(B3);
                         graphic0.stop();
                         state[0]++;
@@ -1054,6 +1097,7 @@ public class Main extends Application {
                     if (Invader2.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader2.setImage(B3);
                         graphic0.stop();
                         state[0]++;
@@ -1069,6 +1113,7 @@ public class Main extends Application {
                     if (Invader3.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader3.setImage(B3);
                         graphic0.stop();
                         state[0]++;
@@ -1084,6 +1129,7 @@ public class Main extends Application {
                     if (Invader4.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader4.setImage(R3);
                         graphic0.stop();
                         state[0]++;
@@ -1099,6 +1145,7 @@ public class Main extends Application {
                     if (Invader5.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader5.setImage(R3);
                         graphic0.stop();
                         state[0]++;
@@ -1114,6 +1161,7 @@ public class Main extends Application {
                     if (Invader6.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader6.setImage(R3);
                         graphic0.stop();
                         state[0]++;
@@ -1129,6 +1177,7 @@ public class Main extends Application {
                     if (Invader7.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader7.setImage(R3);
                         graphic0.stop();
                         state[0]++;
@@ -1144,6 +1193,7 @@ public class Main extends Application {
                     if (Invader8.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader8.setImage(Y3);
                         graphic0.stop();
                         state[0]++;
@@ -1159,6 +1209,7 @@ public class Main extends Application {
                     if (Invader9.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader9.setImage(Y3);
                         graphic0.stop();
                         state[0]++;
@@ -1173,6 +1224,7 @@ public class Main extends Application {
                     if (Invader10.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader10.setImage(Y3);
                         graphic0.stop();
                         state[0]++;
@@ -1188,6 +1240,7 @@ public class Main extends Application {
                     if (Invader11.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader11.setImage(Y3);
                         graphic0.stop();
                         state[0]++;
@@ -1202,6 +1255,7 @@ public class Main extends Application {
                     if (Invader12.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader12.setImage(G3);
                         graphic0.stop();
                         state[0]++;
@@ -1216,6 +1270,7 @@ public class Main extends Application {
                     if (Invader13.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader13.setImage(G3);
                         graphic0.stop();
                         state[0]++;
@@ -1230,6 +1285,7 @@ public class Main extends Application {
                     if (Invader14.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader14.setImage(G3);
                         graphic0.stop();
                         state[0]++;
@@ -1244,6 +1300,7 @@ public class Main extends Application {
                     if (Invader15.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader15.setImage(G3);
                         graphic0.stop();
                         state[0]++;
@@ -1258,6 +1315,7 @@ public class Main extends Application {
                     if (Invader16.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader16.setImage(P3);
                         graphic0.stop();
                         state[0]++;
@@ -1273,6 +1331,7 @@ public class Main extends Application {
                     if (Invader17.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader17.setImage(P3);
                         graphic0.stop();
                         state[0]++;
@@ -1288,6 +1347,7 @@ public class Main extends Application {
                     if (Invader18.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader18.setImage(P3);
                         graphic0.stop();
                         state[0]++;
@@ -1303,6 +1363,7 @@ public class Main extends Application {
                     if (Invader19.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader19.setImage(P3);
                         graphic0.stop();
                         state[0]++;
@@ -1318,6 +1379,7 @@ public class Main extends Application {
                     if (Invader20.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader20.setImage(B3);
                         graphic0.stop();
                         state[0]++;
@@ -1334,6 +1396,7 @@ public class Main extends Application {
                     if (Invader21.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader21.setImage(B3);
                         graphic0.stop();
                         state[0]++;
@@ -1349,6 +1412,7 @@ public class Main extends Application {
                     if (Invader22.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader22.setImage(B3);
                         graphic0.stop();
                         state[0]++;
@@ -1364,6 +1428,7 @@ public class Main extends Application {
                     if (Invader23.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader23.setImage(B3);
                         graphic0.stop();
                         state[0]++;
@@ -1379,6 +1444,7 @@ public class Main extends Application {
                     if (Invader24.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader24.setImage(R3);
                         graphic0.stop();
                         state[0]++;
@@ -1394,6 +1460,7 @@ public class Main extends Application {
                     if (Invader25.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader25.setImage(R3);
                         graphic0.stop();
                         state[0]++;
@@ -1409,6 +1476,7 @@ public class Main extends Application {
                     if (Invader26.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader26.setImage(R3);
                         graphic0.stop();
                         state[0]++;
@@ -1424,6 +1492,7 @@ public class Main extends Application {
                     if (Invader27.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader27.setImage(R3);
                         graphic0.stop();
                         state[0]++;
@@ -1439,6 +1508,7 @@ public class Main extends Application {
                     if (Invader28.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader28.setImage(Y3);
                         graphic0.stop();
                         state[0]++;
@@ -1454,6 +1524,7 @@ public class Main extends Application {
                     if (Invader29.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader29.setImage(Y3);
                         graphic0.stop();
                         state[0]++;
@@ -1468,6 +1539,7 @@ public class Main extends Application {
                     if (Invader30.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader30.setImage(Y3);
                         graphic0.stop();
                         state[0]++;
@@ -1483,6 +1555,7 @@ public class Main extends Application {
                     if (Invader31.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader31.setImage(Y3);
                         graphic0.stop();
                         state[0]++;
@@ -1497,6 +1570,7 @@ public class Main extends Application {
                     if (Invader32.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader32.setImage(G3);
                         graphic0.stop();
                         state[0]++;
@@ -1511,6 +1585,7 @@ public class Main extends Application {
                     if (Invader33.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader33.setImage(G3);
                         graphic0.stop();
                         state[0]++;
@@ -1525,6 +1600,7 @@ public class Main extends Application {
                     if (Invader34.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader34.setImage(G3);
                         graphic0.stop();
                         state[0]++;
@@ -1539,6 +1615,7 @@ public class Main extends Application {
                     if (Invader35.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader35.setImage(G3);
                         graphic0.stop();
                         state[0]++;
@@ -1553,6 +1630,7 @@ public class Main extends Application {
                     if (Invader36.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader36.setImage(P3);
                         graphic0.stop();
                         state[0]++;
@@ -1568,6 +1646,7 @@ public class Main extends Application {
                     if (Invader37.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader37.setImage(P3);
                         graphic0.stop();
                         state[0]++;
@@ -1583,6 +1662,7 @@ public class Main extends Application {
                     if (Invader38.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader38.setImage(P3);
                         graphic0.stop();
                         state[0]++;
@@ -1598,6 +1678,7 @@ public class Main extends Application {
                     if (Invader39.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
                         Invader39.setImage(P3);
                         graphic0.stop();
                         state[0]++;
@@ -1626,7 +1707,7 @@ public class Main extends Application {
             if (event.getCode() == KeyCode.DOWN && SpaceShip.getY() < 960) {
                 SpaceShip.setY(SpaceShip.getY() + 20);
             }
-            if (event.getCode() == KeyCode.SPACE) {
+            if (event.getCode() == KeyCode.A) {
                 Bullet.setVisible(true);
                 if(Bullet.getY() < 0) {
 
@@ -1648,36 +1729,27 @@ public class Main extends Application {
         };
 
 
-        //Creating a Group object
+
         Group game = new Group(bgGame, Invader0, Invader1, Invader2, Invader3, Invader4, Invader5, Invader6, Invader7,
-                Invader8, Invader9, Invader10, Invader11, Bullet, SpaceShip, Invader12, Invader13,
+                Invader8, Invader9, Invader10, Invader11, SpaceShip, Invader12, Invader13,
                 Invader14, Invader15, Invader16, Invader17, Invader18, Invader19, Invader20, Invader21,
                 Invader22, Invader23, Invader24, Invader25, Invader26, Invader27, Invader28, Invader29,
                 Invader30, Invader31, Invader32, Invader33, Invader34, Invader35, Invader36, Invader37,
                 Invader38, Invader39, Invader40, Invader41, Invader42, Invader43, Invader44, Invader45, Invader46, Invader47,
                 Invader48, Invader49,Invader50, Invader51, Invader52, Invader53, Invader54, Invader55, Invader56, Invader57,
-                Invader58, Invader59, scoreImageView);
-
-//        Button button = new Button("start");
-//        button.setBackground(new Background(new BackgroundImage(startButton, null, null, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
-//        button.setMinSize(200, 100);
-//        button.setLayoutY(200);
-//        button.setLayoutY(200);
-//        button.setStyle("box-shadow: rgba(0,0,0,0.8) 0 0 10px;\n" +
-//                "border-radius: 30px;");
+                Invader58, Invader59, scoreNumber, scoreText, messageText, backButton, Bullet);
 
 
+        Group menu = new Group(bgStart, startNewGameButton, exitButton, resumeButton, highscoreButton);
 
-        Group menu = new Group(bgStart, startView, exitView);
+
         groundPlayer.setAutoPlay(true);
 
         Scene gameScene = new Scene(game, 1880, 960);
-        gameScene.setOnKeyPressed(keyListener);
         gameScene.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
+        gameScene.setOnKeyPressed(keyListener);
 
         Scene menuScene = new Scene(menu, 1880, 960);
-        menuScene.setOnKeyPressed(keyListener);
-
 
 
         primaryStage.setTitle("SpaceInvaders");
@@ -1685,7 +1757,7 @@ public class Main extends Application {
         primaryStage.setScene(menuScene);
         primaryStage.show();
 
-        Alert exitAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert exitAlert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.NO, ButtonType.YES);
         exitAlert.setHeaderText("We will lose you...");
         exitAlert.setContentText("Are you sure?");
         exitAlert.setTitle("exit");
@@ -1694,18 +1766,21 @@ public class Main extends Application {
         dialogPane.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
         dialogPane.getStyleClass().add("myDialog");
 
-        startView.setOnMouseClicked(event -> {
+
+        startNewGameButton.setOnMouseClicked(event -> {
             primaryStage.setScene(gameScene);
+            graphic0.start();
         });
-        exitView.setOnMouseClicked(event -> {
+        exitButton.setOnMouseClicked(event -> {
             exitAlert.showAndWait();
-            if(exitAlert.getResult() == ButtonType.OK){
+            if(exitAlert.getResult() == ButtonType.YES){
                 primaryStage.close();
             }
         });
-        graphic0.start();
-
-
+        backButton.setOnMouseClicked(event -> {
+            graphic0.stop();
+            primaryStage.setScene(menuScene);
+        });
 
 
     }

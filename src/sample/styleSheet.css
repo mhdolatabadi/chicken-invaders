@@ -1,29 +1,3 @@
-.startButton{
-    -fx-border-width: 10px;
-    -fx-border-radius: 150px;
-    -fx-background-radius: 150px;
-    -fx-background-color: darkgreen;
-}
-.circle{
-    -fx-fill: brown;
-}
-.imageView{
-
-}
-#pane{
-    -fx-background-image: url("background.jpg");
-    -fx-background-repeat: stretch;
-    -fx-background-size: 900 506;
-    -fx-background-position: center center;
-    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
-}
-
-.image-view-wrapper:border {
-    -fx-border-color: black;
-    -fx-border-style: solid;
-    -fx-border-width: 5;
-}
-
 .myDialog{
     -fx-background-image: url("background.jpg");
 }
@@ -38,8 +12,8 @@
     -fx-text-fill: white;
     -fx-font-size: 22px;
 }
+
 .myDialog:header *.header-panel{
-    /*-fx-background-color: #a59c31;*/
     -fx-background-image: url("background.jpg");
 }
 .myDialog:header *.header-panel *.label{
