@@ -1,6 +1,5 @@
 package sample;
 
-import com.sun.deploy.panel.ExceptionListDialog;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -16,29 +15,23 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.FileInputStream;
-import java.sql.*;
-import java.util.Properties;
-import java.util.logging.Logger;
 
 import static java.lang.String.valueOf;
 
 
 public class Main extends Application {
-    private final Color Black = new Color(0, 1, 1, 1);
     Color color = new Color(1, 1, 1, 1);
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         final int[] score = {0};
         final int[] counter = {0};
-        final int[] number = {0};
         Media media = new Media(getClass().getResource("/Untitled3.mp3").toURI().toString());
         Media shoot = new Media(getClass().getResource("/shoot.mp3").toURI().toString());
         Media ground = new Media(getClass().getResource("/spaceinvaders1.mp3").toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
+
         MediaPlayer shootPlayer = new MediaPlayer(shoot);
         MediaPlayer groundPlayer = new MediaPlayer(ground);
-
 
 
         Image scoreImage = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\score.png"));
@@ -58,7 +51,7 @@ public class Main extends Application {
         startNewGameButton.setLayoutX(1000);
         startNewGameButton.setLayoutY(700);
         startNewGameButton.setTextFill(color);
-        
+
         Button exitButton = new Button();
         exitButton.setText("Exit");
         exitButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
@@ -581,13 +574,7 @@ public class Main extends Application {
         Bullet.setPreserveRatio(true);
         Bullet.setVisible(false);
 
-        ImageView Bullet1 = new ImageView(bullet);
-        Bullet.setX(SpaceShip.getX() + 30);
-        Bullet.setY(SpaceShip.getY() + 50);
-        Bullet.setFitHeight(50);
-        Bullet.setFitWidth(50);
-        Bullet.setPreserveRatio(true);
-        Bullet.setVisible(false);
+
         final int[] state = {0};
         AnimationTimer graphic0 = new AnimationTimer() {
             @Override
@@ -910,7 +897,7 @@ public class Main extends Application {
                     Invader59.setY(Invader59.getY() + 50);
 
                 }
-                if(counter[0] %10000 == 0){
+                if (counter[0] % 10000 == 0) {
                     Invader0.setX(40);
                     Invader0.setY(100);
                     Invader0.setFitHeight(80);
@@ -1711,7 +1698,7 @@ public class Main extends Application {
             }
             if (event.getCode() == KeyCode.SPACE) {
                 Bullet.setVisible(true);
-                if(Bullet.getY() < 0) {
+                if (Bullet.getY() < 0) {
 
                     Bullet.setX(SpaceShip.getX() + 25);
                     Bullet.setY(SpaceShip.getY() + 50);
@@ -1731,14 +1718,13 @@ public class Main extends Application {
         };
 
 
-
         Group game = new Group(bgGame, Invader0, Invader1, Invader2, Invader3, Invader4, Invader5, Invader6, Invader7,
                 Invader8, Invader9, Invader10, Invader11, SpaceShip, Invader12, Invader13,
                 Invader14, Invader15, Invader16, Invader17, Invader18, Invader19, Invader20, Invader21,
                 Invader22, Invader23, Invader24, Invader25, Invader26, Invader27, Invader28, Invader29,
                 Invader30, Invader31, Invader32, Invader33, Invader34, Invader35, Invader36, Invader37,
                 Invader38, Invader39, Invader40, Invader41, Invader42, Invader43, Invader44, Invader45, Invader46, Invader47,
-                Invader48, Invader49,Invader50, Invader51, Invader52, Invader53, Invader54, Invader55, Invader56, Invader57,
+                Invader48, Invader49, Invader50, Invader51, Invader52, Invader53, Invader54, Invader55, Invader56, Invader57,
                 Invader58, Invader59, scoreNumber, scoreText, messageText, backButton, Bullet);
 
 
@@ -1776,7 +1762,7 @@ public class Main extends Application {
         });
         exitButton.setOnMouseClicked(event -> {
             exitAlert.showAndWait();
-            if(exitAlert.getResult() == ButtonType.YES){
+            if (exitAlert.getResult() == ButtonType.YES) {
                 primaryStage.close();
             }
         });
@@ -1786,16 +1772,18 @@ public class Main extends Application {
         });
 
         startNewGameButton.setOnKeyPressed(event -> {
-            if(event.getCode() == KeyCode.ENTER);{
+            if (event.getCode() == KeyCode.ENTER) ;
+            {
                 primaryStage.setScene(gameScene);
                 graphic0.start();
                 SpaceShip.requestFocus();
             }
         });
         exitButton.setOnKeyPressed(event -> {
-            if(event.getCode() == KeyCode.ENTER);{
+            if (event.getCode() == KeyCode.ENTER) ;
+            {
                 exitAlert.showAndWait();
-                if(exitAlert.getResult() == ButtonType.YES){
+                if (exitAlert.getResult() == ButtonType.YES) {
                     primaryStage.close();
                 }
             }
