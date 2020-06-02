@@ -1695,6 +1695,8 @@ public class Main extends Application {
 
 
         EventHandler<KeyEvent> keyListener = event -> {
+
+
             if (event.getCode() == KeyCode.RIGHT && SpaceShip.getX() < 1880) {
                 SpaceShip.setX(SpaceShip.getX() + 20);
             }
@@ -1707,7 +1709,7 @@ public class Main extends Application {
             if (event.getCode() == KeyCode.DOWN && SpaceShip.getY() < 960) {
                 SpaceShip.setY(SpaceShip.getY() + 20);
             }
-            if (event.getCode() == KeyCode.A) {
+            if (event.getCode() == KeyCode.SPACE) {
                 Bullet.setVisible(true);
                 if(Bullet.getY() < 0) {
 
@@ -1765,11 +1767,12 @@ public class Main extends Application {
         DialogPane dialogPane = exitAlert.getDialogPane();
         dialogPane.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
         dialogPane.getStyleClass().add("myDialog");
-
+        SpaceShip.requestFocus();
 
         startNewGameButton.setOnMouseClicked(event -> {
             primaryStage.setScene(gameScene);
             graphic0.start();
+            SpaceShip.requestFocus();
         });
         exitButton.setOnMouseClicked(event -> {
             exitAlert.showAndWait();
@@ -1782,7 +1785,21 @@ public class Main extends Application {
             primaryStage.setScene(menuScene);
         });
 
-
+        startNewGameButton.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.ENTER);{
+                primaryStage.setScene(gameScene);
+                graphic0.start();
+                SpaceShip.requestFocus();
+            }
+        });
+        exitButton.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.ENTER);{
+                exitAlert.showAndWait();
+                if(exitAlert.getResult() == ButtonType.YES){
+                    primaryStage.close();
+                }
+            }
+        });
     }
 
 
