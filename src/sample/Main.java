@@ -14,7 +14,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
 import java.io.FileInputStream;
+import java.util.concurrent.TimeUnit;
 
 import static java.lang.String.valueOf;
 
@@ -48,15 +50,15 @@ public class Main extends Application {
         Button startNewGameButton = new Button();
         startNewGameButton.setText("Start New Game");
         startNewGameButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
-        startNewGameButton.setLayoutX(1000);
-        startNewGameButton.setLayoutY(700);
+        startNewGameButton.setLayoutX(700);
+        startNewGameButton.setLayoutY(400);
         startNewGameButton.setTextFill(color);
 
         Button exitButton = new Button();
         exitButton.setText("Exit");
         exitButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
-        exitButton.setLayoutX(800);
-        exitButton.setLayoutY(800);
+        exitButton.setLayoutX(825);
+        exitButton.setLayoutY(600);
         exitButton.setTextFill(color);
 
         Button resumeButton = new Button();
@@ -69,8 +71,8 @@ public class Main extends Application {
         Button highscoreButton = new Button();
         highscoreButton.setText("High Scores");
         highscoreButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
-        highscoreButton.setLayoutX(800);
-        highscoreButton.setLayoutY(100);
+        highscoreButton.setLayoutX(775);
+        highscoreButton.setLayoutY(500);
         highscoreButton.setTextFill(color);
 
         Label scoreNumber = new Label();
@@ -127,22 +129,35 @@ public class Main extends Application {
         scoreImageView.setFitHeight(80);
         scoreImageView.setPreserveRatio(true);
 
+        Label title = new Label();
+        title.setText("CHIKEN INVADERS");
+        title.setLayoutX(675);
+        title.setLayoutY(200);
+        title.setTextFill(color);
+        title.setStyle("-fx-font-size: 50px;" +
+                "-fx-font-family: Broadway");
+
 
         Image B1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\B1.png"));
         Image B2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\B2.png"));
         Image B3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\B3.png"));
+        Image B4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\B4.png"));
         Image Y1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Y1.png"));
         Image Y2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Y2.png"));
         Image Y3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Y3.png"));
+        Image Y4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Y4.png"));
         Image G1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\G1.png"));
         Image G2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\G2.png"));
         Image G3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\G3.png"));
+        Image G4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\G4.png"));
         Image R1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\R1.png"));
         Image R2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\R2.png"));
         Image R3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\R3.png"));
+        Image R4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\R4.png"));
         Image P1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\P1.png"));
         Image P2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\P2.png"));
         Image P3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\P3.png"));
+        Image P4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\P4.png"));
 
         ImageView Invader0 = new ImageView(B1);
         ImageView Invader1 = new ImageView(B1);
@@ -575,136 +590,289 @@ public class Main extends Application {
         Bullet.setVisible(false);
 
 
-        final int[] state = {0};
+        final int[] state = new int[60];
         AnimationTimer graphic0 = new AnimationTimer() {
             @Override
             public void handle(long now) {
 
                 counter[0]++;
+                if (Invader56.getImage() == P4) {
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(300);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Invader56.setVisible(false);
+                }
+                else if (Invader57.getImage() == P4) {
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(300);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Invader57.setVisible(false);
+                }
+                else if (Invader58.getImage() == P4) {
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(300);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Invader58.setVisible(false);
+                }
+
+                else if (Invader59.getImage() == P4) {
+                    try {
+                        TimeUnit.MILLISECONDS.sleep(300);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Invader59.setVisible(false);
+                }
                 if (counter[0] % 50 == 0) {
-                    Invader0.setImage(B2);
-                    Invader1.setImage(B2);
-                    Invader2.setImage(B2);
-                    Invader3.setImage(B2);
-                    Invader4.setImage(R2);
-                    Invader5.setImage(R2);
-                    Invader6.setImage(R2);
-                    Invader7.setImage(R2);
-                    Invader8.setImage(Y2);
-                    Invader9.setImage(Y2);
-                    Invader10.setImage(Y2);
-                    Invader11.setImage(Y2);
-                    Invader12.setImage(G2);
-                    Invader13.setImage(G2);
-                    Invader14.setImage(G2);
-                    Invader15.setImage(G2);
-                    Invader16.setImage(P2);
-                    Invader17.setImage(P2);
-                    Invader18.setImage(P2);
-                    Invader19.setImage(P2);
-                    Invader20.setImage(B2);
-                    Invader21.setImage(B2);
-                    Invader22.setImage(B2);
-                    Invader23.setImage(B2);
-                    Invader24.setImage(R2);
-                    Invader25.setImage(R2);
-                    Invader26.setImage(R2);
-                    Invader27.setImage(R2);
-                    Invader28.setImage(Y2);
-                    Invader29.setImage(Y2);
-                    Invader30.setImage(Y2);
-                    Invader31.setImage(Y2);
-                    Invader32.setImage(G2);
-                    Invader33.setImage(G2);
-                    Invader34.setImage(G2);
-                    Invader35.setImage(G2);
-                    Invader36.setImage(P2);
-                    Invader37.setImage(P2);
-                    Invader38.setImage(P2);
-                    Invader39.setImage(P2);
-                    Invader40.setImage(B2);
-                    Invader41.setImage(B2);
-                    Invader42.setImage(B2);
-                    Invader43.setImage(B2);
-                    Invader44.setImage(R2);
-                    Invader45.setImage(R2);
-                    Invader46.setImage(R2);
-                    Invader47.setImage(R2);
-                    Invader48.setImage(Y2);
-                    Invader49.setImage(Y2);
-                    Invader50.setImage(Y2);
-                    Invader51.setImage(Y2);
-                    Invader52.setImage(G2);
-                    Invader53.setImage(G2);
-                    Invader54.setImage(G2);
-                    Invader55.setImage(G2);
-                    Invader56.setImage(P2);
-                    Invader57.setImage(P2);
-                    Invader58.setImage(P2);
-                    Invader59.setImage(P2);
+                    if (Invader0.getImage() != B3)
+                        Invader0.setImage(B2);
+                    if (Invader1.getImage() != B3)
+                        Invader1.setImage(B2);
+                    if (Invader2.getImage() != B3)
+                        Invader2.setImage(B2);
+                    if (Invader3.getImage() != B3)
+                        Invader3.setImage(B2);
+                    if (Invader4.getImage() != R3)
+                        Invader4.setImage(R2);
+                    if (Invader5.getImage() != R3)
+                        Invader5.setImage(R2);
+                    if (Invader6.getImage() != R3)
+                        Invader6.setImage(R2);
+                    if (Invader7.getImage() != R3)
+                        Invader7.setImage(R2);
+                    if (Invader8.getImage() != Y3)
+                        Invader8.setImage(Y2);
+                    if (Invader9.getImage() != Y3)
+                        Invader9.setImage(Y2);
+                    if (Invader10.getImage() != Y3)
+                        Invader10.setImage(Y2);
+                    if (Invader11.getImage() != Y3)
+                        Invader11.setImage(Y2);
+                    if (Invader12.getImage() != G3)
+                        Invader12.setImage(G2);
+                    if (Invader13.getImage() != G3)
+                        Invader13.setImage(G2);
+                    if (Invader14.getImage() != G3)
+                        Invader14.setImage(G2);
+                    if (Invader15.getImage() != G3)
+                        Invader15.setImage(G2);
+                    if (Invader16.getImage() != P3)
+                        Invader16.setImage(P2);
+                    if (Invader17.getImage() != P3)
+                        Invader17.setImage(P2);
+                    if (Invader18.getImage() != P3)
+                        Invader18.setImage(P2);
+                    if (Invader19.getImage() != P3)
+                        Invader19.setImage(P2);
+                    if (Invader20.getImage() != B3)
+                        Invader20.setImage(B2);
+                    if (Invader21.getImage() != B3)
+                        Invader21.setImage(B2);
+                    if (Invader22.getImage() != B3)
+                        Invader22.setImage(B2);
+                    if (Invader23.getImage() != B3)
+                        Invader23.setImage(B2);
+                    if (Invader24.getImage() != R3)
+                        Invader24.setImage(R2);
+                    if (Invader25.getImage() != R3)
+                        Invader25.setImage(R2);
+                    if (Invader26.getImage() != R3)
+                        Invader26.setImage(R2);
+                    if (Invader27.getImage() != R3)
+                        Invader27.setImage(R2);
+                    if (Invader28.getImage() != Y3)
+                        Invader28.setImage(Y2);
+                    if (Invader29.getImage() != Y3)
+                        Invader29.setImage(Y2);
+                    if (Invader30.getImage() != Y3)
+                        Invader30.setImage(Y2);
+                    if (Invader31.getImage() != Y3)
+                        Invader31.setImage(Y2);
+                    if (Invader32.getImage() != G3)
+                        Invader32.setImage(G2);
+                    if (Invader33.getImage() != G3)
+                        Invader33.setImage(G2);
+                    if (Invader34.getImage() != G3)
+                        Invader34.setImage(G2);
+                    if (Invader35.getImage() != G3)
+                        Invader35.setImage(G2);
+                    if (Invader36.getImage() != P3)
+                        Invader36.setImage(P2);
+                    if (Invader37.getImage() != P3)
+                        Invader37.setImage(P2);
+                    if (Invader38.getImage() != P3)
+                        Invader38.setImage(P2);
+                    if (Invader39.getImage() != P3)
+                        Invader39.setImage(P2);
+                    if (Invader40.getImage() != B3)
+                        Invader40.setImage(B2);
+                    if (Invader41.getImage() != B3)
+                        Invader41.setImage(B2);
+                    if (Invader42.getImage() != B3)
+                        Invader42.setImage(B2);
+                    if (Invader43.getImage() != B3)
+                        Invader43.setImage(B2);
+                    if (Invader44.getImage() != R3)
+                        Invader44.setImage(R2);
+                    if (Invader45.getImage() != R3)
+                        Invader45.setImage(R2);
+                    if (Invader46.getImage() != R3)
+                        Invader46.setImage(R2);
+                    if (Invader47.getImage() != R3)
+                        Invader47.setImage(R2);
+                    if (Invader48.getImage() != Y3)
+                        Invader48.setImage(Y2);
+                    if (Invader49.getImage() != Y3)
+                        Invader49.setImage(Y2);
+                    if (Invader50.getImage() != Y3)
+                        Invader50.setImage(Y2);
+                    if (Invader51.getImage() != Y3)
+                        Invader51.setImage(Y2);
+                    if (Invader52.getImage() != G3)
+                        Invader52.setImage(G2);
+                    if (Invader53.getImage() != G3)
+                        Invader53.setImage(G2);
+                    if (Invader54.getImage() != G3)
+                        Invader54.setImage(G2);
+                    if (Invader55.getImage() != G3)
+                        Invader55.setImage(G2);
+                    if (Invader56.getImage() != P3)
+                        Invader56.setImage(P2);
+                    if (Invader57.getImage() != P3)
+                        Invader57.setImage(P2);
+                    if (Invader58.getImage() != P3)
+                        Invader58.setImage(P2);
+                    if (Invader59.getImage() != P3)
+                        Invader59.setImage(P2);
 
                 }
                 if (counter[0] % 50 == 25) {
-                    Invader0.setImage(B1);
-                    Invader1.setImage(B1);
-                    Invader2.setImage(B1);
-                    Invader3.setImage(B1);
-                    Invader4.setImage(R1);
-                    Invader5.setImage(R1);
-                    Invader6.setImage(R1);
-                    Invader7.setImage(R1);
-                    Invader8.setImage(Y1);
-                    Invader9.setImage(Y1);
-                    Invader10.setImage(Y1);
-                    Invader11.setImage(Y1);
-                    Invader12.setImage(G1);
-                    Invader13.setImage(G1);
-                    Invader14.setImage(G1);
-                    Invader15.setImage(G1);
-                    Invader16.setImage(P1);
-                    Invader17.setImage(P1);
-                    Invader18.setImage(P1);
-                    Invader19.setImage(P1);
-                    Invader20.setImage(B1);
-                    Invader21.setImage(B1);
-                    Invader22.setImage(B1);
-                    Invader23.setImage(B1);
-                    Invader24.setImage(R1);
-                    Invader25.setImage(R1);
-                    Invader26.setImage(R1);
-                    Invader27.setImage(R1);
-                    Invader28.setImage(Y1);
-                    Invader29.setImage(Y1);
-                    Invader30.setImage(Y1);
-                    Invader31.setImage(Y1);
-                    Invader32.setImage(G1);
-                    Invader33.setImage(G1);
-                    Invader34.setImage(G1);
-                    Invader35.setImage(G1);
-                    Invader36.setImage(P1);
-                    Invader37.setImage(P1);
-                    Invader38.setImage(P1);
-                    Invader39.setImage(P1);
-                    Invader40.setImage(B1);
-                    Invader41.setImage(B1);
-                    Invader42.setImage(B1);
-                    Invader43.setImage(B1);
-                    Invader44.setImage(R1);
-                    Invader45.setImage(R1);
-                    Invader46.setImage(R1);
-                    Invader47.setImage(R1);
-                    Invader48.setImage(Y1);
-                    Invader49.setImage(Y1);
-                    Invader50.setImage(Y1);
-                    Invader51.setImage(Y1);
-                    Invader52.setImage(G1);
-                    Invader53.setImage(G1);
-                    Invader54.setImage(G1);
-                    Invader55.setImage(G1);
-                    Invader56.setImage(P1);
-                    Invader57.setImage(P1);
-                    Invader58.setImage(P1);
-                    Invader59.setImage(P1);
+                    if (Invader0.getImage() != B3)
+                        Invader0.setImage(B1);
+                    if (Invader1.getImage() != B3)
+                        Invader1.setImage(B1);
+                    if (Invader2.getImage() != B3)
+                        Invader2.setImage(B1);
+                    if (Invader3.getImage() != B3)
+                        Invader3.setImage(B1);
+                    if (Invader4.getImage() != R3)
+                        Invader4.setImage(R1);
+                    if (Invader5.getImage() != R3)
+                        Invader5.setImage(R1);
+                    if (Invader6.getImage() != R3)
+                        Invader6.setImage(R1);
+                    if (Invader7.getImage() != R3)
+                        Invader7.setImage(R1);
+                    if (Invader8.getImage() != Y3)
+                        Invader8.setImage(Y1);
+                    if (Invader9.getImage() != Y3)
+                        Invader9.setImage(Y1);
+                    if (Invader10.getImage() != Y3)
+                        Invader10.setImage(Y1);
+                    if (Invader11.getImage() != Y3)
+                        Invader11.setImage(Y1);
+                    if (Invader12.getImage() != G3)
+                        Invader12.setImage(G1);
+                    if (Invader13.getImage() != G3)
+                        Invader13.setImage(G1);
+                    if (Invader14.getImage() != G3)
+                        Invader14.setImage(G1);
+                    if (Invader15.getImage() != G3)
+                        Invader15.setImage(G1);
+                    if (Invader16.getImage() != P3)
+                        Invader16.setImage(P1);
+                    if (Invader17.getImage() != P3)
+                        Invader17.setImage(P1);
+                    if (Invader18.getImage() != P3)
+                        Invader18.setImage(P1);
+                    if (Invader19.getImage() != P3)
+                        Invader19.setImage(P1);
+                    if (Invader20.getImage() != B3)
+                        Invader20.setImage(B1);
+                    if (Invader21.getImage() != B3)
+                        Invader21.setImage(B1);
+                    if (Invader22.getImage() != B3)
+                        Invader22.setImage(B1);
+                    if (Invader23.getImage() != B3)
+                        Invader23.setImage(B1);
+                    if (Invader24.getImage() != R3)
+                        Invader24.setImage(R1);
+                    if (Invader25.getImage() != R3)
+                        Invader25.setImage(R1);
+                    if (Invader26.getImage() != R3)
+                        Invader26.setImage(R1);
+                    if (Invader27.getImage() != R3)
+                        Invader27.setImage(R1);
+                    if (Invader28.getImage() != Y3)
+                        Invader28.setImage(Y1);
+                    if (Invader29.getImage() != Y3)
+                        Invader29.setImage(Y1);
+                    if (Invader30.getImage() != Y3)
+                        Invader30.setImage(Y1);
+                    if (Invader31.getImage() != Y3)
+                        Invader31.setImage(Y1);
+                    if (Invader32.getImage() != G3)
+                        Invader32.setImage(G1);
+                    if (Invader33.getImage() != G3)
+                        Invader33.setImage(G1);
+                    if (Invader34.getImage() != G3)
+                        Invader34.setImage(G1);
+                    if (Invader35.getImage() != G3)
+                        Invader35.setImage(G1);
+                    if (Invader36.getImage() != P3)
+                        Invader36.setImage(P1);
+                    if (Invader37.getImage() != P3)
+                        Invader37.setImage(P1);
+                    if (Invader38.getImage() != P3)
+                        Invader38.setImage(P1);
+                    if (Invader39.getImage() != P3)
+                        Invader39.setImage(P1);
+                    if (Invader40.getImage() != B3)
+                        Invader40.setImage(B1);
+                    if (Invader41.getImage() != B3)
+                        Invader41.setImage(B1);
+                    if (Invader42.getImage() != B3)
+                        Invader42.setImage(B1);
+                    if (Invader43.getImage() != B3)
+                        Invader43.setImage(B1);
+                    if (Invader44.getImage() != R3)
+                        Invader44.setImage(R1);
+                    if (Invader45.getImage() != R3)
+                        Invader45.setImage(R1);
+                    if (Invader46.getImage() != R3)
+                        Invader46.setImage(R1);
+                    if (Invader47.getImage() != R3)
+                        Invader47.setImage(R1);
+                    if (Invader48.getImage() != Y3)
+                        Invader48.setImage(Y1);
+                    if (Invader49.getImage() != Y3)
+                        Invader49.setImage(Y1);
+                    if (Invader50.getImage() != Y3)
+                        Invader50.setImage(Y1);
+                    if (Invader51.getImage() != Y3)
+                        Invader51.setImage(Y1);
+                    if (Invader52.getImage() != G3)
+                        Invader52.setImage(G1);
+                    if (Invader53.getImage() != G3)
+                        Invader53.setImage(G1);
+                    if (Invader54.getImage() != G3)
+                        Invader54.setImage(G1);
+                    if (Invader55.getImage() != G3)
+                        Invader55.setImage(G1);
+                    if (Invader56.getImage() != P3)
+                        Invader56.setImage(P1);
+                    if (Invader57.getImage() != P3)
+                        Invader57.setImage(P1);
+                    if (Invader58.getImage() != P3)
+                        Invader58.setImage(P1);
+                    if (Invader59.getImage() != P3)
+                        Invader59.setImage(P1);
                 }
 
                 if (counter[0] % 400 == 0) {
@@ -1053,12 +1221,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader0.setImage(B3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader0.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2 && Invader0.getImage() == B3) {
+                        Invader0.setImage(B4);
                         state[0] = 0;
                     }
 
@@ -1070,12 +1236,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader1.setImage(B3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader1.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader1.setImage(B4);
                         state[0] = 0;
                     }
 
@@ -1086,12 +1250,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader2.setImage(B3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader2.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader2.setImage(B4);
                         state[0] = 0;
                     }
 
@@ -1102,12 +1264,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader3.setImage(B3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader3.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader3.setImage(B4);
                         state[0] = 0;
                     }
 
@@ -1118,12 +1278,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader4.setImage(R3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader4.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader4.setImage(R4);
                         state[0] = 0;
                     }
 
@@ -1134,12 +1292,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader5.setImage(R3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader5.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader5.setImage(R4);
                         state[0] = 0;
                     }
 
@@ -1150,12 +1306,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader6.setImage(R3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader6.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader6.setImage(R4);
                         state[0] = 0;
                     }
 
@@ -1166,12 +1320,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader7.setImage(R3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader7.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader7.setImage(R4);
                         state[0] = 0;
                     }
 
@@ -1182,12 +1334,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader8.setImage(Y3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader8.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader8.setImage(Y4);
                         state[0] = 0;
                     }
 
@@ -1198,12 +1348,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader9.setImage(Y3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader9.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader9.setImage(Y4);
                         state[0] = 0;
                     }
                 }
@@ -1213,12 +1361,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader10.setImage(Y3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader10.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader10.setImage(Y4);
                         state[0] = 0;
                     }
 
@@ -1229,12 +1375,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader11.setImage(Y3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader11.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader11.setImage(Y4);
                         state[0] = 0;
                     }
                 }
@@ -1244,12 +1388,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader12.setImage(G3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader12.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader12.setImage(G4);
                         state[0] = 0;
                     }
                 }
@@ -1259,12 +1401,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader13.setImage(G3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader13.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader13.setImage(G4);
                         state[0] = 0;
                     }
                 }
@@ -1274,12 +1414,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader14.setImage(G3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader14.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader14.setImage(G4);
                         state[0] = 0;
                     }
                 }
@@ -1289,12 +1427,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader15.setImage(G3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader15.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader15.setImage(G4);
                         state[0] = 0;
                     }
                 }
@@ -1304,12 +1440,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader16.setImage(P3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader16.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader16.setImage(P4);
                         state[0] = 0;
                     }
 
@@ -1320,12 +1454,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader17.setImage(P3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader17.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader17.setImage(P4);
                         state[0] = 0;
                     }
 
@@ -1336,12 +1468,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader18.setImage(P3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader18.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader18.setImage(P4);
                         state[0] = 0;
                     }
 
@@ -1352,12 +1482,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader19.setImage(P3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader19.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader19.setImage(P4);
                         state[0] = 0;
                     }
 
@@ -1368,12 +1496,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader20.setImage(B3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader20.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader20.setImage(B4);
                         state[0] = 0;
                     }
 
@@ -1385,12 +1511,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader21.setImage(B3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader21.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader21.setImage(B4);
                         state[0] = 0;
                     }
 
@@ -1401,12 +1525,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader22.setImage(B3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader22.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader22.setImage(B4);
                         state[0] = 0;
                     }
 
@@ -1417,12 +1539,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader23.setImage(B3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader23.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader23.setImage(B4);
                         state[0] = 0;
                     }
 
@@ -1433,12 +1553,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader24.setImage(R3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader24.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader24.setImage(R4);
                         state[0] = 0;
                     }
 
@@ -1449,12 +1567,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader25.setImage(R3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader25.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader25.setImage(R4);
                         state[0] = 0;
                     }
 
@@ -1465,12 +1581,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader26.setImage(R3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader26.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader26.setImage(R4);
                         state[0] = 0;
                     }
 
@@ -1481,12 +1595,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader27.setImage(R3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader27.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader27.setImage(R4);
                         state[0] = 0;
                     }
 
@@ -1500,9 +1612,8 @@ public class Main extends Application {
                         graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader28.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader28.setImage(Y4);
                         state[0] = 0;
                     }
 
@@ -1513,12 +1624,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader29.setImage(Y3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader29.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader29.setImage(Y4);
                         state[0] = 0;
                     }
                 }
@@ -1528,12 +1637,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader30.setImage(Y3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader30.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader30.setImage(Y4);
                         state[0] = 0;
                     }
 
@@ -1544,12 +1651,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader31.setImage(Y3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader31.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader31.setImage(Y4);
                         state[0] = 0;
                     }
                 }
@@ -1559,12 +1664,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader32.setImage(G3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader32.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader32.setImage(G4);
                         state[0] = 0;
                     }
                 }
@@ -1574,12 +1677,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader33.setImage(G3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader33.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader33.setImage(G4);
                         state[0] = 0;
                     }
                 }
@@ -1589,12 +1690,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader34.setImage(G3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader34.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader34.setImage(G4);
                         state[0] = 0;
                     }
                 }
@@ -1604,12 +1703,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader35.setImage(G3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader35.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader35.setImage(G4);
                         state[0] = 0;
                     }
                 }
@@ -1619,12 +1716,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader36.setImage(P3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader36.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader36.setImage(P4);
                         state[0] = 0;
                     }
 
@@ -1635,12 +1730,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader37.setImage(P3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader37.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader37.setImage(P4);
                         state[0] = 0;
                     }
 
@@ -1651,12 +1744,10 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader38.setImage(P3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader38.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader38.setImage(P4);
                         state[0] = 0;
                     }
 
@@ -1667,23 +1758,298 @@ public class Main extends Application {
                         score[0] += 100;
                         scoreNumber.setText(valueOf(score[0]));
                         Invader39.setImage(P3);
-                        graphic0.stop();
                         state[0]++;
                     }
-                    if (state[0] == 2) {
-                        Invader39.setVisible(false);
-                        graphic0.start();
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader39.setImage(P4);
                         state[0] = 0;
                     }
 
                 }
+                if (Bullet.getY() <= Invader40.getY() + 25 && Bullet.getY() >= Invader40.getY() && Bullet.getX() <= Invader40.getX() + 54 && Bullet.getX() >= Invader40.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader40.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader40.setImage(B3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader40.setImage(B4);
+                        state[0] = 0;
+                    }
+
+
+                }
+                if (Bullet.getY() <= Invader41.getY() + 25 && Bullet.getY() >= Invader41.getY() && Bullet.getX() <= Invader41.getX() + 54 && Bullet.getX() >= Invader41.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader41.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader41.setImage(B3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader41.setImage(B4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader42.getY() + 25 && Bullet.getY() >= Invader42.getY() && Bullet.getX() <= Invader42.getX() + 54 && Bullet.getX() >= Invader42.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader42.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader42.setImage(B3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader42.setImage(B4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader43.getY() + 25 && Bullet.getY() >= Invader43.getY() && Bullet.getX() <= Invader43.getX() + 54 && Bullet.getX() >= Invader43.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader43.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader43.setImage(B3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader43.setImage(B4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader44.getY() + 25 && Bullet.getY() >= Invader44.getY() && Bullet.getX() <= Invader44.getX() + 54 && Bullet.getX() >= Invader44.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader44.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader44.setImage(R3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader44.setImage(R4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader45.getY() + 25 && Bullet.getY() >= Invader45.getY() && Bullet.getX() <= Invader45.getX() + 54 && Bullet.getX() >= Invader45.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader45.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader5.setImage(R3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader45.setImage(R4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader46.getY() + 25 && Bullet.getY() >= Invader46.getY() && Bullet.getX() <= Invader46.getX() + 54 && Bullet.getX() >= Invader46.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader46.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader46.setImage(R3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader46.setImage(R4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader47.getY() + 25 && Bullet.getY() >= Invader47.getY() && Bullet.getX() <= Invader47.getX() + 54 && Bullet.getX() >= Invader47.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader47.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader47.setImage(R3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader47.setImage(R4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader48.getY() + 25 && Bullet.getY() >= Invader48.getY() && Bullet.getX() <= Invader48.getX() + 54 && Bullet.getX() >= Invader48.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader48.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader48.setImage(Y3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader48.setImage(Y4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader49.getY() + 25 && Bullet.getY() >= Invader49.getY() && Bullet.getX() <= Invader49.getX() + 54 && Bullet.getX() >= Invader49.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader49.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader49.setImage(Y3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader49.setImage(Y4);
+                        state[0] = 0;
+                    }
+                }
+                if (Bullet.getY() <= Invader50.getY() + 25 && Bullet.getY() >= Invader50.getY() && Bullet.getX() <= Invader50.getX() + 54 && Bullet.getX() >= Invader50.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader50.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader50.setImage(Y3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader50.setImage(Y4);
+                        state[0] = 0;
+                    }
+
+
+                }
+                if (Bullet.getY() <= Invader51.getY() + 25 && Bullet.getY() >= Invader51.getY() && Bullet.getX() <= Invader51.getX() + 54 && Bullet.getX() >= Invader51.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader51.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader51.setImage(Y3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader51.setImage(Y4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader52.getY() + 25 && Bullet.getY() >= Invader52.getY() && Bullet.getX() <= Invader52.getX() + 54 && Bullet.getX() >= Invader52.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader52.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader52.setImage(G3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader52.setImage(G4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader53.getY() + 25 && Bullet.getY() >= Invader53.getY() && Bullet.getX() <= Invader53.getX() + 54 && Bullet.getX() >= Invader53.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader53.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader53.setImage(G3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader0.getImage() == B3) {
+                        Invader53.setImage(G4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader54.getY() + 25 && Bullet.getY() >= Invader54.getY() && Bullet.getX() <= Invader54.getX() + 54 && Bullet.getX() >= Invader54.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader54.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader54.setImage(G3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader54.getImage() == G3) {
+                        Invader54.setImage(G4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader55.getY() + 25 && Bullet.getY() >= Invader55.getY() && Bullet.getX() <= Invader55.getX() + 54 && Bullet.getX() >= Invader55.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader55.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader55.setImage(G3);
+                        state[0]++;
+                    }
+                    if (state[0] == 2&& Invader55.getImage() == G3) {
+                        Invader55.setImage(G4);
+                        state[0] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader56.getY() + 25 && Bullet.getY() >= Invader56.getY() && Bullet.getX() <= Invader56.getX() + 54 && Bullet.getX() >= Invader56.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader56.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader56.setImage(P3);
+                        state[56]++;
+                    }
+                    if (state[56] == 2&& Invader56.getImage() == P3) {
+                        Invader56.setImage(P4);
+                        state[56] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader57.getY() + 25 && Bullet.getY() >= Invader57.getY() && Bullet.getX() <= Invader57.getX() + 54 && Bullet.getX() >= Invader57.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader57.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader57.setImage(P3);
+                        state[57]++;
+                    }
+                    if (state[57] == 2&& Invader57.getImage() == P3) {
+                        Invader57.setImage(P4);
+                        state[57] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader58.getY() + 25 && Bullet.getY() >= Invader58.getY() && Bullet.getX() <= Invader58.getX() + 54 && Bullet.getX() >= Invader58.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader58.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader58.setImage(P3);
+                        state[58]++;
+                    }
+                    if (state[58] == 2&& Invader58.getImage() == P3) {
+                        Invader58.setImage(P4);
+                        state[58] = 0;
+                    }
+
+                }
+                if (Bullet.getY() <= Invader59.getY() + 25 && Bullet.getY() >= Invader59.getY() && Bullet.getX() <= Invader59.getX() + 54 && Bullet.getX() >= Invader59.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if (Invader59.visibleProperty().getValue()) {
+                        Bullet.setVisible(false);
+                        score[0] += 100;
+                        scoreNumber.setText(valueOf(score[0]));
+                        Invader59.setImage(P3);
+                        state[59]++;
+                    }
+                    if (state[59] == 2 && Invader59.getImage() == P3) {
+                        Invader59.setImage(P4);
+                        state[59] = 0;
+                    }
+                }
             }
         };
 
-
         EventHandler<KeyEvent> keyListener = event -> {
-
-
             if (event.getCode() == KeyCode.RIGHT && SpaceShip.getX() < 1880) {
                 SpaceShip.setX(SpaceShip.getX() + 20);
             }
@@ -1698,18 +2064,13 @@ public class Main extends Application {
             }
             if (event.getCode() == KeyCode.SPACE) {
                 Bullet.setVisible(true);
-                if (Bullet.getY() < 0) {
-
-                    Bullet.setX(SpaceShip.getX() + 25);
-                    Bullet.setY(SpaceShip.getY() + 50);
-
-                }
+                Bullet.setX(SpaceShip.getX() + 25);
+                Bullet.setY(SpaceShip.getY() + 50);
                 shootPlayer.play();
                 animationTimer.start();
                 shootPlayer.stop();
                 shootPlayer.play();
                 shootPlayer.stop();
-
             }
             if (event.getCode() == KeyCode.S) {
                 System.out.println(score[0]);
@@ -1728,7 +2089,7 @@ public class Main extends Application {
                 Invader58, Invader59, scoreNumber, scoreText, messageText, backButton, Bullet);
 
 
-        Group menu = new Group(bgStart, startNewGameButton, exitButton, resumeButton, highscoreButton);
+        Group menu = new Group(bgStart, startNewGameButton, exitButton, resumeButton, highscoreButton, title);
 
 
         groundPlayer.setAutoPlay(true);
@@ -1756,6 +2117,131 @@ public class Main extends Application {
         SpaceShip.requestFocus();
 
         startNewGameButton.setOnMouseClicked(event -> {
+            Invader0.setX(40);
+            Invader0.setY(100);
+            Invader1.setX(120);
+            Invader1.setY(100);
+            Invader2.setX(200);
+            Invader2.setY(100);
+            Invader3.setX(280);
+            Invader3.setY(100);
+            Invader4.setX(400);
+            Invader4.setY(100);
+            Invader5.setX(480);
+            Invader5.setY(100);
+            Invader6.setX(560);
+            Invader6.setY(100);
+            Invader7.setX(640);
+            Invader7.setY(100);
+            Invader8.setX(760);
+            Invader8.setY(100);
+            Invader9.setX(840);
+            Invader9.setY(100);
+            Invader10.setX(920);
+            Invader10.setY(100);
+            Invader11.setX(1000);
+            Invader11.setY(100);
+            Invader12.setX(1120);
+            Invader12.setY(100);
+            Invader13.setX(1200);
+            Invader13.setY(100);
+            Invader14.setX(1280);
+            Invader14.setY(100);
+            Invader15.setX(1360);
+            Invader15.setY(100);
+            Invader16.setX(1480);
+            Invader16.setY(100);
+            Invader17.setX(1560);
+            Invader17.setY(100);
+            Invader18.setX(1640);
+            Invader18.setY(100);
+            Invader19.setX(1720);
+            Invader19.setY(100);
+            Invader20.setX(40);
+            Invader20.setY(180);
+            Invader21.setX(120);
+            Invader21.setY(180);
+            Invader22.setX(200);
+            Invader22.setY(180);
+            Invader23.setX(280);
+            Invader23.setY(180);
+            Invader24.setX(400);
+            Invader24.setY(180);
+            Invader25.setX(480);
+            Invader25.setY(180);
+            Invader26.setX(560);
+            Invader26.setY(180);
+            Invader27.setX(640);
+            Invader27.setY(180);
+            Invader28.setX(760);
+            Invader28.setY(180);
+            Invader29.setX(840);
+            Invader29.setY(180);
+            Invader30.setX(920);
+            Invader30.setY(180);
+            Invader31.setX(1000);
+            Invader31.setY(180);
+            Invader32.setX(1120);
+            Invader32.setY(180);
+            Invader33.setX(1200);
+            Invader33.setY(180);
+            Invader34.setX(1280);
+            Invader34.setY(180);
+            Invader35.setX(1360);
+            Invader35.setY(180);
+            Invader36.setX(1480);
+            Invader36.setY(180);
+            Invader37.setX(1560);
+            Invader37.setY(180);
+            Invader38.setX(1640);
+            Invader38.setY(180);
+            Invader39.setX(1720);
+            Invader39.setY(180);
+            Invader40.setX(40);
+            Invader40.setY(260);
+            Invader41.setX(120);
+            Invader41.setY(260);
+            Invader42.setX(200);
+            Invader42.setY(260);
+            Invader43.setX(280);
+            Invader43.setY(260);
+            Invader44.setX(400);
+            Invader44.setY(260);
+            Invader45.setX(480);
+            Invader45.setY(260);
+            Invader46.setX(560);
+            Invader46.setY(260);
+            Invader47.setX(640);
+            Invader47.setY(260);
+            Invader48.setX(760);
+            Invader48.setY(260);
+            Invader49.setX(840);
+            Invader49.setY(260);
+            Invader50.setX(920);
+            Invader50.setY(260);
+            Invader51.setX(1000);
+            Invader51.setY(260);
+            Invader52.setX(1120);
+            Invader52.setY(260);
+            Invader53.setX(1200);
+            Invader53.setY(260);
+            Invader54.setX(1280);
+            Invader54.setY(260);
+            Invader55.setX(1360);
+            Invader55.setY(260);
+            Invader56.setX(1480);
+            Invader56.setY(260);
+            Invader57.setX(1560);
+            Invader57.setY(260);
+            Invader58.setX(1640);
+            Invader58.setY(260);
+            Invader59.setX(1720);
+            Invader59.setY(260);
+            primaryStage.setScene(gameScene);
+            graphic0.start();
+            SpaceShip.requestFocus();
+        });
+        resumeButton.setOnMouseClicked(event -> {
             primaryStage.setScene(gameScene);
             graphic0.start();
             SpaceShip.requestFocus();
@@ -1774,6 +2260,127 @@ public class Main extends Application {
         startNewGameButton.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) ;
             {
+                Invader0.setX(40);
+                Invader0.setY(100);
+                Invader0.setVisible(true);
+                Invader1.setX(120);
+                Invader1.setY(100);
+                Invader2.setX(200);
+                Invader2.setY(100);
+                Invader3.setX(280);
+                Invader3.setY(100);
+                Invader4.setX(400);
+                Invader4.setY(100);
+                Invader5.setX(480);
+                Invader5.setY(100);
+                Invader6.setX(560);
+                Invader6.setY(100);
+                Invader7.setX(640);
+                Invader7.setY(100);
+                Invader8.setX(760);
+                Invader8.setY(100);
+                Invader9.setX(840);
+                Invader9.setY(100);
+                Invader10.setX(920);
+                Invader10.setY(100);
+                Invader11.setX(1000);
+                Invader11.setY(100);
+                Invader12.setX(1120);
+                Invader12.setY(100);
+                Invader13.setX(1200);
+                Invader13.setY(100);
+                Invader14.setX(1280);
+                Invader14.setY(100);
+                Invader15.setX(1360);
+                Invader15.setY(100);
+                Invader16.setX(1480);
+                Invader16.setY(100);
+                Invader17.setX(1560);
+                Invader17.setY(100);
+                Invader18.setX(1640);
+                Invader18.setY(100);
+                Invader19.setX(1720);
+                Invader19.setY(100);
+                Invader20.setX(40);
+                Invader20.setY(180);
+                Invader21.setX(120);
+                Invader21.setY(180);
+                Invader22.setX(200);
+                Invader22.setY(180);
+                Invader23.setX(280);
+                Invader23.setY(180);
+                Invader24.setX(400);
+                Invader24.setY(180);
+                Invader25.setX(480);
+                Invader25.setY(180);
+                Invader26.setX(560);
+                Invader26.setY(180);
+                Invader27.setX(640);
+                Invader27.setY(180);
+                Invader28.setX(760);
+                Invader28.setY(180);
+                Invader29.setX(840);
+                Invader29.setY(180);
+                Invader30.setX(920);
+                Invader30.setY(180);
+                Invader31.setX(1000);
+                Invader31.setY(180);
+                Invader32.setX(1120);
+                Invader32.setY(180);
+                Invader33.setX(1200);
+                Invader33.setY(180);
+                Invader34.setX(1280);
+                Invader34.setY(180);
+                Invader35.setX(1360);
+                Invader35.setY(180);
+                Invader36.setX(1480);
+                Invader36.setY(180);
+                Invader37.setX(1560);
+                Invader37.setY(180);
+                Invader38.setX(1640);
+                Invader38.setY(180);
+                Invader39.setX(1720);
+                Invader39.setY(180);
+                Invader40.setX(40);
+                Invader40.setY(260);
+                Invader41.setX(120);
+                Invader41.setY(260);
+                Invader42.setX(200);
+                Invader42.setY(260);
+                Invader43.setX(280);
+                Invader43.setY(260);
+                Invader44.setX(400);
+                Invader44.setY(260);
+                Invader45.setX(480);
+                Invader45.setY(260);
+                Invader46.setX(560);
+                Invader46.setY(260);
+                Invader47.setX(640);
+                Invader47.setY(260);
+                Invader48.setX(760);
+                Invader48.setY(260);
+                Invader49.setX(840);
+                Invader49.setY(260);
+                Invader50.setX(920);
+                Invader50.setY(260);
+                Invader51.setX(1000);
+                Invader51.setY(260);
+                Invader52.setX(1120);
+                Invader52.setY(260);
+                Invader53.setX(1200);
+                Invader53.setY(260);
+                Invader54.setX(1280);
+                Invader54.setY(260);
+                Invader55.setX(1360);
+                Invader55.setY(260);
+                Invader56.setX(1480);
+                Invader56.setY(260);
+                Invader57.setX(1560);
+                Invader57.setY(260);
+                Invader58.setX(1640);
+                Invader58.setY(260);
+                Invader59.setX(1720);
+                Invader59.setY(260);
                 primaryStage.setScene(gameScene);
                 graphic0.start();
                 SpaceShip.requestFocus();
