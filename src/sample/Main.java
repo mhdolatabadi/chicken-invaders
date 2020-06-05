@@ -22,6 +22,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.Random;
 
 import static java.lang.String.valueOf;
 
@@ -33,6 +35,18 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         final int[] score = {0};
         final int[] counter = {0};
+        ArrayList<ImageView> liveYellowInvader = new ArrayList<>();
+
+        Label gameOver = new Label("Game Over");
+        gameOver.setLayoutX(400);
+        gameOver.setLayoutY(500);
+        gameOver.setTextFill(color);
+        gameOver.setStyle("-fx-font-size: 200px;" +
+                "-fx-font-family: Broadway");
+        gameOver.setVisible(false);
+
+
+        Random random = new Random();
         Media media = new Media(getClass().getResource("/Untitled3.mp3").toURI().toString());
         Media shoot = new Media(getClass().getResource("/shoot.mp3").toURI().toString());
         Media ground = new Media(getClass().getResource("/spaceinvaders1.mp3").toURI().toString());
@@ -44,10 +58,81 @@ public class Main extends Application {
 
         Image scoreImage = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\score.png"));
         Image background = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\background.jpg"));
+        Image sad = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\sad.png"));
+        Image EggB = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggB.png"));
+        Image EggR = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggR.png"));
+        Image EggY = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggY.png"));
+        Image EggG = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggG.png"));
+        Image EggP = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggP.png"));
+
+
+        ImageView EB = new ImageView(EggB);
+        EB.setFitWidth(40);
+        EB.setFitHeight(40);
+        EB.setX(100);
+        EB.setY(1000);
+        EB.setVisible(false);
+
+        ImageView ER = new ImageView(EggR);
+        ER.setFitWidth(40);
+        ER.setFitHeight(40);
+        ER.setX(200);
+        ER.setY(1000);
+        ER.setVisible(false);
+
+        ImageView EY = new ImageView(EggY);
+        EY.setFitWidth(40);
+        EY.setFitHeight(40);
+        EY.setX(300);
+        EY.setY(1000);
+        EY.setVisible(false);
+
+        ImageView EG = new ImageView(EggG);
+        EG.setFitWidth(40);
+        EG.setFitHeight(40);
+        EG.setX(400);
+        EG.setY(1000);
+        EG.setVisible(false);
+
+        ImageView EP = new ImageView(EggP);
+        EP.setFitWidth(40);
+        EP.setFitHeight(40);
+        EP.setX(500);
+        EP.setY(1000);
+        EP.setVisible(false);
+
+
+        ImageView sadView0 = new ImageView(sad);
+        sadView0.setFitHeight(100);
+        sadView0.setFitWidth(140);
+        sadView0.setX(300);
+        sadView0.setY(700);
+        ImageView sadView1 = new ImageView(sad);
+        sadView1.setFitHeight(100);
+        sadView1.setFitWidth(140);
+        sadView1.setX(600);
+        sadView1.setY(700);
+        ImageView sadView2 = new ImageView(sad);
+        sadView2.setFitHeight(100);
+        sadView2.setFitWidth(140);
+        sadView2.setX(900);
+        sadView2.setY(700);
+        ImageView sadView3 = new ImageView(sad);
+        sadView3.setFitHeight(100);
+        sadView3.setFitWidth(140);
+        sadView3.setX(1200);
+        sadView3.setY(700);
+        ImageView sadView4 = new ImageView(sad);
+        sadView4.setFitHeight(100);
+        sadView4.setFitWidth(140);
+        sadView4.setX(1500);
+        sadView4.setY(700);
+
+
 
         Button backButton = new Button();
         backButton.setText("Back");
-        backButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        backButton.setStyle("-fx-font-family: Broadway; -fx-background-color: none; -fx-border-color: white; -fx-font-size: 38px; -fx-border-radius: 20px; -fx-background-radius: 20px;");
         backButton.setLayoutX(1710);
         backButton.setLayoutY(5);
         backButton.setMinSize(100, 25);
@@ -55,28 +140,28 @@ public class Main extends Application {
 
         Button startNewGameButton = new Button();
         startNewGameButton.setText("Start New Game");
-        startNewGameButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        startNewGameButton.setStyle("-fx-font-family: Broadway; -fx-background-color: none; -fx-border-color: white; -fx-font-size: 38px; -fx-border-radius: 20px; -fx-background-radius: 20px;");
         startNewGameButton.setLayoutX(735);
         startNewGameButton.setLayoutY(400);
         startNewGameButton.setTextFill(color);
 
         Button exitButton = new Button();
         exitButton.setText("Exit");
-        exitButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        exitButton.setStyle("-fx-font-family: Broadway; -fx-background-color: none; -fx-border-color: white; -fx-font-size: 38px; -fx-border-radius: 20px; -fx-background-radius: 20px;");
         exitButton.setLayoutX(860);
         exitButton.setLayoutY(600);
         exitButton.setTextFill(color);
 
         Button resumeButton = new Button();
         resumeButton.setText("Resume");
-        resumeButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        resumeButton.setStyle("-fx-font-family: Broadway; -fx-background-color: none; -fx-border-color: white; -fx-font-size: 38px; -fx-border-radius: 20px; -fx-background-radius: 20px;");
         resumeButton.setLayoutX(820);
         resumeButton.setLayoutY(300);
         resumeButton.setTextFill(color);
 
         Button highscoreButton = new Button();
         highscoreButton.setText("High Scores");
-        highscoreButton.setStyle("-fx-font-family: Broadway; -fx-background-image: url(background.jpg); -fx-font-size: 38px");
+        highscoreButton.setStyle("-fx-font-family: Broadway; -fx-background-color: none; -fx-border-color: white; -fx-font-size: 38px; -fx-border-radius: 20px; -fx-background-radius: 20px;");
         highscoreButton.setLayoutX(790);
         highscoreButton.setLayoutY(500);
         highscoreButton.setTextFill(color);
@@ -141,7 +226,8 @@ public class Main extends Application {
         title.setLayoutY(100);
         title.setTextFill(color);
         title.setStyle("-fx-font-size: 100px;" +
-                "-fx-font-family: Broadway");
+                "-fx-font-family: Broadway; -fx-border-color: white;" +
+                "-fx-border-radius: 20px");
 
 
         Image B1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\B1.png"));
@@ -225,6 +311,30 @@ public class Main extends Application {
         ImageView Invader57 = new ImageView(P1);
         ImageView Invader58 = new ImageView(P1);
         ImageView Invader59 = new ImageView(P1);
+
+        final int[] bigbig = {1};
+
+        Image big1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\W1.png"));
+        Image big2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\W2.png"));
+        ImageView bigInvader = new ImageView(big1);
+        bigInvader.setX(150);
+        bigInvader.setY(300);
+        bigInvader.setFitHeight(400);
+        bigInvader.setFitWidth(400);
+        bigInvader.setPreserveRatio(true);
+
+        AnimationTimer bigGraphic = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                bigbig[0]++;
+                if(bigbig[0] % 50 == 0){
+                    bigInvader.setImage(big2);
+                }
+                if(bigbig[0] % 50 == 25)
+                    bigInvader.setImage(big1);
+            }
+        };
+
 
         Invader0.setX(40);
         Invader0.setY(100);
@@ -597,772 +707,7 @@ public class Main extends Application {
 
 
         final int[] state = new int[60];
-        AnimationTimer graphic0 = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
 
-                counter[0]++;
-                if (counter[0] % 50 == 0) {
-                    if (Invader0.getImage() != B3)
-                        Invader0.setImage(B2);
-                    if (Invader1.getImage() != B3)
-                        Invader1.setImage(B2);
-                    if (Invader2.getImage() != B3)
-                        Invader2.setImage(B2);
-                    if (Invader3.getImage() != B3)
-                        Invader3.setImage(B2);
-                    if (Invader4.getImage() != R3)
-                        Invader4.setImage(R2);
-                    if (Invader5.getImage() != R3)
-                        Invader5.setImage(R2);
-                    if (Invader6.getImage() != R3)
-                        Invader6.setImage(R2);
-                    if (Invader7.getImage() != R3)
-                        Invader7.setImage(R2);
-                    if (Invader8.getImage() != Y3)
-                        Invader8.setImage(Y2);
-                    if (Invader9.getImage() != Y3)
-                        Invader9.setImage(Y2);
-                    if (Invader10.getImage() != Y3)
-                        Invader10.setImage(Y2);
-                    if (Invader11.getImage() != Y3)
-                        Invader11.setImage(Y2);
-                    if (Invader12.getImage() != G3)
-                        Invader12.setImage(G2);
-                    if (Invader13.getImage() != G3)
-                        Invader13.setImage(G2);
-                    if (Invader14.getImage() != G3)
-                        Invader14.setImage(G2);
-                    if (Invader15.getImage() != G3)
-                        Invader15.setImage(G2);
-                    if (Invader16.getImage() != P3)
-                        Invader16.setImage(P2);
-                    if (Invader17.getImage() != P3)
-                        Invader17.setImage(P2);
-                    if (Invader18.getImage() != P3)
-                        Invader18.setImage(P2);
-                    if (Invader19.getImage() != P3)
-                        Invader19.setImage(P2);
-                    if (Invader20.getImage() != B3)
-                        Invader20.setImage(B2);
-                    if (Invader21.getImage() != B3)
-                        Invader21.setImage(B2);
-                    if (Invader22.getImage() != B3)
-                        Invader22.setImage(B2);
-                    if (Invader23.getImage() != B3)
-                        Invader23.setImage(B2);
-                    if (Invader24.getImage() != R3)
-                        Invader24.setImage(R2);
-                    if (Invader25.getImage() != R3)
-                        Invader25.setImage(R2);
-                    if (Invader26.getImage() != R3)
-                        Invader26.setImage(R2);
-                    if (Invader27.getImage() != R3)
-                        Invader27.setImage(R2);
-                    if (Invader28.getImage() != Y3)
-                        Invader28.setImage(Y2);
-                    if (Invader29.getImage() != Y3)
-                        Invader29.setImage(Y2);
-                    if (Invader30.getImage() != Y3)
-                        Invader30.setImage(Y2);
-                    if (Invader31.getImage() != Y3)
-                        Invader31.setImage(Y2);
-                    if (Invader32.getImage() != G3)
-                        Invader32.setImage(G2);
-                    if (Invader33.getImage() != G3)
-                        Invader33.setImage(G2);
-                    if (Invader34.getImage() != G3)
-                        Invader34.setImage(G2);
-                    if (Invader35.getImage() != G3)
-                        Invader35.setImage(G2);
-                    if (Invader36.getImage() != P3)
-                        Invader36.setImage(P2);
-                    if (Invader37.getImage() != P3)
-                        Invader37.setImage(P2);
-                    if (Invader38.getImage() != P3)
-                        Invader38.setImage(P2);
-                    if (Invader39.getImage() != P3)
-                        Invader39.setImage(P2);
-                    if (Invader40.getImage() != B3)
-                        Invader40.setImage(B2);
-                    if (Invader41.getImage() != B3)
-                        Invader41.setImage(B2);
-                    if (Invader42.getImage() != B3)
-                        Invader42.setImage(B2);
-                    if (Invader43.getImage() != B3)
-                        Invader43.setImage(B2);
-                    if (Invader44.getImage() != R3)
-                        Invader44.setImage(R2);
-                    if (Invader45.getImage() != R3)
-                        Invader45.setImage(R2);
-                    if (Invader46.getImage() != R3)
-                        Invader46.setImage(R2);
-                    if (Invader47.getImage() != R3)
-                        Invader47.setImage(R2);
-                    if (Invader48.getImage() != Y3)
-                        Invader48.setImage(Y2);
-                    if (Invader49.getImage() != Y3)
-                        Invader49.setImage(Y2);
-                    if (Invader50.getImage() != Y3)
-                        Invader50.setImage(Y2);
-                    if (Invader51.getImage() != Y3)
-                        Invader51.setImage(Y2);
-                    if (Invader52.getImage() != G3)
-                        Invader52.setImage(G2);
-                    if (Invader53.getImage() != G3)
-                        Invader53.setImage(G2);
-                    if (Invader54.getImage() != G3)
-                        Invader54.setImage(G2);
-                    if (Invader55.getImage() != G3)
-                        Invader55.setImage(G2);
-                    if (Invader56.getImage() != P3)
-                        Invader56.setImage(P2);
-                    if (Invader57.getImage() != P3)
-                        Invader57.setImage(P2);
-                    if (Invader58.getImage() != P3)
-                        Invader58.setImage(P2);
-                    if (Invader59.getImage() != P3)
-                        Invader59.setImage(P2);
-
-                }
-                if (counter[0] % 50 == 25) {
-                    if (Invader0.getImage() != B3)
-                        Invader0.setImage(B1);
-                    if (Invader1.getImage() != B3)
-                        Invader1.setImage(B1);
-                    if (Invader2.getImage() != B3)
-                        Invader2.setImage(B1);
-                    if (Invader3.getImage() != B3)
-                        Invader3.setImage(B1);
-                    if (Invader4.getImage() != R3)
-                        Invader4.setImage(R1);
-                    if (Invader5.getImage() != R3)
-                        Invader5.setImage(R1);
-                    if (Invader6.getImage() != R3)
-                        Invader6.setImage(R1);
-                    if (Invader7.getImage() != R3)
-                        Invader7.setImage(R1);
-                    if (Invader8.getImage() != Y3)
-                        Invader8.setImage(Y1);
-                    if (Invader9.getImage() != Y3)
-                        Invader9.setImage(Y1);
-                    if (Invader10.getImage() != Y3)
-                        Invader10.setImage(Y1);
-                    if (Invader11.getImage() != Y3)
-                        Invader11.setImage(Y1);
-                    if (Invader12.getImage() != G3)
-                        Invader12.setImage(G1);
-                    if (Invader13.getImage() != G3)
-                        Invader13.setImage(G1);
-                    if (Invader14.getImage() != G3)
-                        Invader14.setImage(G1);
-                    if (Invader15.getImage() != G3)
-                        Invader15.setImage(G1);
-                    if (Invader16.getImage() != P3)
-                        Invader16.setImage(P1);
-                    if (Invader17.getImage() != P3)
-                        Invader17.setImage(P1);
-                    if (Invader18.getImage() != P3)
-                        Invader18.setImage(P1);
-                    if (Invader19.getImage() != P3)
-                        Invader19.setImage(P1);
-                    if (Invader20.getImage() != B3)
-                        Invader20.setImage(B1);
-                    if (Invader21.getImage() != B3)
-                        Invader21.setImage(B1);
-                    if (Invader22.getImage() != B3)
-                        Invader22.setImage(B1);
-                    if (Invader23.getImage() != B3)
-                        Invader23.setImage(B1);
-                    if (Invader24.getImage() != R3)
-                        Invader24.setImage(R1);
-                    if (Invader25.getImage() != R3)
-                        Invader25.setImage(R1);
-                    if (Invader26.getImage() != R3)
-                        Invader26.setImage(R1);
-                    if (Invader27.getImage() != R3)
-                        Invader27.setImage(R1);
-                    if (Invader28.getImage() != Y3)
-                        Invader28.setImage(Y1);
-                    if (Invader29.getImage() != Y3)
-                        Invader29.setImage(Y1);
-                    if (Invader30.getImage() != Y3)
-                        Invader30.setImage(Y1);
-                    if (Invader31.getImage() != Y3)
-                        Invader31.setImage(Y1);
-                    if (Invader32.getImage() != G3)
-                        Invader32.setImage(G1);
-                    if (Invader33.getImage() != G3)
-                        Invader33.setImage(G1);
-                    if (Invader34.getImage() != G3)
-                        Invader34.setImage(G1);
-                    if (Invader35.getImage() != G3)
-                        Invader35.setImage(G1);
-                    if (Invader36.getImage() != P3)
-                        Invader36.setImage(P1);
-                    if (Invader37.getImage() != P3)
-                        Invader37.setImage(P1);
-                    if (Invader38.getImage() != P3)
-                        Invader38.setImage(P1);
-                    if (Invader39.getImage() != P3)
-                        Invader39.setImage(P1);
-                    if (Invader40.getImage() != B3)
-                        Invader40.setImage(B1);
-                    if (Invader41.getImage() != B3)
-                        Invader41.setImage(B1);
-                    if (Invader42.getImage() != B3)
-                        Invader42.setImage(B1);
-                    if (Invader43.getImage() != B3)
-                        Invader43.setImage(B1);
-                    if (Invader44.getImage() != R3)
-                        Invader44.setImage(R1);
-                    if (Invader45.getImage() != R3)
-                        Invader45.setImage(R1);
-                    if (Invader46.getImage() != R3)
-                        Invader46.setImage(R1);
-                    if (Invader47.getImage() != R3)
-                        Invader47.setImage(R1);
-                    if (Invader48.getImage() != Y3)
-                        Invader48.setImage(Y1);
-                    if (Invader49.getImage() != Y3)
-                        Invader49.setImage(Y1);
-                    if (Invader50.getImage() != Y3)
-                        Invader50.setImage(Y1);
-                    if (Invader51.getImage() != Y3)
-                        Invader51.setImage(Y1);
-                    if (Invader52.getImage() != G3)
-                        Invader52.setImage(G1);
-                    if (Invader53.getImage() != G3)
-                        Invader53.setImage(G1);
-                    if (Invader54.getImage() != G3)
-                        Invader54.setImage(G1);
-                    if (Invader55.getImage() != G3)
-                        Invader55.setImage(G1);
-                    if (Invader56.getImage() != P3)
-                        Invader56.setImage(P1);
-                    if (Invader57.getImage() != P3)
-                        Invader57.setImage(P1);
-                    if (Invader58.getImage() != P3)
-                        Invader58.setImage(P1);
-                    if (Invader59.getImage() != P3)
-                        Invader59.setImage(P1);
-                }
-
-                if (counter[0] % 400 == 0) {
-                    Invader0.setX(Invader0.getX() - 50);
-                    Invader1.setX(Invader1.getX() - 50);
-                    Invader2.setX(Invader2.getX() - 50);
-                    Invader3.setX(Invader3.getX() - 50);
-                    Invader4.setX(Invader4.getX() - 50);
-                    Invader5.setX(Invader5.getX() - 50);
-                    Invader6.setX(Invader6.getX() - 50);
-                    Invader7.setX(Invader7.getX() - 50);
-                    Invader8.setX(Invader8.getX() - 50);
-                    Invader9.setX(Invader9.getX() - 50);
-                    Invader10.setX(Invader10.getX() - 50);
-                    Invader11.setX(Invader11.getX() - 50);
-                    Invader12.setX(Invader12.getX() - 50);
-                    Invader13.setX(Invader13.getX() - 50);
-                    Invader14.setX(Invader14.getX() - 50);
-                    Invader15.setX(Invader15.getX() - 50);
-                    Invader16.setX(Invader16.getX() - 50);
-                    Invader17.setX(Invader17.getX() - 50);
-                    Invader18.setX(Invader18.getX() - 50);
-                    Invader19.setX(Invader19.getX() - 50);
-                    Invader20.setX(Invader20.getX() - 50);
-                    Invader21.setX(Invader21.getX() - 50);
-                    Invader22.setX(Invader22.getX() - 50);
-                    Invader23.setX(Invader23.getX() - 50);
-                    Invader24.setX(Invader24.getX() - 50);
-                    Invader25.setX(Invader25.getX() - 50);
-                    Invader26.setX(Invader26.getX() - 50);
-                    Invader27.setX(Invader27.getX() - 50);
-                    Invader28.setX(Invader28.getX() - 50);
-                    Invader29.setX(Invader29.getX() - 50);
-                    Invader30.setX(Invader30.getX() - 50);
-                    Invader31.setX(Invader31.getX() - 50);
-                    Invader32.setX(Invader32.getX() - 50);
-                    Invader33.setX(Invader33.getX() - 50);
-                    Invader34.setX(Invader34.getX() - 50);
-                    Invader35.setX(Invader35.getX() - 50);
-                    Invader36.setX(Invader36.getX() - 50);
-                    Invader37.setX(Invader37.getX() - 50);
-                    Invader38.setX(Invader38.getX() - 50);
-                    Invader39.setX(Invader39.getX() - 50);
-                    Invader40.setX(Invader40.getX() - 50);
-                    Invader41.setX(Invader41.getX() - 50);
-                    Invader42.setX(Invader42.getX() - 50);
-                    Invader43.setX(Invader43.getX() - 50);
-                    Invader44.setX(Invader44.getX() - 50);
-                    Invader45.setX(Invader45.getX() - 50);
-                    Invader46.setX(Invader46.getX() - 50);
-                    Invader47.setX(Invader47.getX() - 50);
-                    Invader48.setX(Invader48.getX() - 50);
-                    Invader49.setX(Invader49.getX() - 50);
-                    Invader50.setX(Invader50.getX() - 50);
-                    Invader51.setX(Invader51.getX() - 50);
-                    Invader52.setX(Invader52.getX() - 50);
-                    Invader53.setX(Invader53.getX() - 50);
-                    Invader54.setX(Invader54.getX() - 50);
-                    Invader55.setX(Invader55.getX() - 50);
-                    Invader56.setX(Invader56.getX() - 50);
-                    Invader57.setX(Invader57.getX() - 50);
-                    Invader58.setX(Invader58.getX() - 50);
-                    Invader59.setX(Invader59.getX() - 50);
-
-                }
-                if (counter[0] % 400 == 200) {
-                    Invader0.setX(Invader0.getX() + 50);
-                    Invader1.setX(Invader1.getX() + 50);
-                    Invader2.setX(Invader2.getX() + 50);
-                    Invader3.setX(Invader3.getX() + 50);
-                    Invader4.setX(Invader4.getX() + 50);
-                    Invader5.setX(Invader5.getX() + 50);
-                    Invader6.setX(Invader6.getX() + 50);
-                    Invader7.setX(Invader7.getX() + 50);
-                    Invader8.setX(Invader8.getX() + 50);
-                    Invader9.setX(Invader9.getX() + 50);
-                    Invader10.setX(Invader10.getX() + 50);
-                    Invader11.setX(Invader11.getX() + 50);
-                    Invader12.setX(Invader12.getX() + 50);
-                    Invader13.setX(Invader13.getX() + 50);
-                    Invader14.setX(Invader14.getX() + 50);
-                    Invader15.setX(Invader15.getX() + 50);
-                    Invader16.setX(Invader16.getX() + 50);
-                    Invader17.setX(Invader17.getX() + 50);
-                    Invader18.setX(Invader18.getX() + 50);
-                    Invader19.setX(Invader19.getX() + 50);
-                    Invader20.setX(Invader20.getX() + 50);
-                    Invader21.setX(Invader21.getX() + 50);
-                    Invader22.setX(Invader22.getX() + 50);
-                    Invader23.setX(Invader23.getX() + 50);
-                    Invader24.setX(Invader24.getX() + 50);
-                    Invader25.setX(Invader25.getX() + 50);
-                    Invader26.setX(Invader26.getX() + 50);
-                    Invader27.setX(Invader27.getX() + 50);
-                    Invader28.setX(Invader28.getX() + 50);
-                    Invader29.setX(Invader29.getX() + 50);
-                    Invader30.setX(Invader30.getX() + 50);
-                    Invader31.setX(Invader31.getX() + 50);
-                    Invader32.setX(Invader32.getX() + 50);
-                    Invader33.setX(Invader33.getX() + 50);
-                    Invader34.setX(Invader34.getX() + 50);
-                    Invader35.setX(Invader35.getX() + 50);
-                    Invader36.setX(Invader36.getX() + 50);
-                    Invader37.setX(Invader37.getX() + 50);
-                    Invader38.setX(Invader38.getX() + 50);
-                    Invader39.setX(Invader39.getX() + 50);
-                    Invader40.setX(Invader40.getX() + 50);
-                    Invader41.setX(Invader41.getX() + 50);
-                    Invader42.setX(Invader42.getX() + 50);
-                    Invader43.setX(Invader43.getX() + 50);
-                    Invader44.setX(Invader44.getX() + 50);
-                    Invader45.setX(Invader45.getX() + 50);
-                    Invader46.setX(Invader46.getX() + 50);
-                    Invader47.setX(Invader47.getX() + 50);
-                    Invader48.setX(Invader48.getX() + 50);
-                    Invader49.setX(Invader49.getX() + 50);
-                    Invader50.setX(Invader50.getX() + 50);
-                    Invader51.setX(Invader51.getX() + 50);
-                    Invader52.setX(Invader52.getX() + 50);
-                    Invader53.setX(Invader53.getX() + 50);
-                    Invader54.setX(Invader54.getX() + 50);
-                    Invader55.setX(Invader55.getX() + 50);
-                    Invader56.setX(Invader56.getX() + 50);
-                    Invader57.setX(Invader57.getX() + 50);
-                    Invader58.setX(Invader58.getX() + 50);
-                    Invader59.setX(Invader59.getX() + 50);
-
-                }
-
-                if (counter[0] % 1000 == 800) {
-                    Invader0.setY(Invader0.getY() + 50);
-                    Invader1.setY(Invader1.getY() + 50);
-                    Invader2.setY(Invader2.getY() + 50);
-                    Invader3.setY(Invader3.getY() + 50);
-                    Invader4.setY(Invader4.getY() + 50);
-                    Invader5.setY(Invader5.getY() + 50);
-                    Invader6.setY(Invader6.getY() + 50);
-                    Invader7.setY(Invader7.getY() + 50);
-                    Invader8.setY(Invader8.getY() + 50);
-                    Invader9.setY(Invader9.getY() + 50);
-                    Invader10.setY(Invader10.getY() + 50);
-                    Invader11.setY(Invader11.getY() + 50);
-                    Invader12.setY(Invader12.getY() + 50);
-                    Invader13.setY(Invader13.getY() + 50);
-                    Invader14.setY(Invader14.getY() + 50);
-                    Invader15.setY(Invader15.getY() + 50);
-                    Invader16.setY(Invader16.getY() + 50);
-                    Invader17.setY(Invader17.getY() + 50);
-                    Invader18.setY(Invader18.getY() + 50);
-                    Invader19.setY(Invader19.getY() + 50);
-                    Invader20.setY(Invader20.getY() + 50);
-                    Invader21.setY(Invader21.getY() + 50);
-                    Invader22.setY(Invader22.getY() + 50);
-                    Invader23.setY(Invader23.getY() + 50);
-                    Invader24.setY(Invader24.getY() + 50);
-                    Invader25.setY(Invader25.getY() + 50);
-                    Invader26.setY(Invader26.getY() + 50);
-                    Invader27.setY(Invader27.getY() + 50);
-                    Invader28.setY(Invader28.getY() + 50);
-                    Invader29.setY(Invader29.getY() + 50);
-                    Invader30.setY(Invader30.getY() + 50);
-                    Invader31.setY(Invader31.getY() + 50);
-                    Invader32.setY(Invader32.getY() + 50);
-                    Invader33.setY(Invader33.getY() + 50);
-                    Invader34.setY(Invader34.getY() + 50);
-                    Invader35.setY(Invader35.getY() + 50);
-                    Invader36.setY(Invader36.getY() + 50);
-                    Invader37.setY(Invader37.getY() + 50);
-                    Invader38.setY(Invader38.getY() + 50);
-                    Invader39.setY(Invader39.getY() + 50);
-                    Invader40.setY(Invader40.getY() + 50);
-                    Invader41.setY(Invader41.getY() + 50);
-                    Invader42.setY(Invader42.getY() + 50);
-                    Invader43.setY(Invader43.getY() + 50);
-                    Invader44.setY(Invader44.getY() + 50);
-                    Invader45.setY(Invader45.getY() + 50);
-                    Invader46.setY(Invader46.getY() + 50);
-                    Invader47.setY(Invader47.getY() + 50);
-                    Invader48.setY(Invader48.getY() + 50);
-                    Invader49.setY(Invader49.getY() + 50);
-                    Invader50.setY(Invader50.getY() + 50);
-                    Invader51.setY(Invader51.getY() + 50);
-                    Invader52.setY(Invader52.getY() + 50);
-                    Invader53.setY(Invader53.getY() + 50);
-                    Invader54.setY(Invader54.getY() + 50);
-                    Invader55.setY(Invader55.getY() + 50);
-                    Invader56.setY(Invader56.getY() + 50);
-                    Invader57.setY(Invader57.getY() + 50);
-                    Invader58.setY(Invader58.getY() + 50);
-                    Invader59.setY(Invader59.getY() + 50);
-
-                }
-                if (counter[0] % 10000 == 0) {
-                    Invader0.setX(40);
-                    Invader0.setY(100);
-                    Invader0.setFitHeight(80);
-                    Invader0.setFitWidth(80);
-                    Invader0.setPreserveRatio(true);
-                    Invader0.setVisible(true);
-
-                    Invader1.setX(120);
-                    Invader1.setY(100);
-                    Invader1.setFitHeight(80);
-                    Invader1.setFitWidth(80);
-                    Invader1.setPreserveRatio(true);
-                    Invader1.setVisible(true);
-
-                    Invader2.setX(200);
-                    Invader2.setY(100);
-                    Invader2.setFitHeight(80);
-                    Invader2.setFitWidth(80);
-                    Invader2.setPreserveRatio(true);
-                    Invader2.setVisible(true);
-
-                    Invader3.setX(280);
-                    Invader3.setY(100);
-                    Invader3.setFitHeight(80);
-                    Invader3.setFitWidth(80);
-                    Invader3.setPreserveRatio(true);
-                    Invader3.setVisible(true);
-
-                    Invader4.setX(400);
-                    Invader4.setY(100);
-                    Invader4.setFitHeight(80);
-                    Invader4.setFitWidth(80);
-                    Invader4.setPreserveRatio(true);
-                    Invader4.setVisible(true);
-
-                    Invader5.setX(480);
-                    Invader5.setY(100);
-                    Invader5.setFitHeight(80);
-                    Invader5.setFitWidth(80);
-                    Invader5.setPreserveRatio(true);
-                    Invader5.setVisible(true);
-
-                    Invader6.setX(560);
-                    Invader6.setY(100);
-                    Invader6.setFitHeight(80);
-                    Invader6.setFitWidth(80);
-                    Invader6.setPreserveRatio(true);
-                    Invader6.setVisible(true);
-
-                    Invader7.setX(640);
-                    Invader7.setY(100);
-                    Invader7.setFitHeight(80);
-                    Invader7.setFitWidth(80);
-                    Invader7.setPreserveRatio(true);
-                    Invader7.setVisible(true);
-
-                    Invader8.setX(760);
-                    Invader8.setY(100);
-                    Invader8.setFitHeight(80);
-                    Invader8.setFitWidth(80);
-                    Invader8.setPreserveRatio(true);
-                    Invader8.setVisible(true);
-
-                    Invader9.setX(840);
-                    Invader9.setY(100);
-                    Invader9.setFitHeight(80);
-                    Invader9.setFitWidth(80);
-                    Invader9.setPreserveRatio(true);
-                    Invader9.setVisible(true);
-
-                    Invader10.setX(920);
-                    Invader10.setY(100);
-                    Invader10.setFitHeight(80);
-                    Invader10.setFitWidth(80);
-                    Invader10.setPreserveRatio(true);
-                    Invader10.setVisible(true);
-
-                    Invader11.setX(1000);
-                    Invader11.setY(100);
-                    Invader11.setFitHeight(80);
-                    Invader11.setFitWidth(80);
-                    Invader11.setPreserveRatio(true);
-                    Invader11.setVisible(true);
-
-                    Invader12.setX(1120);
-                    Invader12.setY(100);
-                    Invader12.setFitHeight(80);
-                    Invader12.setFitWidth(80);
-                    Invader12.setPreserveRatio(true);
-                    Invader12.setVisible(true);
-
-                    Invader13.setX(1200);
-                    Invader13.setY(100);
-                    Invader13.setFitHeight(80);
-                    Invader13.setFitWidth(80);
-                    Invader13.setPreserveRatio(true);
-                    Invader13.setVisible(true);
-
-                    Invader14.setX(1280);
-                    Invader14.setY(100);
-                    Invader14.setFitHeight(80);
-                    Invader14.setFitWidth(80);
-                    Invader14.setPreserveRatio(true);
-                    Invader14.setVisible(true);
-
-                    Invader15.setX(1360);
-                    Invader15.setY(100);
-                    Invader15.setFitHeight(80);
-                    Invader15.setFitWidth(80);
-                    Invader15.setPreserveRatio(true);
-                    Invader15.setVisible(true);
-
-                    Invader16.setX(1480);
-                    Invader16.setY(100);
-                    Invader16.setFitHeight(80);
-                    Invader16.setFitWidth(80);
-                    Invader16.setPreserveRatio(true);
-                    Invader16.setVisible(true);
-
-                    Invader17.setX(1560);
-                    Invader17.setY(100);
-                    Invader17.setFitHeight(80);
-                    Invader17.setFitWidth(80);
-                    Invader17.setPreserveRatio(true);
-                    Invader17.setVisible(true);
-
-                    Invader18.setX(1640);
-                    Invader18.setY(100);
-                    Invader18.setFitHeight(80);
-                    Invader18.setFitWidth(80);
-                    Invader18.setPreserveRatio(true);
-                    Invader18.setVisible(true);
-
-                    Invader19.setX(1720);
-                    Invader19.setY(100);
-                    Invader19.setFitHeight(80);
-                    Invader19.setFitWidth(80);
-                    Invader19.setPreserveRatio(true);
-                    Invader19.setVisible(true);
-                }
-                if (Invader0.getImage() == B4) {
-                    Invader0.setVisible(false);
-                }
-                if (Invader1.getImage() == B4) {
-                    Invader1.setVisible(false);
-                }
-                if (Invader2.getImage() == B4) {
-                    Invader2.setVisible(false);
-                }
-                if (Invader3.getImage() == B4) {
-                    Invader3.setVisible(false);
-                }
-                if (Invader4.getImage() == R4) {
-                    Invader4.setVisible(false);
-                }
-                if (Invader5.getImage() == R4) {
-                    Invader5.setVisible(false);
-                }
-                if (Invader6.getImage() == R4) {
-                    Invader6.setVisible(false);
-                }
-                if (Invader7.getImage() == R4) {
-                    Invader7.setVisible(false);
-                }
-                if (Invader8.getImage() == Y4) {
-                    Invader8.setVisible(false);
-                }
-                if (Invader9.getImage() == Y4) {
-                    Invader9.setVisible(false);
-                }
-                if (Invader10.getImage() == Y4) {
-                    Invader10.setVisible(false);
-                }
-                if (Invader11.getImage() == Y4) {
-                    Invader11.setVisible(false);
-                }
-                if (Invader12.getImage() == G4) {
-                    Invader12.setVisible(false);
-                }
-                if (Invader13.getImage() == G4) {
-                    Invader13.setVisible(false);
-                }
-                if (Invader14.getImage() == G4) {
-                    Invader14.setVisible(false);
-                }
-                if (Invader15.getImage() == G4) {
-                    Invader15.setVisible(false);
-                }
-                if (Invader16.getImage() == P4) {
-                    Invader16.setVisible(false);
-                }
-                if (Invader17.getImage() == P4) {
-                    Invader17.setVisible(false);
-                }
-                if (Invader18.getImage() == P4) {
-                    Invader18.setVisible(false);
-                }
-                if (Invader19.getImage() == P4) {
-                    Invader19.setVisible(false);
-                }
-                if (Invader20.getImage() == B4) {
-                    Invader20.setVisible(false);
-                }
-                if (Invader21.getImage() == B4) {
-                    Invader21.setVisible(false);
-                }
-                if (Invader22.getImage() == B4) {
-                    Invader22.setVisible(false);
-                }
-                if (Invader23.getImage() == B4) {
-                    Invader23.setVisible(false);
-                }
-                if (Invader24.getImage() == R4) {
-                    Invader24.setVisible(false);
-                }
-                if (Invader25.getImage() == R4) {
-                    Invader25.setVisible(false);
-                }
-                if (Invader26.getImage() == R4) {
-                    Invader26.setVisible(false);
-                }
-                if (Invader27.getImage() == R4) {
-                    Invader27.setVisible(false);
-                }
-                if (Invader28.getImage() == Y4) {
-                    Invader28.setVisible(false);
-                }
-                if (Invader29.getImage() == Y4) {
-                    Invader29.setVisible(false);
-                }
-                if (Invader30.getImage() == Y4) {
-                    Invader30.setVisible(false);
-                }
-                if (Invader31.getImage() == Y4) {
-                    Invader31.setVisible(false);
-                }
-                if (Invader32.getImage() == G4) {
-                    Invader32.setVisible(false);
-                }
-                if (Invader33.getImage() == G4) {
-                    Invader33.setVisible(false);
-                }
-                if (Invader34.getImage() == G4) {
-                    Invader34.setVisible(false);
-                }
-                if (Invader35.getImage() == G4) {
-                    Invader35.setVisible(false);
-                }
-                if (Invader36.getImage() == P4) {
-                    Invader36.setVisible(false);
-                }
-                if (Invader37.getImage() == P4) {
-                    Invader37.setVisible(false);
-                }
-                if (Invader38.getImage() == P4) {
-                    Invader38.setVisible(false);
-                }
-                if (Invader39.getImage() == P4) {
-                    Invader39.setVisible(false);
-                }
-                if (Invader40.getImage() == B4) {
-                    Invader40.setVisible(false);
-                }
-                if (Invader41.getImage() == B4) {
-                    Invader41.setVisible(false);
-                }
-                if (Invader42.getImage() == B4) {
-                    Invader42.setVisible(false);
-                }
-                if (Invader43.getImage() == B4) {
-                    Invader43.setVisible(false);
-                }
-                if (Invader44.getImage() == R4) {
-                    Invader44.setVisible(false);
-                }
-                if (Invader45.getImage() == R4) {
-                    Invader45.setVisible(false);
-                }
-                if (Invader46.getImage() == R4) {
-                    Invader46.setVisible(false);
-                }
-                if (Invader47.getImage() == R4) {
-                    Invader47.setVisible(false);
-                }
-                if (Invader48.getImage() == Y4) {
-                    Invader48.setVisible(false);
-                }
-                if (Invader49.getImage() == Y4) {
-                    Invader49.setVisible(false);
-                }
-                if (Invader50.getImage() == Y4) {
-                    Invader50.setVisible(false);
-                }
-                if (Invader51.getImage() == Y4) {
-                    Invader51.setVisible(false);
-                }
-                if (Invader52.getImage() == G4) {
-                    Invader52.setVisible(false);
-                }
-                if (Invader53.getImage() == G4) {
-                    Invader53.setVisible(false);
-                }
-                if (Invader54.getImage() == G4) {
-                    Invader54.setVisible(false);
-                }
-                if (Invader55.getImage() == G4) {
-                    Invader55.setVisible(false);
-                }
-                if (Invader56.getImage() == P4) {
-                    Invader56.setVisible(false);
-                }
-                if (Invader57.getImage() == P4) {
-                    Invader57.setVisible(false);
-                }
-                if (Invader58.getImage() == P4) {
-                    Invader58.setVisible(false);
-                }
-
-                if (Invader59.getImage() == P4) {
-                    Invader59.setVisible(false);
-                }
-
-            }
-        };
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -2200,8 +1545,1069 @@ public class Main extends Application {
                         state[59] = 0;
                     }
                 }
+                if (Bullet.getY() <= sadView0.getY() + 25 && Bullet.getY() >= sadView0.getY() && Bullet.getX() <= sadView0.getX() + 54 && Bullet.getX() >= sadView0.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if(sadView0.visibleProperty().getValue() == true) {
+                        Bullet.setVisible(false);
+                        sadView0.setVisible(false);
+                    }
+                }
+                if (Bullet.getY() <= sadView1.getY() + 25 && Bullet.getY() >= sadView1.getY() && Bullet.getX() <= sadView1.getX() + 54 && Bullet.getX() >= sadView1.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if(sadView1.visibleProperty().getValue() == true) {
+                        Bullet.setVisible(false);
+                        sadView1.setVisible(false);
+                    }
+                }
+                if (Bullet.getY() <= sadView2.getY() + 25 && Bullet.getY() >= sadView2.getY() && Bullet.getX() <= sadView2.getX() + 54 && Bullet.getX() >= sadView2.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if(sadView2.visibleProperty().getValue() == true) {
+                        Bullet.setVisible(false);
+                        sadView2.setVisible(false);
+                    }
+                }
+                if (Bullet.getY() <= sadView3.getY() + 25 && Bullet.getY() >= sadView3.getY() && Bullet.getX() <= sadView3.getX() + 54 && Bullet.getX() >= sadView3.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if(sadView3.visibleProperty().getValue() == true) {
+                        Bullet.setVisible(false);
+                        sadView3.setVisible(false);
+                    }
+                }
+                if (Bullet.getY() <= sadView4.getY() + 25 && Bullet.getY() >= sadView4.getY() && Bullet.getX() <= sadView4.getX() + 54 && Bullet.getX() >= sadView4.getX() - 25 && Bullet.visibleProperty().getValue()) {
+                    if(sadView4.visibleProperty().getValue() == true) {
+                        Bullet.setVisible(false);
+                        sadView4.setVisible(false);
+                    }
+                }
             }
         };
+        AnimationTimer graphic0 = new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+
+                counter[0]++;
+                if(EB.visibleProperty().getValue()){
+                    EB.setY(EB.getY() + random.nextInt(10) + 3);
+                }
+                if(ER.visibleProperty().getValue()){
+                    ER.setY(ER.getY() + random.nextInt(10) + 3);
+                }
+                if(EY.visibleProperty().getValue()){
+                    EY.setY(EY.getY() + random.nextInt(10) + 3);
+                }
+                if(EG.visibleProperty().getValue()){
+                    EG.setY(EG.getY() + random.nextInt(10) + 3);
+                }
+                if(EP.visibleProperty().getValue()){
+                    EP.setY(EP.getY() + random.nextInt(10) + 3);
+                }
+                if(counter[0] % 200 == random.nextInt(200)&& EB.getY() > 960){
+                    EB.setX(random.nextInt((int)Invader3.getX() - (int)Invader0.getX()) + Invader0.getX());
+                    EB.setY(random.nextInt((int)Invader40.getY() - (int)Invader0.getY()) + Invader0.getY());
+                    EB.setVisible(true);
+                }
+                if(counter[0] % 200 == random.nextInt(200)&& ER.getY() > 960){
+                    ER.setX(random.nextInt((int)Invader7.getX() - (int)Invader4.getX()) + Invader4.getX());
+                    ER.setY(random.nextInt((int)Invader44.getY() - (int)Invader4.getY()) + Invader4.getY());
+                    ER.setVisible(true);
+                }
+                if(counter[0] % 200 == random.nextInt(200)&& EY.getY() > 960){
+                    EY.setX(random.nextInt((int)Invader11.getX() - (int)Invader8.getX()) + Invader8.getX());
+                    EY.setY(random.nextInt((int)Invader48.getY() - (int)Invader8.getY()) + Invader8.getY());
+                    EY.setVisible(true);
+
+                }
+                if(counter[0] % 200 == random.nextInt(200) && EG.getY() > 960){
+                    EG.setX(random.nextInt((int)Invader15.getX() - (int)Invader12.getX()) + Invader12.getX());
+                    EG.setY(random.nextInt((int)Invader52.getY() - (int)Invader12.getY()) + Invader12.getY());
+                    EG.setVisible(true);
+
+                }
+                if(counter[0] % 200 == random.nextInt(200)&& EP.getY() > 960){
+                    EP.setX(random.nextInt((int)Invader19.getX() - (int)Invader16.getX()) + Invader16.getX());
+                    EP.setY(random.nextInt((int)Invader56.getY() - (int)Invader16.getY()) + Invader16.getY());
+                    EP.setVisible(true);
+
+                }
+
+                if (EB.getY() <= sadView0.getY() + 25 && EB.getY() >= sadView0.getY() && EB.getX() <= sadView0.getX() + 54 && EB.getX() >= sadView0.getX() - 25 && EB.visibleProperty().getValue()) {
+                    if(sadView0.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        sadView0.setVisible(false);
+                    }
+                }
+                if (EB.getY() <= sadView1.getY() + 25 && EB.getY() >= sadView1.getY() && EB.getX() <= sadView1.getX() + 54 && EB.getX() >= sadView1.getX() - 25 && EB.visibleProperty().getValue()) {
+                    if(sadView1.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        sadView1.setVisible(false);
+                    }
+                }
+                if (EB.getY() <= sadView2.getY() + 25 && EB.getY() >= sadView2.getY() && EB.getX() <= sadView2.getX() + 54 && EB.getX() >= sadView2.getX() - 25 && EB.visibleProperty().getValue()) {
+                    if(sadView2.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        sadView2.setVisible(false);
+                    }
+                }
+                if (EB.getY() <= sadView3.getY() + 25 && EB.getY() >= sadView3.getY() && EB.getX() <= sadView3.getX() + 54 && EB.getX() >= sadView3.getX() - 25 && EB.visibleProperty().getValue()) {
+                    if(sadView3.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        sadView3.setVisible(false);
+                    }
+                }
+                if (EB.getY() <= sadView4.getY() + 25 && EB.getY() >= sadView4.getY() && EB.getX() <= sadView4.getX() + 54 && EB.getX() >= sadView4.getX() - 25 && EB.visibleProperty().getValue()) {
+                    if(sadView4.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        sadView4.setVisible(false);
+                    }
+                }
+                if (EB.getY() <= SpaceShip.getY() + 25 && EB.getY() >= SpaceShip.getY() && EB.getX() <= SpaceShip.getX() + 54 && EB.getX() >= SpaceShip.getX() - 25 && EB.visibleProperty().getValue()) {
+                    if(SpaceShip.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        SpaceShip.setVisible(false);
+                        gameOver.setVisible(true);
+                    }
+                }
+                if (ER.getY() <= sadView0.getY() + 25 && ER.getY() >= sadView0.getY() && ER.getX() <= sadView0.getX() + 54 && ER.getX() >= sadView0.getX() - 25 && ER.visibleProperty().getValue()) {
+                    if(sadView0.visibleProperty().getValue() == true) {
+                        ER.setVisible(false);
+                        sadView0.setVisible(false);
+                    }
+                }
+                if (ER.getY() <= sadView1.getY() + 25 && ER.getY() >= sadView1.getY() && ER.getX() <= sadView1.getX() + 54 && ER.getX() >= sadView1.getX() - 25 && ER.visibleProperty().getValue()) {
+                    if(sadView1.visibleProperty().getValue() == true) {
+                        ER.setVisible(false);
+                        sadView1.setVisible(false);
+                    }
+                }
+                if (ER.getY() <= sadView2.getY() + 25 && ER.getY() >= sadView2.getY() && ER.getX() <= sadView2.getX() + 54 && ER.getX() >= sadView2.getX() - 25 && ER.visibleProperty().getValue()) {
+                    if(sadView2.visibleProperty().getValue() == true) {
+                        ER.setVisible(false);
+                        sadView2.setVisible(false);
+                    }
+                }
+                if (ER.getY() <= sadView3.getY() + 25 && ER.getY() >= sadView3.getY() && ER.getX() <= sadView3.getX() + 54 && ER.getX() >= sadView3.getX() - 25 && ER.visibleProperty().getValue()) {
+                    if(sadView3.visibleProperty().getValue() == true) {
+                        ER.setVisible(false);
+                        sadView3.setVisible(false);
+                    }
+                }
+                if (ER.getY() <= sadView4.getY() + 25 && ER.getY() >= sadView4.getY() && ER.getX() <= sadView4.getX() + 54 && ER.getX() >= sadView4.getX() - 25 && ER.visibleProperty().getValue()) {
+                    if(sadView4.visibleProperty().getValue() == true) {
+                        ER.setVisible(false);
+                        sadView4.setVisible(false);
+                    }
+                }
+                if (ER.getY() <= SpaceShip.getY() + 25 && ER.getY() >= SpaceShip.getY() && ER.getX() <= SpaceShip.getX() + 54 && ER.getX() >= SpaceShip.getX() - 25 && ER.visibleProperty().getValue()) {
+                    if(SpaceShip.visibleProperty().getValue() == true) {
+                        ER.setVisible(false);
+                        SpaceShip.setVisible(false);
+                        gameOver.setVisible(true);
+                    }
+                }
+                if (EY.getY() <= sadView0.getY() + 25 && EY.getY() >= sadView0.getY() && EY.getX() <= sadView0.getX() + 54 && EY.getX() >= sadView0.getX() - 25 && EY.visibleProperty().getValue()) {
+                    if(sadView0.visibleProperty().getValue() == true) {
+                        EY.setVisible(false);
+                        sadView0.setVisible(false);
+                    }
+                }
+                if (EY.getY() <= sadView1.getY() + 25 && EY.getY() >= sadView1.getY() && EY.getX() <= sadView1.getX() + 54 && EY.getX() >= sadView1.getX() - 25 && EY.visibleProperty().getValue()) {
+                    if(sadView1.visibleProperty().getValue() == true) {
+                        EY.setVisible(false);
+                        sadView1.setVisible(false);
+                    }
+                }
+                if (EY.getY() <= sadView2.getY() + 25 && EY.getY() >= sadView2.getY() && EY.getX() <= sadView2.getX() + 54 && EY.getX() >= sadView2.getX() - 25 && EY.visibleProperty().getValue()) {
+                    if(sadView2.visibleProperty().getValue() == true) {
+                        EY.setVisible(false);
+                        sadView2.setVisible(false);
+                    }
+                }
+                if (EY.getY() <= sadView3.getY() + 25 && EY.getY() >= sadView3.getY() && EY.getX() <= sadView3.getX() + 54 && EY.getX() >= sadView3.getX() - 25 && EY.visibleProperty().getValue()) {
+                    if(sadView3.visibleProperty().getValue() == true) {
+                        EY.setVisible(false);
+                        sadView3.setVisible(false);
+                    }
+                }
+                if (EY.getY() <= sadView4.getY() + 25 && EY.getY() >= sadView4.getY() && EY.getX() <= sadView4.getX() + 54 && EY.getX() >= sadView4.getX() - 25 && EY.visibleProperty().getValue()) {
+                    if(sadView4.visibleProperty().getValue() == true) {
+                        EY.setVisible(false);
+                        sadView4.setVisible(false);
+                    }
+                }
+                if (EY.getY() <= SpaceShip.getY() + 25 && EY.getY() >= SpaceShip.getY() && EY.getX() <= SpaceShip.getX() + 54 && EY.getX() >= SpaceShip.getX() - 25 && EY.visibleProperty().getValue()) {
+                    if(SpaceShip.visibleProperty().getValue() == true) {
+                        EY.setVisible(false);
+                        SpaceShip.setVisible(false);
+                        gameOver.setVisible(true);
+                    }
+                }
+                if (EG.getY() <= sadView0.getY() + 25 && EG.getY() >= sadView0.getY() && EG.getX() <= sadView0.getX() + 54 && EG.getX() >= sadView0.getX() - 25 && EG.visibleProperty().getValue()) {
+                    if(sadView0.visibleProperty().getValue() == true) {
+                        EG.setVisible(false);
+                        sadView0.setVisible(false);
+                    }
+                }
+                if (EG.getY() <= sadView1.getY() + 25 && EG.getY() >= sadView1.getY() && EG.getX() <= sadView1.getX() + 54 && EG.getX() >= sadView1.getX() - 25 && EG.visibleProperty().getValue()) {
+                    if(sadView1.visibleProperty().getValue() == true) {
+                        EG.setVisible(false);
+                        sadView1.setVisible(false);
+                    }
+                }
+                if (EG.getY() <= sadView2.getY() + 25 && EG.getY() >= sadView2.getY() && EG.getX() <= sadView2.getX() + 54 && EG.getX() >= sadView2.getX() - 25 && EG.visibleProperty().getValue()) {
+                    if(sadView2.visibleProperty().getValue() == true) {
+                        EG.setVisible(false);
+                        sadView2.setVisible(false);
+                    }
+                }
+                if (EG.getY() <= sadView3.getY() + 25 && EG.getY() >= sadView3.getY() && EG.getX() <= sadView3.getX() + 54 && EG.getX() >= sadView3.getX() - 25 && EG.visibleProperty().getValue()) {
+                    if(sadView3.visibleProperty().getValue() == true) {
+                        EG.setVisible(false);
+                        sadView3.setVisible(false);
+                    }
+                }
+                if (EG.getY() <= sadView4.getY() + 25 && EG.getY() >= sadView4.getY() && EG.getX() <= sadView4.getX() + 54 && EG.getX() >= sadView4.getX() - 25 && EG.visibleProperty().getValue()) {
+                    if(sadView4.visibleProperty().getValue() == true) {
+                        EG.setVisible(false);
+                        sadView4.setVisible(false);
+                    }
+                }
+                if (EG.getY() <= SpaceShip.getY() + 25 && EG.getY() >= SpaceShip.getY() && EG.getX() <= SpaceShip.getX() + 54 && EG.getX() >= SpaceShip.getX() - 25 && EG.visibleProperty().getValue()) {
+                    if(SpaceShip.visibleProperty().getValue() == true) {
+                        EG.setVisible(false);
+                        SpaceShip.setVisible(false);
+                        gameOver.setVisible(true);
+                    }
+                }if (EP.getY() <= sadView0.getY() + 25 && EP.getY() >= sadView0.getY() && EP.getX() <= sadView0.getX() + 54 && EP.getX() >= sadView0.getX() - 25 && EP.visibleProperty().getValue()) {
+                    if(sadView0.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        sadView0.setVisible(false);
+                    }
+                }
+                if (EP.getY() <= sadView1.getY() + 25 && EP.getY() >= sadView1.getY() && EP.getX() <= sadView1.getX() + 54 && EP.getX() >= sadView1.getX() - 25 && EP.visibleProperty().getValue()) {
+                    if(sadView1.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        sadView1.setVisible(false);
+                    }
+                }
+                if (EP.getY() <= sadView2.getY() + 25 && EP.getY() >= sadView2.getY() && EP.getX() <= sadView2.getX() + 54 && EP.getX() >= sadView2.getX() - 25 && EP.visibleProperty().getValue()) {
+                    if(sadView2.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        sadView2.setVisible(false);
+                    }
+                }
+                if (EP.getY() <= sadView3.getY() + 25 && EP.getY() >= sadView3.getY() && EP.getX() <= sadView3.getX() + 54 && EP.getX() >= sadView3.getX() - 25 && EP.visibleProperty().getValue()) {
+                    if(sadView3.visibleProperty().getValue() == true) {
+                        EB.setVisible(false);
+                        sadView3.setVisible(false);
+                    }
+                }
+                if (EP.getY() <= sadView4.getY() + 25 && EP.getY() >= sadView4.getY() && EP.getX() <= sadView4.getX() + 54 && EP.getX() >= sadView4.getX() - 25 && EP.visibleProperty().getValue()) {
+                    if(sadView4.visibleProperty().getValue() == true) {
+                        EP.setVisible(false);
+                        sadView4.setVisible(false);
+                    }
+                }
+                if (EP.getY() <= SpaceShip.getY() + 25 && EP.getY() >= SpaceShip.getY() && EP.getX() <= SpaceShip.getX() + 54 && EP.getX() >= SpaceShip.getX() - 25 && EP.visibleProperty().getValue()) {
+                    if(SpaceShip.visibleProperty().getValue() == true) {
+                        EP.setVisible(false);
+                        SpaceShip.setVisible(false);
+                        gameOver.setVisible(true);
+
+
+                    }
+                }
+
+                if (counter[0] % 50 == 0) {
+                    if (Invader0.getImage() != B3)
+                        Invader0.setImage(B2);
+                    if (Invader1.getImage() != B3)
+                        Invader1.setImage(B2);
+                    if (Invader2.getImage() != B3)
+                        Invader2.setImage(B2);
+                    if (Invader3.getImage() != B3)
+                        Invader3.setImage(B2);
+                    if (Invader4.getImage() != R3)
+                        Invader4.setImage(R2);
+                    if (Invader5.getImage() != R3)
+                        Invader5.setImage(R2);
+                    if (Invader6.getImage() != R3)
+                        Invader6.setImage(R2);
+                    if (Invader7.getImage() != R3)
+                        Invader7.setImage(R2);
+                    if (Invader8.getImage() != Y3)
+                        Invader8.setImage(Y2);
+                    if (Invader9.getImage() != Y3)
+                        Invader9.setImage(Y2);
+                    if (Invader10.getImage() != Y3)
+                        Invader10.setImage(Y2);
+                    if (Invader11.getImage() != Y3)
+                        Invader11.setImage(Y2);
+                    if (Invader12.getImage() != G3)
+                        Invader12.setImage(G2);
+                    if (Invader13.getImage() != G3)
+                        Invader13.setImage(G2);
+                    if (Invader14.getImage() != G3)
+                        Invader14.setImage(G2);
+                    if (Invader15.getImage() != G3)
+                        Invader15.setImage(G2);
+                    if (Invader16.getImage() != P3)
+                        Invader16.setImage(P2);
+                    if (Invader17.getImage() != P3)
+                        Invader17.setImage(P2);
+                    if (Invader18.getImage() != P3)
+                        Invader18.setImage(P2);
+                    if (Invader19.getImage() != P3)
+                        Invader19.setImage(P2);
+                    if (Invader20.getImage() != B3)
+                        Invader20.setImage(B2);
+                    if (Invader21.getImage() != B3)
+                        Invader21.setImage(B2);
+                    if (Invader22.getImage() != B3)
+                        Invader22.setImage(B2);
+                    if (Invader23.getImage() != B3)
+                        Invader23.setImage(B2);
+                    if (Invader24.getImage() != R3)
+                        Invader24.setImage(R2);
+                    if (Invader25.getImage() != R3)
+                        Invader25.setImage(R2);
+                    if (Invader26.getImage() != R3)
+                        Invader26.setImage(R2);
+                    if (Invader27.getImage() != R3)
+                        Invader27.setImage(R2);
+                    if (Invader28.getImage() != Y3)
+                        Invader28.setImage(Y2);
+                    if (Invader29.getImage() != Y3)
+                        Invader29.setImage(Y2);
+                    if (Invader30.getImage() != Y3)
+                        Invader30.setImage(Y2);
+                    if (Invader31.getImage() != Y3)
+                        Invader31.setImage(Y2);
+                    if (Invader32.getImage() != G3)
+                        Invader32.setImage(G2);
+                    if (Invader33.getImage() != G3)
+                        Invader33.setImage(G2);
+                    if (Invader34.getImage() != G3)
+                        Invader34.setImage(G2);
+                    if (Invader35.getImage() != G3)
+                        Invader35.setImage(G2);
+                    if (Invader36.getImage() != P3)
+                        Invader36.setImage(P2);
+                    if (Invader37.getImage() != P3)
+                        Invader37.setImage(P2);
+                    if (Invader38.getImage() != P3)
+                        Invader38.setImage(P2);
+                    if (Invader39.getImage() != P3)
+                        Invader39.setImage(P2);
+                    if (Invader40.getImage() != B3)
+                        Invader40.setImage(B2);
+                    if (Invader41.getImage() != B3)
+                        Invader41.setImage(B2);
+                    if (Invader42.getImage() != B3)
+                        Invader42.setImage(B2);
+                    if (Invader43.getImage() != B3)
+                        Invader43.setImage(B2);
+                    if (Invader44.getImage() != R3)
+                        Invader44.setImage(R2);
+                    if (Invader45.getImage() != R3)
+                        Invader45.setImage(R2);
+                    if (Invader46.getImage() != R3)
+                        Invader46.setImage(R2);
+                    if (Invader47.getImage() != R3)
+                        Invader47.setImage(R2);
+                    if (Invader48.getImage() != Y3)
+                        Invader48.setImage(Y2);
+                    if (Invader49.getImage() != Y3)
+                        Invader49.setImage(Y2);
+                    if (Invader50.getImage() != Y3)
+                        Invader50.setImage(Y2);
+                    if (Invader51.getImage() != Y3)
+                        Invader51.setImage(Y2);
+                    if (Invader52.getImage() != G3)
+                        Invader52.setImage(G2);
+                    if (Invader53.getImage() != G3)
+                        Invader53.setImage(G2);
+                    if (Invader54.getImage() != G3)
+                        Invader54.setImage(G2);
+                    if (Invader55.getImage() != G3)
+                        Invader55.setImage(G2);
+                    if (Invader56.getImage() != P3)
+                        Invader56.setImage(P2);
+                    if (Invader57.getImage() != P3)
+                        Invader57.setImage(P2);
+                    if (Invader58.getImage() != P3)
+                        Invader58.setImage(P2);
+                    if (Invader59.getImage() != P3)
+                        Invader59.setImage(P2);
+
+                }
+                if (counter[0] % 50 == 25) {
+                    if (Invader0.getImage() != B3)
+                        Invader0.setImage(B1);
+                    if (Invader1.getImage() != B3)
+                        Invader1.setImage(B1);
+                    if (Invader2.getImage() != B3)
+                        Invader2.setImage(B1);
+                    if (Invader3.getImage() != B3)
+                        Invader3.setImage(B1);
+                    if (Invader4.getImage() != R3)
+                        Invader4.setImage(R1);
+                    if (Invader5.getImage() != R3)
+                        Invader5.setImage(R1);
+                    if (Invader6.getImage() != R3)
+                        Invader6.setImage(R1);
+                    if (Invader7.getImage() != R3)
+                        Invader7.setImage(R1);
+                    if (Invader8.getImage() != Y3)
+                        Invader8.setImage(Y1);
+                    if (Invader9.getImage() != Y3)
+                        Invader9.setImage(Y1);
+                    if (Invader10.getImage() != Y3)
+                        Invader10.setImage(Y1);
+                    if (Invader11.getImage() != Y3)
+                        Invader11.setImage(Y1);
+                    if (Invader12.getImage() != G3)
+                        Invader12.setImage(G1);
+                    if (Invader13.getImage() != G3)
+                        Invader13.setImage(G1);
+                    if (Invader14.getImage() != G3)
+                        Invader14.setImage(G1);
+                    if (Invader15.getImage() != G3)
+                        Invader15.setImage(G1);
+                    if (Invader16.getImage() != P3)
+                        Invader16.setImage(P1);
+                    if (Invader17.getImage() != P3)
+                        Invader17.setImage(P1);
+                    if (Invader18.getImage() != P3)
+                        Invader18.setImage(P1);
+                    if (Invader19.getImage() != P3)
+                        Invader19.setImage(P1);
+                    if (Invader20.getImage() != B3)
+                        Invader20.setImage(B1);
+                    if (Invader21.getImage() != B3)
+                        Invader21.setImage(B1);
+                    if (Invader22.getImage() != B3)
+                        Invader22.setImage(B1);
+                    if (Invader23.getImage() != B3)
+                        Invader23.setImage(B1);
+                    if (Invader24.getImage() != R3)
+                        Invader24.setImage(R1);
+                    if (Invader25.getImage() != R3)
+                        Invader25.setImage(R1);
+                    if (Invader26.getImage() != R3)
+                        Invader26.setImage(R1);
+                    if (Invader27.getImage() != R3)
+                        Invader27.setImage(R1);
+                    if (Invader28.getImage() != Y3)
+                        Invader28.setImage(Y1);
+                    if (Invader29.getImage() != Y3)
+                        Invader29.setImage(Y1);
+                    if (Invader30.getImage() != Y3)
+                        Invader30.setImage(Y1);
+                    if (Invader31.getImage() != Y3)
+                        Invader31.setImage(Y1);
+                    if (Invader32.getImage() != G3)
+                        Invader32.setImage(G1);
+                    if (Invader33.getImage() != G3)
+                        Invader33.setImage(G1);
+                    if (Invader34.getImage() != G3)
+                        Invader34.setImage(G1);
+                    if (Invader35.getImage() != G3)
+                        Invader35.setImage(G1);
+                    if (Invader36.getImage() != P3)
+                        Invader36.setImage(P1);
+                    if (Invader37.getImage() != P3)
+                        Invader37.setImage(P1);
+                    if (Invader38.getImage() != P3)
+                        Invader38.setImage(P1);
+                    if (Invader39.getImage() != P3)
+                        Invader39.setImage(P1);
+                    if (Invader40.getImage() != B3)
+                        Invader40.setImage(B1);
+                    if (Invader41.getImage() != B3)
+                        Invader41.setImage(B1);
+                    if (Invader42.getImage() != B3)
+                        Invader42.setImage(B1);
+                    if (Invader43.getImage() != B3)
+                        Invader43.setImage(B1);
+                    if (Invader44.getImage() != R3)
+                        Invader44.setImage(R1);
+                    if (Invader45.getImage() != R3)
+                        Invader45.setImage(R1);
+                    if (Invader46.getImage() != R3)
+                        Invader46.setImage(R1);
+                    if (Invader47.getImage() != R3)
+                        Invader47.setImage(R1);
+                    if (Invader48.getImage() != Y3)
+                        Invader48.setImage(Y1);
+                    if (Invader49.getImage() != Y3)
+                        Invader49.setImage(Y1);
+                    if (Invader50.getImage() != Y3)
+                        Invader50.setImage(Y1);
+                    if (Invader51.getImage() != Y3)
+                        Invader51.setImage(Y1);
+                    if (Invader52.getImage() != G3)
+                        Invader52.setImage(G1);
+                    if (Invader53.getImage() != G3)
+                        Invader53.setImage(G1);
+                    if (Invader54.getImage() != G3)
+                        Invader54.setImage(G1);
+                    if (Invader55.getImage() != G3)
+                        Invader55.setImage(G1);
+                    if (Invader56.getImage() != P3)
+                        Invader56.setImage(P1);
+                    if (Invader57.getImage() != P3)
+                        Invader57.setImage(P1);
+                    if (Invader58.getImage() != P3)
+                        Invader58.setImage(P1);
+                    if (Invader59.getImage() != P3)
+                        Invader59.setImage(P1);
+                }
+
+                if (counter[0] % 400 == 0) {
+                    Invader0.setX(Invader0.getX() - 50);
+                    Invader1.setX(Invader1.getX() - 50);
+                    Invader2.setX(Invader2.getX() - 50);
+                    Invader3.setX(Invader3.getX() - 50);
+                    Invader4.setX(Invader4.getX() - 50);
+                    Invader5.setX(Invader5.getX() - 50);
+                    Invader6.setX(Invader6.getX() - 50);
+                    Invader7.setX(Invader7.getX() - 50);
+                    Invader8.setX(Invader8.getX() - 50);
+                    Invader9.setX(Invader9.getX() - 50);
+                    Invader10.setX(Invader10.getX() - 50);
+                    Invader11.setX(Invader11.getX() - 50);
+                    Invader12.setX(Invader12.getX() - 50);
+                    Invader13.setX(Invader13.getX() - 50);
+                    Invader14.setX(Invader14.getX() - 50);
+                    Invader15.setX(Invader15.getX() - 50);
+                    Invader16.setX(Invader16.getX() - 50);
+                    Invader17.setX(Invader17.getX() - 50);
+                    Invader18.setX(Invader18.getX() - 50);
+                    Invader19.setX(Invader19.getX() - 50);
+                    Invader20.setX(Invader20.getX() - 50);
+                    Invader21.setX(Invader21.getX() - 50);
+                    Invader22.setX(Invader22.getX() - 50);
+                    Invader23.setX(Invader23.getX() - 50);
+                    Invader24.setX(Invader24.getX() - 50);
+                    Invader25.setX(Invader25.getX() - 50);
+                    Invader26.setX(Invader26.getX() - 50);
+                    Invader27.setX(Invader27.getX() - 50);
+                    Invader28.setX(Invader28.getX() - 50);
+                    Invader29.setX(Invader29.getX() - 50);
+                    Invader30.setX(Invader30.getX() - 50);
+                    Invader31.setX(Invader31.getX() - 50);
+                    Invader32.setX(Invader32.getX() - 50);
+                    Invader33.setX(Invader33.getX() - 50);
+                    Invader34.setX(Invader34.getX() - 50);
+                    Invader35.setX(Invader35.getX() - 50);
+                    Invader36.setX(Invader36.getX() - 50);
+                    Invader37.setX(Invader37.getX() - 50);
+                    Invader38.setX(Invader38.getX() - 50);
+                    Invader39.setX(Invader39.getX() - 50);
+                    Invader40.setX(Invader40.getX() - 50);
+                    Invader41.setX(Invader41.getX() - 50);
+                    Invader42.setX(Invader42.getX() - 50);
+                    Invader43.setX(Invader43.getX() - 50);
+                    Invader44.setX(Invader44.getX() - 50);
+                    Invader45.setX(Invader45.getX() - 50);
+                    Invader46.setX(Invader46.getX() - 50);
+                    Invader47.setX(Invader47.getX() - 50);
+                    Invader48.setX(Invader48.getX() - 50);
+                    Invader49.setX(Invader49.getX() - 50);
+                    Invader50.setX(Invader50.getX() - 50);
+                    Invader51.setX(Invader51.getX() - 50);
+                    Invader52.setX(Invader52.getX() - 50);
+                    Invader53.setX(Invader53.getX() - 50);
+                    Invader54.setX(Invader54.getX() - 50);
+                    Invader55.setX(Invader55.getX() - 50);
+                    Invader56.setX(Invader56.getX() - 50);
+                    Invader57.setX(Invader57.getX() - 50);
+                    Invader58.setX(Invader58.getX() - 50);
+                    Invader59.setX(Invader59.getX() - 50);
+
+                }
+                if (counter[0] % 400 == 200) {
+                    Invader0.setX(Invader0.getX() + 50);
+                    Invader1.setX(Invader1.getX() + 50);
+                    Invader2.setX(Invader2.getX() + 50);
+                    Invader3.setX(Invader3.getX() + 50);
+                    Invader4.setX(Invader4.getX() + 50);
+                    Invader5.setX(Invader5.getX() + 50);
+                    Invader6.setX(Invader6.getX() + 50);
+                    Invader7.setX(Invader7.getX() + 50);
+                    Invader8.setX(Invader8.getX() + 50);
+                    Invader9.setX(Invader9.getX() + 50);
+                    Invader10.setX(Invader10.getX() + 50);
+                    Invader11.setX(Invader11.getX() + 50);
+                    Invader12.setX(Invader12.getX() + 50);
+                    Invader13.setX(Invader13.getX() + 50);
+                    Invader14.setX(Invader14.getX() + 50);
+                    Invader15.setX(Invader15.getX() + 50);
+                    Invader16.setX(Invader16.getX() + 50);
+                    Invader17.setX(Invader17.getX() + 50);
+                    Invader18.setX(Invader18.getX() + 50);
+                    Invader19.setX(Invader19.getX() + 50);
+                    Invader20.setX(Invader20.getX() + 50);
+                    Invader21.setX(Invader21.getX() + 50);
+                    Invader22.setX(Invader22.getX() + 50);
+                    Invader23.setX(Invader23.getX() + 50);
+                    Invader24.setX(Invader24.getX() + 50);
+                    Invader25.setX(Invader25.getX() + 50);
+                    Invader26.setX(Invader26.getX() + 50);
+                    Invader27.setX(Invader27.getX() + 50);
+                    Invader28.setX(Invader28.getX() + 50);
+                    Invader29.setX(Invader29.getX() + 50);
+                    Invader30.setX(Invader30.getX() + 50);
+                    Invader31.setX(Invader31.getX() + 50);
+                    Invader32.setX(Invader32.getX() + 50);
+                    Invader33.setX(Invader33.getX() + 50);
+                    Invader34.setX(Invader34.getX() + 50);
+                    Invader35.setX(Invader35.getX() + 50);
+                    Invader36.setX(Invader36.getX() + 50);
+                    Invader37.setX(Invader37.getX() + 50);
+                    Invader38.setX(Invader38.getX() + 50);
+                    Invader39.setX(Invader39.getX() + 50);
+                    Invader40.setX(Invader40.getX() + 50);
+                    Invader41.setX(Invader41.getX() + 50);
+                    Invader42.setX(Invader42.getX() + 50);
+                    Invader43.setX(Invader43.getX() + 50);
+                    Invader44.setX(Invader44.getX() + 50);
+                    Invader45.setX(Invader45.getX() + 50);
+                    Invader46.setX(Invader46.getX() + 50);
+                    Invader47.setX(Invader47.getX() + 50);
+                    Invader48.setX(Invader48.getX() + 50);
+                    Invader49.setX(Invader49.getX() + 50);
+                    Invader50.setX(Invader50.getX() + 50);
+                    Invader51.setX(Invader51.getX() + 50);
+                    Invader52.setX(Invader52.getX() + 50);
+                    Invader53.setX(Invader53.getX() + 50);
+                    Invader54.setX(Invader54.getX() + 50);
+                    Invader55.setX(Invader55.getX() + 50);
+                    Invader56.setX(Invader56.getX() + 50);
+                    Invader57.setX(Invader57.getX() + 50);
+                    Invader58.setX(Invader58.getX() + 50);
+                    Invader59.setX(Invader59.getX() + 50);
+
+                }
+
+                if (counter[0] % 1000 == 800) {
+                    Invader0.setY(Invader0.getY() + 50);
+                    Invader1.setY(Invader1.getY() + 50);
+                    Invader2.setY(Invader2.getY() + 50);
+                    Invader3.setY(Invader3.getY() + 50);
+                    Invader4.setY(Invader4.getY() + 50);
+                    Invader5.setY(Invader5.getY() + 50);
+                    Invader6.setY(Invader6.getY() + 50);
+                    Invader7.setY(Invader7.getY() + 50);
+                    Invader8.setY(Invader8.getY() + 50);
+                    Invader9.setY(Invader9.getY() + 50);
+                    Invader10.setY(Invader10.getY() + 50);
+                    Invader11.setY(Invader11.getY() + 50);
+                    Invader12.setY(Invader12.getY() + 50);
+                    Invader13.setY(Invader13.getY() + 50);
+                    Invader14.setY(Invader14.getY() + 50);
+                    Invader15.setY(Invader15.getY() + 50);
+                    Invader16.setY(Invader16.getY() + 50);
+                    Invader17.setY(Invader17.getY() + 50);
+                    Invader18.setY(Invader18.getY() + 50);
+                    Invader19.setY(Invader19.getY() + 50);
+                    Invader20.setY(Invader20.getY() + 50);
+                    Invader21.setY(Invader21.getY() + 50);
+                    Invader22.setY(Invader22.getY() + 50);
+                    Invader23.setY(Invader23.getY() + 50);
+                    Invader24.setY(Invader24.getY() + 50);
+                    Invader25.setY(Invader25.getY() + 50);
+                    Invader26.setY(Invader26.getY() + 50);
+                    Invader27.setY(Invader27.getY() + 50);
+                    Invader28.setY(Invader28.getY() + 50);
+                    Invader29.setY(Invader29.getY() + 50);
+                    Invader30.setY(Invader30.getY() + 50);
+                    Invader31.setY(Invader31.getY() + 50);
+                    Invader32.setY(Invader32.getY() + 50);
+                    Invader33.setY(Invader33.getY() + 50);
+                    Invader34.setY(Invader34.getY() + 50);
+                    Invader35.setY(Invader35.getY() + 50);
+                    Invader36.setY(Invader36.getY() + 50);
+                    Invader37.setY(Invader37.getY() + 50);
+                    Invader38.setY(Invader38.getY() + 50);
+                    Invader39.setY(Invader39.getY() + 50);
+                    Invader40.setY(Invader40.getY() + 50);
+                    Invader41.setY(Invader41.getY() + 50);
+                    Invader42.setY(Invader42.getY() + 50);
+                    Invader43.setY(Invader43.getY() + 50);
+                    Invader44.setY(Invader44.getY() + 50);
+                    Invader45.setY(Invader45.getY() + 50);
+                    Invader46.setY(Invader46.getY() + 50);
+                    Invader47.setY(Invader47.getY() + 50);
+                    Invader48.setY(Invader48.getY() + 50);
+                    Invader49.setY(Invader49.getY() + 50);
+                    Invader50.setY(Invader50.getY() + 50);
+                    Invader51.setY(Invader51.getY() + 50);
+                    Invader52.setY(Invader52.getY() + 50);
+                    Invader53.setY(Invader53.getY() + 50);
+                    Invader54.setY(Invader54.getY() + 50);
+                    Invader55.setY(Invader55.getY() + 50);
+                    Invader56.setY(Invader56.getY() + 50);
+                    Invader57.setY(Invader57.getY() + 50);
+                    Invader58.setY(Invader58.getY() + 50);
+                    Invader59.setY(Invader59.getY() + 50);
+
+                }
+                if (counter[0] % 10000 == 0) {
+                    Invader0.setX(40);
+                    Invader0.setY(100);
+                    Invader0.setFitHeight(80);
+                    Invader0.setFitWidth(80);
+                    Invader0.setPreserveRatio(true);
+                    Invader0.setVisible(true);
+
+                    Invader1.setX(120);
+                    Invader1.setY(100);
+                    Invader1.setFitHeight(80);
+                    Invader1.setFitWidth(80);
+                    Invader1.setPreserveRatio(true);
+                    Invader1.setVisible(true);
+
+                    Invader2.setX(200);
+                    Invader2.setY(100);
+                    Invader2.setFitHeight(80);
+                    Invader2.setFitWidth(80);
+                    Invader2.setPreserveRatio(true);
+                    Invader2.setVisible(true);
+
+                    Invader3.setX(280);
+                    Invader3.setY(100);
+                    Invader3.setFitHeight(80);
+                    Invader3.setFitWidth(80);
+                    Invader3.setPreserveRatio(true);
+                    Invader3.setVisible(true);
+
+                    Invader4.setX(400);
+                    Invader4.setY(100);
+                    Invader4.setFitHeight(80);
+                    Invader4.setFitWidth(80);
+                    Invader4.setPreserveRatio(true);
+                    Invader4.setVisible(true);
+
+                    Invader5.setX(480);
+                    Invader5.setY(100);
+                    Invader5.setFitHeight(80);
+                    Invader5.setFitWidth(80);
+                    Invader5.setPreserveRatio(true);
+                    Invader5.setVisible(true);
+
+                    Invader6.setX(560);
+                    Invader6.setY(100);
+                    Invader6.setFitHeight(80);
+                    Invader6.setFitWidth(80);
+                    Invader6.setPreserveRatio(true);
+                    Invader6.setVisible(true);
+
+                    Invader7.setX(640);
+                    Invader7.setY(100);
+                    Invader7.setFitHeight(80);
+                    Invader7.setFitWidth(80);
+                    Invader7.setPreserveRatio(true);
+                    Invader7.setVisible(true);
+
+                    Invader8.setX(760);
+                    Invader8.setY(100);
+                    Invader8.setFitHeight(80);
+                    Invader8.setFitWidth(80);
+                    Invader8.setPreserveRatio(true);
+                    Invader8.setVisible(true);
+
+                    Invader9.setX(840);
+                    Invader9.setY(100);
+                    Invader9.setFitHeight(80);
+                    Invader9.setFitWidth(80);
+                    Invader9.setPreserveRatio(true);
+                    Invader9.setVisible(true);
+
+                    Invader10.setX(920);
+                    Invader10.setY(100);
+                    Invader10.setFitHeight(80);
+                    Invader10.setFitWidth(80);
+                    Invader10.setPreserveRatio(true);
+                    Invader10.setVisible(true);
+
+                    Invader11.setX(1000);
+                    Invader11.setY(100);
+                    Invader11.setFitHeight(80);
+                    Invader11.setFitWidth(80);
+                    Invader11.setPreserveRatio(true);
+                    Invader11.setVisible(true);
+
+                    Invader12.setX(1120);
+                    Invader12.setY(100);
+                    Invader12.setFitHeight(80);
+                    Invader12.setFitWidth(80);
+                    Invader12.setPreserveRatio(true);
+                    Invader12.setVisible(true);
+
+                    Invader13.setX(1200);
+                    Invader13.setY(100);
+                    Invader13.setFitHeight(80);
+                    Invader13.setFitWidth(80);
+                    Invader13.setPreserveRatio(true);
+                    Invader13.setVisible(true);
+
+                    Invader14.setX(1280);
+                    Invader14.setY(100);
+                    Invader14.setFitHeight(80);
+                    Invader14.setFitWidth(80);
+                    Invader14.setPreserveRatio(true);
+                    Invader14.setVisible(true);
+
+                    Invader15.setX(1360);
+                    Invader15.setY(100);
+                    Invader15.setFitHeight(80);
+                    Invader15.setFitWidth(80);
+                    Invader15.setPreserveRatio(true);
+                    Invader15.setVisible(true);
+
+                    Invader16.setX(1480);
+                    Invader16.setY(100);
+                    Invader16.setFitHeight(80);
+                    Invader16.setFitWidth(80);
+                    Invader16.setPreserveRatio(true);
+                    Invader16.setVisible(true);
+
+                    Invader17.setX(1560);
+                    Invader17.setY(100);
+                    Invader17.setFitHeight(80);
+                    Invader17.setFitWidth(80);
+                    Invader17.setPreserveRatio(true);
+                    Invader17.setVisible(true);
+
+                    Invader18.setX(1640);
+                    Invader18.setY(100);
+                    Invader18.setFitHeight(80);
+                    Invader18.setFitWidth(80);
+                    Invader18.setPreserveRatio(true);
+                    Invader18.setVisible(true);
+
+                    Invader19.setX(1720);
+                    Invader19.setY(100);
+                    Invader19.setFitHeight(80);
+                    Invader19.setFitWidth(80);
+                    Invader19.setPreserveRatio(true);
+                    Invader19.setVisible(true);
+                }
+                if (Invader0.getImage() == B4) {
+                    Invader0.setVisible(false);
+                }
+                if (Invader1.getImage() == B4) {
+                    Invader1.setVisible(false);
+                }
+                if (Invader2.getImage() == B4) {
+                    Invader2.setVisible(false);
+                }
+                if (Invader3.getImage() == B4) {
+                    Invader3.setVisible(false);
+                }
+                if (Invader4.getImage() == R4) {
+                    Invader4.setVisible(false);
+                }
+                if (Invader5.getImage() == R4) {
+                    Invader5.setVisible(false);
+                }
+                if (Invader6.getImage() == R4) {
+                    Invader6.setVisible(false);
+                }
+                if (Invader7.getImage() == R4) {
+                    Invader7.setVisible(false);
+                }
+                if (Invader8.getImage() == Y4) {
+                    Invader8.setVisible(false);
+                }
+                if (Invader9.getImage() == Y4) {
+                    Invader9.setVisible(false);
+                }
+                if (Invader10.getImage() == Y4) {
+                    Invader10.setVisible(false);
+                }
+                if (Invader11.getImage() == Y4) {
+                    Invader11.setVisible(false);
+                }
+                if (Invader12.getImage() == G4) {
+                    Invader12.setVisible(false);
+                }
+                if (Invader13.getImage() == G4) {
+                    Invader13.setVisible(false);
+                }
+                if (Invader14.getImage() == G4) {
+                    Invader14.setVisible(false);
+                }
+                if (Invader15.getImage() == G4) {
+                    Invader15.setVisible(false);
+                }
+                if (Invader16.getImage() == P4) {
+                    Invader16.setVisible(false);
+                }
+                if (Invader17.getImage() == P4) {
+                    Invader17.setVisible(false);
+                }
+                if (Invader18.getImage() == P4) {
+                    Invader18.setVisible(false);
+                }
+                if (Invader19.getImage() == P4) {
+                    Invader19.setVisible(false);
+                }
+                if (Invader20.getImage() == B4) {
+                    Invader20.setVisible(false);
+                }
+                if (Invader21.getImage() == B4) {
+                    Invader21.setVisible(false);
+                }
+                if (Invader22.getImage() == B4) {
+                    Invader22.setVisible(false);
+                }
+                if (Invader23.getImage() == B4) {
+                    Invader23.setVisible(false);
+                }
+                if (Invader24.getImage() == R4) {
+                    Invader24.setVisible(false);
+                }
+                if (Invader25.getImage() == R4) {
+                    Invader25.setVisible(false);
+                }
+                if (Invader26.getImage() == R4) {
+                    Invader26.setVisible(false);
+                }
+                if (Invader27.getImage() == R4) {
+                    Invader27.setVisible(false);
+                }
+                if (Invader28.getImage() == Y4) {
+                    Invader28.setVisible(false);
+                }
+                if (Invader29.getImage() == Y4) {
+                    Invader29.setVisible(false);
+                }
+                if (Invader30.getImage() == Y4) {
+                    Invader30.setVisible(false);
+                }
+                if (Invader31.getImage() == Y4) {
+                    Invader31.setVisible(false);
+                }
+                if (Invader32.getImage() == G4) {
+                    Invader32.setVisible(false);
+                }
+                if (Invader33.getImage() == G4) {
+                    Invader33.setVisible(false);
+                }
+                if (Invader34.getImage() == G4) {
+                    Invader34.setVisible(false);
+                }
+                if (Invader35.getImage() == G4) {
+                    Invader35.setVisible(false);
+                }
+                if (Invader36.getImage() == P4) {
+                    Invader36.setVisible(false);
+                }
+                if (Invader37.getImage() == P4) {
+                    Invader37.setVisible(false);
+                }
+                if (Invader38.getImage() == P4) {
+                    Invader38.setVisible(false);
+                }
+                if (Invader39.getImage() == P4) {
+                    Invader39.setVisible(false);
+                }
+                if (Invader40.getImage() == B4) {
+                    Invader40.setVisible(false);
+                }
+                if (Invader41.getImage() == B4) {
+                    Invader41.setVisible(false);
+                }
+                if (Invader42.getImage() == B4) {
+                    Invader42.setVisible(false);
+                }
+                if (Invader43.getImage() == B4) {
+                    Invader43.setVisible(false);
+                }
+                if (Invader44.getImage() == R4) {
+                    Invader44.setVisible(false);
+                }
+                if (Invader45.getImage() == R4) {
+                    Invader45.setVisible(false);
+                }
+                if (Invader46.getImage() == R4) {
+                    Invader46.setVisible(false);
+                }
+                if (Invader47.getImage() == R4) {
+                    Invader47.setVisible(false);
+                }
+                if (Invader48.getImage() == Y4) {
+                    Invader48.setVisible(false);
+                }
+                if (Invader49.getImage() == Y4) {
+                    Invader49.setVisible(false);
+                }
+                if (Invader50.getImage() == Y4) {
+                    Invader50.setVisible(false);
+                }
+                if (Invader51.getImage() == Y4) {
+                    Invader51.setVisible(false);
+                }
+                if (Invader52.getImage() == G4) {
+                    Invader52.setVisible(false);
+                }
+                if (Invader53.getImage() == G4) {
+                    Invader53.setVisible(false);
+                }
+                if (Invader54.getImage() == G4) {
+                    Invader54.setVisible(false);
+                }
+                if (Invader55.getImage() == G4) {
+                    Invader55.setVisible(false);
+                }
+                if (Invader56.getImage() == P4) {
+                    Invader56.setVisible(false);
+                }
+                if (Invader57.getImage() == P4) {
+                    Invader57.setVisible(false);
+                }
+                if (Invader58.getImage() == P4) {
+                    Invader58.setVisible(false);
+                }
+
+                if (Invader59.getImage() == P4) {
+                    Invader59.setVisible(false);
+                }
+
+            }
+        };
+        Image login = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\account.png"));
+        ImageView loginView = new ImageView(login);
+        loginView.setFitWidth(50);
+        loginView.setFitHeight(50);
+        Image speaker = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\speaker.png"));
+        ImageView speakerView = new ImageView(speaker);
+        speakerView.setFitWidth(50);
+        speakerView.setFitHeight(50);
+        Image account = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\login.png"));
+        ImageView accountView = new ImageView(account);
+        accountView.setFitWidth(50);
+        accountView.setFitHeight(50);
+        Image password = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\pass.png"));
+        ImageView passwordView = new ImageView(password);
+        passwordView.setFitWidth(50);
+        passwordView.setFitHeight(30);
+        MenuItem createAccount = new MenuItem("Login");
+        createAccount.setGraphic(accountView);
+        createAccount.setStyle("-fx-skin-color: none");
+        MenuItem changeUsername = new MenuItem("Change Password");
+        changeUsername.setGraphic(passwordView);
+        Menu loginMenu = new Menu("Acoount");
+        loginMenu.setStyle("-fx-text-fill: white;");
+        loginMenu.setGraphic(loginView);
+        loginMenu.getItems().add(createAccount);
+        loginMenu.getItems().add(changeUsername);
+        Menu soundMenu = new Menu("Sound");
+        soundMenu.setGraphic(speakerView);
+        MenuBar menuBar = new MenuBar();
+        menuBar.setStyle("-fx-font-family: Broadway; -fx-background-color: none; -fx-border-color: white; -fx-font-size: 30px; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-text-fill: white");
+        menuBar.getMenus().add(loginMenu);
+        menuBar.getMenus().add(soundMenu);
+        VBox vBoxLogin = new VBox(menuBar);
+
 
 
         Group game = new Group(bgGame, Invader0, Invader1, Invader2, Invader3, Invader4, Invader5, Invader6, Invader7,
@@ -2211,10 +2617,12 @@ public class Main extends Application {
                 Invader30, Invader31, Invader32, Invader33, Invader34, Invader35, Invader36, Invader37,
                 Invader38, Invader39, Invader40, Invader41, Invader42, Invader43, Invader44, Invader45, Invader46, Invader47,
                 Invader48, Invader49, Invader50, Invader51, Invader52, Invader53, Invader54, Invader55, Invader56, Invader57,
-                Invader58, Invader59, scoreNumber, scoreText, messageText, backButton, Bullet);
+                Invader58, Invader59, scoreNumber, scoreText, messageText, backButton, Bullet, sadView0,
+                sadView1, sadView2, sadView3, sadView4, EB, ER, EG, EY, EP, gameOver);
 
 
-        Group menu = new Group(bgStart, startNewGameButton, exitButton, resumeButton, highscoreButton, title);
+        Group menu = new Group(bgStart, startNewGameButton, exitButton, resumeButton, highscoreButton, title,
+                bigInvader, vBoxLogin);
         Group highs = new Group();
 
         groundPlayer.setAutoPlay(true);
@@ -2282,6 +2690,8 @@ public class Main extends Application {
         SpaceShip.requestFocus();
 
 
+
+
         EventHandler<KeyEvent> keyListener = event -> {
             if (event.getCode() == KeyCode.RIGHT && SpaceShip.getX() < 1880) {
                 SpaceShip.setX(SpaceShip.getX() + 20);
@@ -2296,6 +2706,7 @@ public class Main extends Application {
                 SpaceShip.setY(SpaceShip.getY() + 20);
             }
             if (event.getCode() == KeyCode.SPACE) {
+
                 Bullet.setVisible(true);
                 Bullet.setX(SpaceShip.getX() + 25);
                 Bullet.setY(SpaceShip.getY() + 50);
@@ -2328,6 +2739,7 @@ public class Main extends Application {
         primaryStage.getIcons().add(new Image("/B1.png"));
         primaryStage.setScene(menuScene);
         primaryStage.show();
+
 
 
         startNewGameButton.setOnMouseClicked(event -> {
@@ -2511,6 +2923,13 @@ public class Main extends Application {
             Invader59.setX(1720);
             Invader59.setY(260);
             Invader59.setVisible(true);
+            SpaceShip.setVisible(true);
+            gameOver.setVisible(false);
+            sadView0.setVisible(true);
+            sadView1.setVisible(true);
+            sadView2.setVisible(true);
+            sadView3.setVisible(true);
+            sadView4.setVisible(true);
             primaryStage.setScene(gameScene);
             graphic0.start();
             SpaceShip.requestFocus();
@@ -2537,6 +2956,8 @@ public class Main extends Application {
             graphic0.stop();
             primaryStage.setScene(menuScene);
         });
+
+
 
         startNewGameButton.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -2567,15 +2988,19 @@ public class Main extends Application {
                 Invader8.setX(760);
                 Invader8.setY(100);
                 Invader8.setVisible(true);
+                liveYellowInvader.add(Invader8);
                 Invader9.setX(840);
                 Invader9.setY(100);
                 Invader9.setVisible(true);
+                liveYellowInvader.add(Invader9);
                 Invader10.setX(920);
                 Invader10.setY(100);
                 Invader10.setVisible(true);
+                liveYellowInvader.add(Invader10);
                 Invader11.setX(1000);
                 Invader11.setY(100);
                 Invader11.setVisible(true);
+                liveYellowInvader.add(Invader11);
                 Invader12.setX(1120);
                 Invader12.setY(100);
                 Invader12.setVisible(true);
@@ -2627,15 +3052,19 @@ public class Main extends Application {
                 Invader28.setX(760);
                 Invader28.setY(180);
                 Invader28.setVisible(true);
+                liveYellowInvader.add(Invader28);
                 Invader29.setX(840);
                 Invader29.setY(180);
                 Invader29.setVisible(true);
+                liveYellowInvader.add(Invader29);
                 Invader30.setX(920);
                 Invader30.setY(180);
                 Invader30.setVisible(true);
+                liveYellowInvader.add(Invader30);
                 Invader31.setX(1000);
                 Invader31.setY(180);
                 Invader31.setVisible(true);
+                liveYellowInvader.add(Invader31);
                 Invader32.setX(1120);
                 Invader32.setY(180);
                 Invader32.setVisible(true);
@@ -2687,15 +3116,19 @@ public class Main extends Application {
                 Invader48.setX(760);
                 Invader48.setY(260);
                 Invader48.setVisible(true);
+                liveYellowInvader.add(Invader48);
                 Invader49.setX(840);
                 Invader49.setY(260);
                 Invader49.setVisible(true);
+                liveYellowInvader.add(Invader49);
                 Invader50.setX(920);
                 Invader50.setY(260);
                 Invader50.setVisible(true);
+                liveYellowInvader.add(Invader50);
                 Invader51.setX(1000);
                 Invader51.setY(260);
                 Invader51.setVisible(true);
+                liveYellowInvader.add(Invader51);
                 Invader52.setX(1120);
                 Invader52.setY(260);
                 Invader52.setVisible(true);
@@ -2720,6 +3153,8 @@ public class Main extends Application {
                 Invader59.setX(1720);
                 Invader59.setY(260);
                 Invader59.setVisible(true);
+                SpaceShip.setVisible(true);
+                gameOver.setVisible(false);
                 primaryStage.setScene(gameScene);
                 graphic0.start();
                 SpaceShip.requestFocus();
@@ -2733,6 +3168,11 @@ public class Main extends Application {
                 }
             }
         });
+        bigGraphic.start();
+        if(gameOver.visibleProperty().getValue() == true){
+            graphic0.stop();
+            animationTimer.stop();
+        }
     }
 
 
