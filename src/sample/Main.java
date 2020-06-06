@@ -47,7 +47,6 @@ public class Main extends Application {
 
 
         Random random = new Random();
-        Media media = new Media(getClass().getResource("/Untitled3.mp3").toURI().toString());
         Media shoot = new Media(getClass().getResource("/shoot.mp3").toURI().toString());
         Media ground = new Media(getClass().getResource("/spaceinvaders1.mp3").toURI().toString());
 
@@ -56,7 +55,7 @@ public class Main extends Application {
 
         TableView tableView = new TableView();
 
-        Image scoreImage = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\score.png"));
+
         Image background = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\background.jpg"));
         Image sad = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\sad.png"));
         Image EggB = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggB.png"));
@@ -213,12 +212,7 @@ public class Main extends Application {
         SpaceShip.setFitWidth(100);
         SpaceShip.setPreserveRatio(true);
 
-        ImageView scoreImageView = new ImageView(scoreImage);
-        scoreImageView.setX(10);
-        scoreImageView.setY(10);
-        scoreImageView.setFitWidth(80);
-        scoreImageView.setFitHeight(80);
-        scoreImageView.setPreserveRatio(true);
+
 
         Label title = new Label();
         title.setText("CHIKEN INVADERS");
@@ -2625,7 +2619,7 @@ public class Main extends Application {
                 bigInvader, vBoxLogin);
         Group highs = new Group();
 
-        groundPlayer.setAutoPlay(true);
+        //groundPlayer.setAutoPlay(true);
 
         Scene gameScene = new Scene(game, 1880, 960);
         gameScene.getStylesheets().add(getClass().getResource("styleSheet.css").toExternalForm());
@@ -3169,7 +3163,7 @@ public class Main extends Application {
             }
         });
         bigGraphic.start();
-        if(gameOver.visibleProperty().getValue() == true){
+        if(gameOver.visibleProperty().getValue()){
             graphic0.stop();
             animationTimer.stop();
         }
