@@ -2630,15 +2630,6 @@ public class Main extends Application {
 
 
         //////////////////////////////////////////////
-        final ObservableList<Score> data =
-                FXCollections.observableArrayList(
-                        new Score("Jacob", "Smith"),
-                        new Score("Isabella", "Johnson"),
-                        new Score("Ethan", "Williams"),
-                        new Score("Emma", "Jones"),
-                        new Score("Michael", "Brown")
-                );
-
         Scene scene = new Scene(new Group());
 
         TableView table = new TableView();
@@ -2650,13 +2641,11 @@ public class Main extends Application {
 
         TableColumn userCol = new TableColumn("User");
         userCol.setMinWidth(100);
-        userCol.setCellValueFactory(new PropertyValueFactory<Score, String>("user"));
+        userCol.setCellValueFactory(new PropertyValueFactory<String, String>("user"));
 
         TableColumn scoreCol = new TableColumn("Score");
         scoreCol.setMinWidth(100);
-        scoreCol.setCellValueFactory(new PropertyValueFactory<Score, String>("score"));
-
-        table.setItems(data);
+        scoreCol.setCellValueFactory(new PropertyValueFactory<String, String>("score"));
         table.getColumns().addAll(userCol, scoreCol);
 
         final VBox vbox = new VBox();
@@ -2704,8 +2693,8 @@ public class Main extends Application {
                 Bullet.setVisible(true);
                 Bullet.setX(SpaceShip.getX() + 25);
                 Bullet.setY(SpaceShip.getY() + 50);
-                shootPlayer.play();
                 animationTimer.start();
+                shootPlayer.play();
                 shootPlayer.stop();
                 shootPlayer.play();
                 shootPlayer.stop();
