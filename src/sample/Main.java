@@ -2,8 +2,6 @@ package sample;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Group;
@@ -20,9 +18,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 import static java.lang.String.valueOf;
@@ -56,13 +54,13 @@ public class Main extends Application {
         TableView tableView = new TableView();
 
 
-        Image background = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\background.jpg"));
-        Image sad = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\sad.png"));
-        Image EggB = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggB.png"));
-        Image EggR = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggR.png"));
-        Image EggY = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggY.png"));
-        Image EggG = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggG.png"));
-        Image EggP = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\EggP.png"));
+        Image background = new Image("background.jpg");
+        Image sad = new Image("sad.png");
+        Image EggB = new Image("EggB.png");
+        Image EggR = new Image("EggR.png");
+        Image EggY = new Image("EggY.png");
+        Image EggG = new Image("EggG.png");
+        Image EggP = new Image("EggP.png");
 
 
         ImageView EB = new ImageView(EggB);
@@ -204,7 +202,7 @@ public class Main extends Application {
         bgStart.setFitWidth(2000);
         bgStart.setPreserveRatio(true);
 
-        Image image = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\spaceShip.png"));
+        Image image = new Image("spaceShip.png");
         ImageView SpaceShip = new ImageView(image);
         SpaceShip.setX(920);
         SpaceShip.setY(860);
@@ -215,7 +213,7 @@ public class Main extends Application {
 
 
         Label title = new Label();
-        title.setText("CHIKEN INVADERS");
+        title.setText("CHICKEN INVADERS");
         title.setLayoutX(475);
         title.setLayoutY(100);
         title.setTextFill(color);
@@ -224,26 +222,39 @@ public class Main extends Application {
                 "-fx-border-radius: 20px");
 
 
-        Image B1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\B1.png"));
-        Image B2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\B2.png"));
-        Image B3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\B3.png"));
-        Image B4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\B4.png"));
-        Image Y1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Y1.png"));
-        Image Y2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Y2.png"));
-        Image Y3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Y3.png"));
-        Image Y4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Y4.png"));
-        Image G1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\G1.png"));
-        Image G2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\G2.png"));
-        Image G3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\G3.png"));
-        Image G4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\G4.png"));
-        Image R1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\R1.png"));
-        Image R2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\R2.png"));
-        Image R3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\R3.png"));
-        Image R4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\R4.png"));
-        Image P1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\P1.png"));
-        Image P2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\P2.png"));
-        Image P3 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\P3.png"));
-        Image P4 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\P4.png"));
+        Image B1 = new Image("blue0.png");
+        Image B2 = new Image("blue1.png");
+        Image B3 = new Image("blue2.png");
+        Image B4 = new Image("blue3.png");
+        Image Y1 = new Image("yellow0.png");
+        Image Y2 = new Image("yellow1.png");
+        Image Y3 = new Image("yellow2.png");
+        Image Y4 = new Image("yellow3.png");
+        Image G1 = new Image("green0.png");
+        Image G2 = new Image("green1.png");
+        Image G3 = new Image("green2.png");
+        Image G4 = new Image("green3.png");
+        Image R1 = new Image("red0.png");
+        Image R2 = new Image("red1.png");
+        Image R3 = new Image("red2.png");
+        Image R4 = new Image("red3.png");
+        Image P1 = new Image("purple0.png");
+        Image P2 = new Image("purple1.png");
+        Image P3 = new Image("purple2.png");
+        Image P4 = new Image("purple3.png");
+
+        String[] chickenColors = {"blue", "red", "green", "yellow", "purple"};
+
+        Image[] chickenImages = new Image[20];
+        for (int i = 0; i < chickenImages.length; i++) {
+            chickenImages[i] = new Image(chickenColors[i / 5] + i % 5 + ".png");
+        }
+
+        ImageView[] invaders = new ImageView[60];
+        for (int i = 0; i < invaders.length; i++) {
+            invaders[i] = new ImageView(chickenImages[i % 4]);
+
+        }
 
         ImageView Invader0 = new ImageView(B1);
         ImageView Invader1 = new ImageView(B1);
@@ -308,8 +319,8 @@ public class Main extends Application {
 
         final int[] bigbig = {1};
 
-        Image big1 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\W1.png"));
-        Image big2 = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\W2.png"));
+        Image big1 = new Image("white1.png");
+        Image big2 = new Image("white2.png");
         ImageView bigInvader = new ImageView(big1);
         bigInvader.setX(150);
         bigInvader.setY(300);
@@ -1540,31 +1551,31 @@ public class Main extends Application {
                     }
                 }
                 if (Bullet.getY() <= sadView0.getY() + 25 && Bullet.getY() >= sadView0.getY() && Bullet.getX() <= sadView0.getX() + 54 && Bullet.getX() >= sadView0.getX() - 25 && Bullet.visibleProperty().getValue()) {
-                    if(sadView0.visibleProperty().getValue() == true) {
+                    if(sadView0.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         sadView0.setVisible(false);
                     }
                 }
                 if (Bullet.getY() <= sadView1.getY() + 25 && Bullet.getY() >= sadView1.getY() && Bullet.getX() <= sadView1.getX() + 54 && Bullet.getX() >= sadView1.getX() - 25 && Bullet.visibleProperty().getValue()) {
-                    if(sadView1.visibleProperty().getValue() == true) {
+                    if(sadView1.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         sadView1.setVisible(false);
                     }
                 }
                 if (Bullet.getY() <= sadView2.getY() + 25 && Bullet.getY() >= sadView2.getY() && Bullet.getX() <= sadView2.getX() + 54 && Bullet.getX() >= sadView2.getX() - 25 && Bullet.visibleProperty().getValue()) {
-                    if(sadView2.visibleProperty().getValue() == true) {
+                    if(sadView2.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         sadView2.setVisible(false);
                     }
                 }
                 if (Bullet.getY() <= sadView3.getY() + 25 && Bullet.getY() >= sadView3.getY() && Bullet.getX() <= sadView3.getX() + 54 && Bullet.getX() >= sadView3.getX() - 25 && Bullet.visibleProperty().getValue()) {
-                    if(sadView3.visibleProperty().getValue() == true) {
+                    if(sadView3.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         sadView3.setVisible(false);
                     }
                 }
                 if (Bullet.getY() <= sadView4.getY() + 25 && Bullet.getY() >= sadView4.getY() && Bullet.getX() <= sadView4.getX() + 54 && Bullet.getX() >= sadView4.getX() - 25 && Bullet.visibleProperty().getValue()) {
-                    if(sadView4.visibleProperty().getValue() == true) {
+                    if(sadView4.visibleProperty().getValue()) {
                         Bullet.setVisible(false);
                         sadView4.setVisible(false);
                     }
@@ -1621,184 +1632,184 @@ public class Main extends Application {
                 }
 
                 if (EB.getY() <= sadView0.getY() + 25 && EB.getY() >= sadView0.getY() && EB.getX() <= sadView0.getX() + 54 && EB.getX() >= sadView0.getX() - 25 && EB.visibleProperty().getValue()) {
-                    if(sadView0.visibleProperty().getValue() == true) {
+                    if(sadView0.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         sadView0.setVisible(false);
                     }
                 }
                 if (EB.getY() <= sadView1.getY() + 25 && EB.getY() >= sadView1.getY() && EB.getX() <= sadView1.getX() + 54 && EB.getX() >= sadView1.getX() - 25 && EB.visibleProperty().getValue()) {
-                    if(sadView1.visibleProperty().getValue() == true) {
+                    if(sadView1.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         sadView1.setVisible(false);
                     }
                 }
                 if (EB.getY() <= sadView2.getY() + 25 && EB.getY() >= sadView2.getY() && EB.getX() <= sadView2.getX() + 54 && EB.getX() >= sadView2.getX() - 25 && EB.visibleProperty().getValue()) {
-                    if(sadView2.visibleProperty().getValue() == true) {
+                    if(sadView2.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         sadView2.setVisible(false);
                     }
                 }
                 if (EB.getY() <= sadView3.getY() + 25 && EB.getY() >= sadView3.getY() && EB.getX() <= sadView3.getX() + 54 && EB.getX() >= sadView3.getX() - 25 && EB.visibleProperty().getValue()) {
-                    if(sadView3.visibleProperty().getValue() == true) {
+                    if(sadView3.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         sadView3.setVisible(false);
                     }
                 }
                 if (EB.getY() <= sadView4.getY() + 25 && EB.getY() >= sadView4.getY() && EB.getX() <= sadView4.getX() + 54 && EB.getX() >= sadView4.getX() - 25 && EB.visibleProperty().getValue()) {
-                    if(sadView4.visibleProperty().getValue() == true) {
+                    if(sadView4.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         sadView4.setVisible(false);
                     }
                 }
                 if (EB.getY() <= SpaceShip.getY() + 25 && EB.getY() >= SpaceShip.getY() && EB.getX() <= SpaceShip.getX() + 54 && EB.getX() >= SpaceShip.getX() - 25 && EB.visibleProperty().getValue()) {
-                    if(SpaceShip.visibleProperty().getValue() == true) {
+                    if(SpaceShip.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         SpaceShip.setVisible(false);
                         gameOver.setVisible(true);
                     }
                 }
                 if (ER.getY() <= sadView0.getY() + 25 && ER.getY() >= sadView0.getY() && ER.getX() <= sadView0.getX() + 54 && ER.getX() >= sadView0.getX() - 25 && ER.visibleProperty().getValue()) {
-                    if(sadView0.visibleProperty().getValue() == true) {
+                    if(sadView0.visibleProperty().getValue()) {
                         ER.setVisible(false);
                         sadView0.setVisible(false);
                     }
                 }
                 if (ER.getY() <= sadView1.getY() + 25 && ER.getY() >= sadView1.getY() && ER.getX() <= sadView1.getX() + 54 && ER.getX() >= sadView1.getX() - 25 && ER.visibleProperty().getValue()) {
-                    if(sadView1.visibleProperty().getValue() == true) {
+                    if(sadView1.visibleProperty().getValue()) {
                         ER.setVisible(false);
                         sadView1.setVisible(false);
                     }
                 }
                 if (ER.getY() <= sadView2.getY() + 25 && ER.getY() >= sadView2.getY() && ER.getX() <= sadView2.getX() + 54 && ER.getX() >= sadView2.getX() - 25 && ER.visibleProperty().getValue()) {
-                    if(sadView2.visibleProperty().getValue() == true) {
+                    if(sadView2.visibleProperty().getValue()) {
                         ER.setVisible(false);
                         sadView2.setVisible(false);
                     }
                 }
                 if (ER.getY() <= sadView3.getY() + 25 && ER.getY() >= sadView3.getY() && ER.getX() <= sadView3.getX() + 54 && ER.getX() >= sadView3.getX() - 25 && ER.visibleProperty().getValue()) {
-                    if(sadView3.visibleProperty().getValue() == true) {
+                    if(sadView3.visibleProperty().getValue()) {
                         ER.setVisible(false);
                         sadView3.setVisible(false);
                     }
                 }
                 if (ER.getY() <= sadView4.getY() + 25 && ER.getY() >= sadView4.getY() && ER.getX() <= sadView4.getX() + 54 && ER.getX() >= sadView4.getX() - 25 && ER.visibleProperty().getValue()) {
-                    if(sadView4.visibleProperty().getValue() == true) {
+                    if(sadView4.visibleProperty().getValue()) {
                         ER.setVisible(false);
                         sadView4.setVisible(false);
                     }
                 }
                 if (ER.getY() <= SpaceShip.getY() + 25 && ER.getY() >= SpaceShip.getY() && ER.getX() <= SpaceShip.getX() + 54 && ER.getX() >= SpaceShip.getX() - 25 && ER.visibleProperty().getValue()) {
-                    if(SpaceShip.visibleProperty().getValue() == true) {
+                    if(SpaceShip.visibleProperty().getValue()) {
                         ER.setVisible(false);
                         SpaceShip.setVisible(false);
                         gameOver.setVisible(true);
                     }
                 }
                 if (EY.getY() <= sadView0.getY() + 25 && EY.getY() >= sadView0.getY() && EY.getX() <= sadView0.getX() + 54 && EY.getX() >= sadView0.getX() - 25 && EY.visibleProperty().getValue()) {
-                    if(sadView0.visibleProperty().getValue() == true) {
+                    if(sadView0.visibleProperty().getValue()) {
                         EY.setVisible(false);
                         sadView0.setVisible(false);
                     }
                 }
                 if (EY.getY() <= sadView1.getY() + 25 && EY.getY() >= sadView1.getY() && EY.getX() <= sadView1.getX() + 54 && EY.getX() >= sadView1.getX() - 25 && EY.visibleProperty().getValue()) {
-                    if(sadView1.visibleProperty().getValue() == true) {
+                    if(sadView1.visibleProperty().getValue()) {
                         EY.setVisible(false);
                         sadView1.setVisible(false);
                     }
                 }
                 if (EY.getY() <= sadView2.getY() + 25 && EY.getY() >= sadView2.getY() && EY.getX() <= sadView2.getX() + 54 && EY.getX() >= sadView2.getX() - 25 && EY.visibleProperty().getValue()) {
-                    if(sadView2.visibleProperty().getValue() == true) {
+                    if(sadView2.visibleProperty().getValue()) {
                         EY.setVisible(false);
                         sadView2.setVisible(false);
                     }
                 }
                 if (EY.getY() <= sadView3.getY() + 25 && EY.getY() >= sadView3.getY() && EY.getX() <= sadView3.getX() + 54 && EY.getX() >= sadView3.getX() - 25 && EY.visibleProperty().getValue()) {
-                    if(sadView3.visibleProperty().getValue() == true) {
+                    if(sadView3.visibleProperty().getValue()) {
                         EY.setVisible(false);
                         sadView3.setVisible(false);
                     }
                 }
                 if (EY.getY() <= sadView4.getY() + 25 && EY.getY() >= sadView4.getY() && EY.getX() <= sadView4.getX() + 54 && EY.getX() >= sadView4.getX() - 25 && EY.visibleProperty().getValue()) {
-                    if(sadView4.visibleProperty().getValue() == true) {
+                    if(sadView4.visibleProperty().getValue()) {
                         EY.setVisible(false);
                         sadView4.setVisible(false);
                     }
                 }
                 if (EY.getY() <= SpaceShip.getY() + 25 && EY.getY() >= SpaceShip.getY() && EY.getX() <= SpaceShip.getX() + 54 && EY.getX() >= SpaceShip.getX() - 25 && EY.visibleProperty().getValue()) {
-                    if(SpaceShip.visibleProperty().getValue() == true) {
+                    if(SpaceShip.visibleProperty().getValue()) {
                         EY.setVisible(false);
                         SpaceShip.setVisible(false);
                         gameOver.setVisible(true);
                     }
                 }
                 if (EG.getY() <= sadView0.getY() + 25 && EG.getY() >= sadView0.getY() && EG.getX() <= sadView0.getX() + 54 && EG.getX() >= sadView0.getX() - 25 && EG.visibleProperty().getValue()) {
-                    if(sadView0.visibleProperty().getValue() == true) {
+                    if(sadView0.visibleProperty().getValue()) {
                         EG.setVisible(false);
                         sadView0.setVisible(false);
                     }
                 }
                 if (EG.getY() <= sadView1.getY() + 25 && EG.getY() >= sadView1.getY() && EG.getX() <= sadView1.getX() + 54 && EG.getX() >= sadView1.getX() - 25 && EG.visibleProperty().getValue()) {
-                    if(sadView1.visibleProperty().getValue() == true) {
+                    if(sadView1.visibleProperty().getValue()) {
                         EG.setVisible(false);
                         sadView1.setVisible(false);
                     }
                 }
                 if (EG.getY() <= sadView2.getY() + 25 && EG.getY() >= sadView2.getY() && EG.getX() <= sadView2.getX() + 54 && EG.getX() >= sadView2.getX() - 25 && EG.visibleProperty().getValue()) {
-                    if(sadView2.visibleProperty().getValue() == true) {
+                    if(sadView2.visibleProperty().getValue()) {
                         EG.setVisible(false);
                         sadView2.setVisible(false);
                     }
                 }
                 if (EG.getY() <= sadView3.getY() + 25 && EG.getY() >= sadView3.getY() && EG.getX() <= sadView3.getX() + 54 && EG.getX() >= sadView3.getX() - 25 && EG.visibleProperty().getValue()) {
-                    if(sadView3.visibleProperty().getValue() == true) {
+                    if(sadView3.visibleProperty().getValue()) {
                         EG.setVisible(false);
                         sadView3.setVisible(false);
                     }
                 }
                 if (EG.getY() <= sadView4.getY() + 25 && EG.getY() >= sadView4.getY() && EG.getX() <= sadView4.getX() + 54 && EG.getX() >= sadView4.getX() - 25 && EG.visibleProperty().getValue()) {
-                    if(sadView4.visibleProperty().getValue() == true) {
+                    if(sadView4.visibleProperty().getValue()) {
                         EG.setVisible(false);
                         sadView4.setVisible(false);
                     }
                 }
                 if (EG.getY() <= SpaceShip.getY() + 25 && EG.getY() >= SpaceShip.getY() && EG.getX() <= SpaceShip.getX() + 54 && EG.getX() >= SpaceShip.getX() - 25 && EG.visibleProperty().getValue()) {
-                    if(SpaceShip.visibleProperty().getValue() == true) {
+                    if(SpaceShip.visibleProperty().getValue()) {
                         EG.setVisible(false);
                         SpaceShip.setVisible(false);
                         gameOver.setVisible(true);
                     }
                 }if (EP.getY() <= sadView0.getY() + 25 && EP.getY() >= sadView0.getY() && EP.getX() <= sadView0.getX() + 54 && EP.getX() >= sadView0.getX() - 25 && EP.visibleProperty().getValue()) {
-                    if(sadView0.visibleProperty().getValue() == true) {
+                    if(sadView0.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         sadView0.setVisible(false);
                     }
                 }
                 if (EP.getY() <= sadView1.getY() + 25 && EP.getY() >= sadView1.getY() && EP.getX() <= sadView1.getX() + 54 && EP.getX() >= sadView1.getX() - 25 && EP.visibleProperty().getValue()) {
-                    if(sadView1.visibleProperty().getValue() == true) {
+                    if(sadView1.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         sadView1.setVisible(false);
                     }
                 }
                 if (EP.getY() <= sadView2.getY() + 25 && EP.getY() >= sadView2.getY() && EP.getX() <= sadView2.getX() + 54 && EP.getX() >= sadView2.getX() - 25 && EP.visibleProperty().getValue()) {
-                    if(sadView2.visibleProperty().getValue() == true) {
+                    if(sadView2.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         sadView2.setVisible(false);
                     }
                 }
                 if (EP.getY() <= sadView3.getY() + 25 && EP.getY() >= sadView3.getY() && EP.getX() <= sadView3.getX() + 54 && EP.getX() >= sadView3.getX() - 25 && EP.visibleProperty().getValue()) {
-                    if(sadView3.visibleProperty().getValue() == true) {
+                    if(sadView3.visibleProperty().getValue()) {
                         EB.setVisible(false);
                         sadView3.setVisible(false);
                     }
                 }
                 if (EP.getY() <= sadView4.getY() + 25 && EP.getY() >= sadView4.getY() && EP.getX() <= sadView4.getX() + 54 && EP.getX() >= sadView4.getX() - 25 && EP.visibleProperty().getValue()) {
-                    if(sadView4.visibleProperty().getValue() == true) {
+                    if(sadView4.visibleProperty().getValue()) {
                         EP.setVisible(false);
                         sadView4.setVisible(false);
                     }
                 }
                 if (EP.getY() <= SpaceShip.getY() + 25 && EP.getY() >= SpaceShip.getY() && EP.getX() <= SpaceShip.getX() + 54 && EP.getX() >= SpaceShip.getX() - 25 && EP.visibleProperty().getValue()) {
-                    if(SpaceShip.visibleProperty().getValue() == true) {
+                    if(SpaceShip.visibleProperty().getValue()) {
                         EP.setVisible(false);
                         SpaceShip.setVisible(false);
                         gameOver.setVisible(true);
@@ -2626,7 +2637,6 @@ public class Main extends Application {
 
 
         Scene menuScene = new Scene(menu, 1880, 960);
-        Scene highscoresScene = new Scene(highs, 1880, 960);
 
 
         //////////////////////////////////////////////
@@ -2719,7 +2729,7 @@ public class Main extends Application {
         });
 
         primaryStage.setTitle("SpaceInvaders");
-        primaryStage.getIcons().add(new Image("/B1.png"));
+        primaryStage.getIcons().add(new Image("blue1.png"));
         primaryStage.setScene(menuScene);
         primaryStage.show();
 

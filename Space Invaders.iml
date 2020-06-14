@@ -8,6 +8,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="ext" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="Space Invaders" level="project" />
+    <orderEntry type="library" name="Space Invaders" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="ext" level="project" />
   </component>
 </module>
