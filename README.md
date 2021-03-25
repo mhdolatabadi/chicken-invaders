@@ -1,1 +1,1 @@
-# chicken-invaders
+# Chicken Invaders
