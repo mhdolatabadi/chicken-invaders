@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6af8e079-bafb-40a4-9de0-5669ec3203ff" name="Changes" comment="fix(game): Change images name and resolve bugs">
+      <change afterPath="$PROJECT_DIR$/Resources/blue0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/green0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/purple0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/red0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/white0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/yellow0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Space_Invaders12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Space_Invaders2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ext2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/limited2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/unlimited2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/blue1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/blue1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/blue2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/blue2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/blue3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/blue3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/blue4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/green1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/green1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/green2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/green2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/green3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/green3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/green4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/purple1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/purple1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/purple2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/purple2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/purple3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/purple3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/purple4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/red1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/red1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/red2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/red2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/red3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/red3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/red4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/white1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/white1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/white2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/yellow1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/yellow1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/yellow2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/yellow2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/yellow3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/yellow3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/yellow4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="27VTngq0BmMHXH9wp7awDhMMzBb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="Space Invaders" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6af8e079-bafb-40a4-9de0-5669ec3203ff" name="Changes" comment="" />
+      <created>1649404429857</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649404429857</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix(game): Change images name and resolve bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(game): Change images name and resolve bugs" />
+  </component>
+</project>

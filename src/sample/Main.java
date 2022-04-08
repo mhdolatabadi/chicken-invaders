@@ -20,7 +20,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 import static java.lang.String.valueOf;
@@ -223,38 +222,26 @@ public class Main extends Application {
 
 
         Image B1 = new Image("blue0.png");
-        Image B2 = new Image("blue1.png");
-        Image B3 = new Image("blue2.png");
-        Image B4 = new Image("blue3.png");
+        Image B2 = new Image("blue0.png");
+        Image B3 = new Image("blue1.png");
+        Image B4 = new Image("blue2.png");
         Image Y1 = new Image("yellow0.png");
-        Image Y2 = new Image("yellow1.png");
-        Image Y3 = new Image("yellow2.png");
-        Image Y4 = new Image("yellow3.png");
+        Image Y2 = new Image("yellow0.png");
+        Image Y3 = new Image("yellow1.png");
+        Image Y4 = new Image("yellow2.png");
         Image G1 = new Image("green0.png");
-        Image G2 = new Image("green1.png");
-        Image G3 = new Image("green2.png");
-        Image G4 = new Image("green3.png");
+        Image G2 = new Image("green0.png");
+        Image G3 = new Image("green1.png");
+        Image G4 = new Image("green2.png");
         Image R1 = new Image("red0.png");
-        Image R2 = new Image("red1.png");
-        Image R3 = new Image("red2.png");
-        Image R4 = new Image("red3.png");
+        Image R2 = new Image("red0.png");
+        Image R3 = new Image("red1.png");
+        Image R4 = new Image("red2.png");
         Image P1 = new Image("purple0.png");
-        Image P2 = new Image("purple1.png");
-        Image P3 = new Image("purple2.png");
-        Image P4 = new Image("purple3.png");
+        Image P2 = new Image("purple0.png");
+        Image P3 = new Image("purple1.png");
+        Image P4 = new Image("purple2.png");
 
-        String[] chickenColors = {"blue", "red", "green", "yellow", "purple"};
-
-        Image[] chickenImages = new Image[20];
-        for (int i = 0; i < chickenImages.length; i++) {
-            chickenImages[i] = new Image(chickenColors[i / 5] + i % 5 + ".png");
-        }
-
-        ImageView[] invaders = new ImageView[60];
-        for (int i = 0; i < invaders.length; i++) {
-            invaders[i] = new ImageView(chickenImages[i % 4]);
-
-        }
 
         ImageView Invader0 = new ImageView(B1);
         ImageView Invader1 = new ImageView(B1);
@@ -319,8 +306,8 @@ public class Main extends Application {
 
         final int[] bigbig = {1};
 
-        Image big1 = new Image("white1.png");
-        Image big2 = new Image("white2.png");
+        Image big1 = new Image("white0.png");
+        Image big2 = new Image("white1.png");
         ImageView bigInvader = new ImageView(big1);
         bigInvader.setX(150);
         bigInvader.setY(300);
@@ -701,7 +688,7 @@ public class Main extends Application {
         Invader59.setFitWidth(80);
         Invader59.setPreserveRatio(true);
 
-        Image bullet = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\Bullet.png"));
+        Image bullet = new Image("Bullet.png");
         ImageView Bullet = new ImageView(bullet);
         Bullet.setX(SpaceShip.getX() + 30);
         Bullet.setY(SpaceShip.getY() + 50);
@@ -2579,19 +2566,19 @@ public class Main extends Application {
 
             }
         };
-        Image login = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\account.png"));
+        Image login = new Image("account.png");
         ImageView loginView = new ImageView(login);
         loginView.setFitWidth(50);
         loginView.setFitHeight(50);
-        Image speaker = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\speaker.png"));
+        Image speaker = new Image("speaker.png");
         ImageView speakerView = new ImageView(speaker);
         speakerView.setFitWidth(50);
         speakerView.setFitHeight(50);
-        Image account = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\login.png"));
+        Image account = new Image("login.png");
         ImageView accountView = new ImageView(account);
         accountView.setFitWidth(50);
         accountView.setFitHeight(50);
-        Image password = new Image(new FileInputStream("e:\\Users\\asus\\Documents\\As A Student\\Term 2\\Advance Programming\\Space Invaders\\Resources\\pass.png"));
+        Image password = new Image("pass.png");
         ImageView passwordView = new ImageView(password);
         passwordView.setFitWidth(50);
         passwordView.setFitHeight(30);
@@ -2729,7 +2716,7 @@ public class Main extends Application {
         });
 
         primaryStage.setTitle("SpaceInvaders");
-        primaryStage.getIcons().add(new Image("blue1.png"));
+        primaryStage.getIcons().add(new Image("blue0.png"));
         primaryStage.setScene(menuScene);
         primaryStage.show();
 
