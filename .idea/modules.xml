@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.media/javafx.media.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.media/javafx.media.iml" />
       <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.swing/javafx.swing.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.swing/javafx.swing.iml" />
       <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.web/javafx.web.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.web/javafx.web.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/openjfx-18_linux-aarch64_bin-sdk/javafx-sdk-18/lib/lib.iml" filepath="$USER_HOME$/Downloads/openjfx-18_linux-aarch64_bin-sdk/javafx-sdk-18/lib/lib.iml" />
     </modules>
   </component>
 </project>
