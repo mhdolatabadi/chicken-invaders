@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Space Invaders.iml" filepath="$PROJECT_DIR$/Space Invaders.iml" />
-      <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.base/javafx.base.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.base/javafx.base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.controls/javafx.controls.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.controls/javafx.controls.iml" />
-      <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.fxml/javafx.fxml.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.fxml/javafx.fxml.iml" />
-      <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.graphics/javafx.graphics.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.graphics/javafx.graphics.iml" />
-      <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.media/javafx.media.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.media/javafx.media.iml" />
-      <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.swing/javafx.swing.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.swing/javafx.swing.iml" />
-      <module fileurl="file://$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.web/javafx.web.iml" filepath="$PROJECT_DIR$/out/artifacts/Space_Invaders_jar/javafx.web/javafx.web.iml" />
-      <module fileurl="file://$USER_HOME$/Downloads/openjfx-18_linux-aarch64_bin-sdk/javafx-sdk-18/lib/lib.iml" filepath="$USER_HOME$/Downloads/openjfx-18_linux-aarch64_bin-sdk/javafx-sdk-18/lib/lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chicken-invaders.iml" filepath="$PROJECT_DIR$/chicken-invaders.iml" />
     </modules>
   </component>
 </project>
