@@ -1,7 +1,7 @@
 # Chicken Invaders
 Chicken Invaders is an implementation of the popular game with the same name using javafx.
 ## How to install
-The only way I figure out yet, Is to clone the code in run them main method of ChickenInvaders class. Some way like export as jar failed for some reason in javafx.
+The only way I know yet, Is to clone the code and run the main method of ChickenInvaders class. Some ways like exporting as a jar binary file, failed for some reason in javafx.
 ## How to play!
 You can play using arrow keys for movement and space for shot. Note that you can't shot by pressing space for a long time, instead, you must release the space to shot be completed.
 ## Screen Shots
