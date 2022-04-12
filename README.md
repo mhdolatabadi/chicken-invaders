@@ -1,5 +1,5 @@
 # Chicken Invaders
-Chicken Invaders is an implementation of the popular game with the same name using javafx.
+Chicken Invaders is an implementation of the popular game with the same name, using javafx.
 
 ## How to install
 Clone the repository and run the main method of ChickenInvaders class.
