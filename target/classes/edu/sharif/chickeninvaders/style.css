@@ -1,6 +1,35 @@
+* {
+    -fx-font-family: Broadway;
+    -fx-font-size: 38px;
+}
+
 .sound-menu:hover {
     -fx-text-fill: white;
     -fx-background-color: none;
+}
+
+.menu-bar {
+    -fx-font-family: Broadway;
+    -fx-background-color: none;
+    -fx-border-color: white;
+    -fx-font-size: 30px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-text-fill: white
+}
+
+.title {
+    -fx-font-size: 100px;
+    -fx-font-family: Broadway;
+    -fx-border-color: white;
+    -fx-border-radius: 20px
+}
+
+.main-menu-button {
+    -fx-background-color: none;
+    -fx-border-color: white;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
 }
 
 .myDialog{
