@@ -22,11 +22,10 @@ You can play using arrow keys for movement and space for shots. Note that you ca
 ![4](https://user-images.githubusercontent.com/58592602/163018659-4f6c1f49-183d-4082-9dfe-a0f09531df6c.png)
 
 ## Contribution
-I will be regrateful if you contribute the project by submit issues, fork, pull request etc. 
+I will be regrateful if you contribute the project by submit issues, fork the repo and create pull request. 
 - If you hava any suggestion please [contact me](https://github.com/mhdolatabadi#contact-me-fastest-way).
 - If you know solution of issues create a pull request
 - If you have an idea for refining project, don't be so shy.
-
 
 ## License
 The project is licensed under [MIT License](https://github.com/mhdolatabadi/chicken-invaders/blob/master/LICENSE.md).
