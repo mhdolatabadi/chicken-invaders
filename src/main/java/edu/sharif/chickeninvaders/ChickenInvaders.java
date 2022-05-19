@@ -22,7 +22,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.util.Objects;
-import java.util.Random;
 
 import static java.lang.String.valueOf;
 
@@ -64,7 +63,6 @@ public class ChickenInvaders extends Application {
     Menu loginMenu = new Menu("Account");
     Menu soundMenu = new Menu("Sound");
     MenuBar menuBar = new MenuBar();
-    Random random = new Random();
 
     private void initializeChickensScale() {
         for (ImageView i : invaders) {
@@ -112,7 +110,7 @@ public class ChickenInvaders extends Application {
         else if (url.contains("red")) return redChicken[index];
         else if (url.contains("green")) return greenChicken[index];
         else if (url.contains("yellow")) return yellowChicken[index];
-        else return purpleChicken[index];
+        return purpleChicken[index];
     }
 
     private void createBulletShot(ImageView bullet, Group game) {
@@ -235,10 +233,8 @@ public class ChickenInvaders extends Application {
 
         for (ImageView imageView : new ImageView[]{loginView, speakerView, accountView, passwordView}) {
             imageView.setFitWidth(50);
-            if (imageView == passwordView)
-                imageView.setFitHeight(30);
-            else
-                imageView.setFitHeight(50);
+            if (imageView == passwordView) imageView.setFitHeight(30);
+            else imageView.setFitHeight(50);
 
         }
 
@@ -350,46 +346,9 @@ public class ChickenInvaders extends Application {
         dialogPane.getStyleClass().add("myDialog");
         spaceShip.requestFocus();
 
-        EventHandler<KeyEvent> spaceListener = event -> {
-            if (event.getCode() == KeyCode.SPACE) {
-                ImageView bullet = new ImageView(fetchResource("bullet.png"));
-                bullet.setFitHeight(50);
-                bullet.setFitWidth(50);
-                bullet.setPreserveRatio(true);
-                game.getChildren().add(bullet);
-                bullet.setX(spaceShip.getX() + 25);
-                bullet.setY(spaceShip.getY() + 50);
-                bullet.setVisible(true);
-                createBulletShot(bullet, game);
-                shotSoundPlayer.play();
-                shotSoundPlayer.stop();
-                shotSoundPlayer.play();
-                shotSoundPlayer.stop();
+        EventHandler<KeyEvent> spaceListener = spaceshipShotHandler(game, shotSoundPlayer);
 
-            }
-        };
-
-        EventHandler<KeyEvent> keyListener = event -> {
-            if (event.getCode() == KeyCode.RIGHT && spaceShip.getX() < SCENE_WIDTH - 100)
-                spaceShip.setX(spaceShip.getX() + 20);
-
-
-            if (event.getCode() == KeyCode.LEFT && spaceShip.getX() > 0) spaceShip.setX(spaceShip.getX() - 20);
-
-            if (event.getCode() == KeyCode.UP && spaceShip.getY() > 0) spaceShip.setY(spaceShip.getY() - 20);
-
-            if (event.getCode() == KeyCode.DOWN && (spaceShip.getY() < SCENE_HEIGHT - 100))
-                spaceShip.setY(spaceShip.getY() + 20);
-
-
-            if (event.getCode() == KeyCode.S) {
-                System.out.println(score[0]);
-            }
-            if (event.getCode() == KeyCode.ESCAPE) {
-                primaryStage.setScene(menuScene);
-            }
-            event.consume();
-        };
+        EventHandler<KeyEvent> keyListener = spaceshipMovementHandler(primaryStage, menuScene);
 
         gameScene.setOnKeyPressed(keyListener);
         gameScene.setOnKeyReleased(spaceListener);
@@ -461,6 +420,42 @@ public class ChickenInvaders extends Application {
                 timer++;
             }
         }.start();
+    }
+
+    private EventHandler<KeyEvent> spaceshipMovementHandler(Stage primaryStage, Scene menuScene) {
+        return event -> {
+            if (event.getCode() == KeyCode.RIGHT && spaceShip.getX() < SCENE_WIDTH - 100)
+                spaceShip.setX(spaceShip.getX() + 20);
+            if (event.getCode() == KeyCode.LEFT && spaceShip.getX() > 0) spaceShip.setX(spaceShip.getX() - 20);
+            if (event.getCode() == KeyCode.UP && spaceShip.getY() > 0) spaceShip.setY(spaceShip.getY() - 20);
+            if (event.getCode() == KeyCode.DOWN && (spaceShip.getY() < SCENE_HEIGHT - 100))
+                spaceShip.setY(spaceShip.getY() + 20);
+
+            if (event.getCode() == KeyCode.S) {
+                System.out.println(score[0]);
+            }
+            if (event.getCode() == KeyCode.ESCAPE) {
+                primaryStage.setScene(menuScene);
+            }
+            event.consume();
+        };
+    }
+
+    private EventHandler<KeyEvent> spaceshipShotHandler(Group game, MediaPlayer shotSoundPlayer) {
+        return event -> {
+            if (event.getCode() == KeyCode.SPACE) {
+                ImageView bullet = new ImageView(fetchResource("bullet.png"));
+                bullet.setFitHeight(50);
+                bullet.setFitWidth(50);
+                bullet.setPreserveRatio(true);
+                game.getChildren().add(bullet);
+                bullet.setX(spaceShip.getX() + 25);
+                bullet.setY(spaceShip.getY() + 50);
+                bullet.setVisible(true);
+                createBulletShot(bullet, game);
+                shotSoundPlayer.play();
+            }
+        };
     }
 
     public static void main(String[] args) {

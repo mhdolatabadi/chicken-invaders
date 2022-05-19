@@ -10,25 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a70ecec8-6d4e-4bad-abf9-94d789eb8374" name="Changes" comment="feat(game): Add colored chicken&#10;&#10;- Remove some features to do in future&#10;- Refactor code">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/chicken_invaders_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edu/sharif/chickeninvaders/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/gift.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_media_linux_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chicken-invaders.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chicken-invaders.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chicken-invaders.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/sharif/chickeninvaders/ChickenInvaders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/sharif/chickeninvaders/ChickenInvaders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/sharif/chickeninvaders/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/sharif/chickeninvaders/styleSheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/sharif/chickeninvaders/کادو.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/sharif/chickeninvaders/gift.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/ChickenInvaders$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/ChickenInvaders$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/ChickenInvaders$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/ChickenInvaders$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/ChickenInvaders$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/ChickenInvaders$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/ChickenInvaders.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/ChickenInvaders.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/HelloController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/chicken-invaders.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/styleSheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/sharif/chickeninvaders/کادو.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +45,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="27fRIIIXc1B5cyaT9ClYWIoO7SU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -50,17 +56,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/META-INF" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.3218391" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mohammadhossein/Codes/chicken-invaders&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/edu/sharif/chickeninvaders" />
@@ -111,6 +120,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649709075579</updated>
+      <workItem from="1652980547060" duration="500000" />
+      <workItem from="1652981060247" duration="653000" />
     </task>
     <task id="LOCAL-00001" summary="refactor(game): Migrate to java 17&#10;&#10;- Remove duplicate code which shrink code from about 3000 line to just about 500 line.&#10;- Using maven for package management">
       <created>1649709864423</created>
@@ -135,6 +146,9 @@
     </task>
     <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="UpdateCopyrightCheckinHandler">
     <option name="UPDATE_COPYRIGHT" value="true" />

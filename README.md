@@ -8,7 +8,7 @@ Clone the repository and run the main method of ChickenInvaders class.
 - Java 17.0.2
 - JavaFx 17.0.1
 
-### Tested enviroment
+### Tested environment
 - Ubuntu 20.04
 - Windows 10 (21CH build)
 
